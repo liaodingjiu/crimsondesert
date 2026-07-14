@@ -84,12 +84,12 @@ for (const w of weapons) {
 <meta name="description" content="${w.name} — ${typeLabel} (${classLabel}). ATK ${stats.attack}, Speed ${stats.attack_speed}, Crit ${stats.critical_rate}. ${w.description}">
 <meta name="keywords" content="${w.name}, Crimson Desert ${typeLabel}, Crimson Desert weapon, ${w.rarity} weapon, ${classLabel} weapon, Crimson Desert ${w.name}">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://crimsondesertdb.com/weapons/${w.slug}/">
+<link rel="canonical" href="https://pyweldb.com/weapons/${w.slug}/">
 <meta property="og:title" content="${w.name} — Crimson Desert ${typeLabel}">
 <meta property="og:description" content="ATK ${stats.attack} | Speed ${stats.attack_speed} | Crit ${stats.critical_rate} — ${w.rarity.toUpperCase()}">
-<meta property="og:image" content="https://crimsondesertdb.com/images/og-default.webp">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://crimsondesertdb.com/weapons/${w.slug}/">
+<meta property="og:url" content="https://pyweldb.com/weapons/${w.slug}/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${w.name} — Crimson Desert ${typeLabel}">
 <meta name="twitter:description" content="ATK ${stats.attack} | Speed ${stats.attack_speed} | Crit ${stats.critical_rate} — ${w.rarity.toUpperCase()}">
@@ -118,9 +118,9 @@ for (const w of weapons) {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crimsondesertdb.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Weapons", "item": "https://crimsondesertdb.com/weapons/" },
-    { "@type": "ListItem", "position": 3, "name": "${w.name}", "item": "https://crimsondesertdb.com/weapons/${w.slug}/" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Weapons", "item": "https://pyweldb.com/weapons/" },
+    { "@type": "ListItem", "position": 3, "name": "${w.name}", "item": "https://pyweldb.com/weapons/${w.slug}/" }
   ]
 }
 </script>

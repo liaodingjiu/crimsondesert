@@ -37,11 +37,11 @@ for (const a of items) {
 <meta name="description" content="${a.name} — ${tl}. ${a.special_effect||''} ${a.description||''}">
 <meta name="keywords" content="${a.name}, Crimson Desert accessory, ${tl}, ${a.rarity} accessory, Crimson Desert ${a.name}">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://crimsondesertdb.com/accessories/${a.slug}/">
+<link rel="canonical" href="https://pyweldb.com/accessories/${a.slug}/">
 <meta property="og:title" content="${a.name} — Crimson Desert ${tl}">
 <meta property="og:description" content="${a.rarity.toUpperCase()} ${tl}${a.special_effect?' — '+a.special_effect:''}">
-<meta property="og:image" content="https://crimsondesertdb.com/images/og-default.webp">
-<meta property="og:type" content="website"><meta property="og:url" content="https://crimsondesertdb.com/accessories/${a.slug}/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
+<meta property="og:type" content="website"><meta property="og:url" content="https://pyweldb.com/accessories/${a.slug}/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${a.name} — Crimson Desert ${tl}">
 <meta name="twitter:description" content="${a.rarity.toUpperCase()} ${tl}${a.special_effect?' — '+a.special_effect:''}">
@@ -52,7 +52,7 @@ for (const a of items) {
 {"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Accessory > ${tl}","additionalProperty":[{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://crimsondesertdb.com/"},{"@type":"ListItem","position":2,"name":"Accessories","item":"https://crimsondesertdb.com/accessories/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://crimsondesertdb.com/accessories/${a.slug}/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Accessories","item":"https://pyweldb.com/accessories/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://pyweldb.com/accessories/${a.slug}/"}]}
 </script>
 </head>
 <body>

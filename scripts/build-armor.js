@@ -47,12 +47,12 @@ for (const a of items) {
 <meta name="description" content="${a.name} — ${tl} ${sl}. DEF ${s.defense}${s.attack?', ATK '+s.attack:''}. ${a.description||''}">
 <meta name="keywords" content="${a.name}, Crimson Desert armor, ${tl} armor, ${sl} armor, ${a.rarity} armor, Crimson Desert ${a.name}">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://crimsondesertdb.com/armor/${a.slug}/">
+<link rel="canonical" href="https://pyweldb.com/armor/${a.slug}/">
 <meta property="og:title" content="${a.name} — Crimson Desert ${tl} ${sl}">
 <meta property="og:description" content="DEF ${s.defense}${s.attack?' | ATK '+s.attack:''} — ${a.rarity.toUpperCase()}${a.set_name?' | '+a.set_name:''}">
-<meta property="og:image" content="https://crimsondesertdb.com/images/og-default.webp">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://crimsondesertdb.com/armor/${a.slug}/">
+<meta property="og:url" content="https://pyweldb.com/armor/${a.slug}/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${a.name} — Crimson Desert ${tl} ${sl}">
 <meta name="twitter:description" content="DEF ${s.defense}${s.attack?' | ATK '+s.attack:''} — ${a.rarity.toUpperCase()}${a.set_name?' | '+a.set_name:''}">
@@ -63,7 +63,7 @@ for (const a of items) {
 {"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Armor > ${tl} > ${sl}","additionalProperty":[{"@type":"PropertyValue","name":"Defense","value":"${s.defense||0}"},{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Slot","value":"${sl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://crimsondesertdb.com/"},{"@type":"ListItem","position":2,"name":"Armor","item":"https://crimsondesertdb.com/armor/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://crimsondesertdb.com/armor/${a.slug}/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Armor","item":"https://pyweldb.com/armor/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://pyweldb.com/armor/${a.slug}/"}]}
 </script>
 </head>
 <body>

@@ -54,11 +54,11 @@ for (const sk of items) {
 <meta name="description" content="${sk.name} — ${cl}'s ${trl} tree, ${stl} skill. ${sk.description||''}">
 <meta name="keywords" content="${sk.name}, Crimson Desert skill, ${cl} skill, ${stl} skill, ${trl} tree, Crimson Desert ${sk.name}">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://crimsondesertdb.com/skills/${sk.slug}/">
+<link rel="canonical" href="https://pyweldb.com/skills/${sk.slug}/">
 <meta property="og:title" content="${sk.name} — ${cl} Skill | CrimsonDesertDB">
 <meta property="og:description" content="${stl} · ${trl} Tree · ${cl}${sk.weapon_required?' · Requires '+sk.weapon_required:''}">
-<meta property="og:image" content="https://crimsondesertdb.com/images/og-default.webp">
-<meta property="og:type" content="website"><meta property="og:url" content="https://crimsondesertdb.com/skills/${sk.slug}/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
+<meta property="og:type" content="website"><meta property="og:url" content="https://pyweldb.com/skills/${sk.slug}/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${sk.name} — ${cl} Skill | CrimsonDesertDB">
 <meta name="twitter:description" content="${stl} · ${trl} Tree · ${cl}${sk.weapon_required?' · Requires '+sk.weapon_required:''}">
@@ -69,7 +69,7 @@ for (const sk of items) {
 {"@context":"https://schema.org","@type":"Product","name":"${sk.name}","description":"${desc}","category":"Skill > ${cl}","additionalProperty":[{"@type":"PropertyValue","name":"Character","value":"${cl}"},{"@type":"PropertyValue","name":"Skill Tree","value":"${trl}"},{"@type":"PropertyValue","name":"Type","value":"${stl}"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://crimsondesertdb.com/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://crimsondesertdb.com/skills/"},{"@type":"ListItem","position":3,"name":"${sk.name}","item":"https://crimsondesertdb.com/skills/${sk.slug}/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://pyweldb.com/skills/"},{"@type":"ListItem","position":3,"name":"${sk.name}","item":"https://pyweldb.com/skills/${sk.slug}/"}]}
 </script>
 </head>
 <body>

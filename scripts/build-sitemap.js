@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs'); const path = require('path');
 const ROOT = path.join(__dirname, '..');
-const BASE = 'https://crimsondesertdb.com';
+const BASE = 'https://pyweldb.com';
 
 const STATIC = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
