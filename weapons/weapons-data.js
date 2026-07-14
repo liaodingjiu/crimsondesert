@@ -389,7 +389,7 @@ window.__WEAPONS__ = [
     },
     "required_level": 25,
     "character_restrictions": [],
-    "description": "A curved blade from the Tauria region. Comes with Crow's Pursuit Abyss Gear \u2014 summons crows to attack.",
+    "description": "A curved blade from the Tauria region. Comes with Crow's Pursuit Abyss Gear — summons crows to attack.",
     "acquisition": {
       "method": "location",
       "recipe_slug": null,

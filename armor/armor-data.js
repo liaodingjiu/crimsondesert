@@ -276,7 +276,7 @@ window.__ARMOR__ = [
       "kliff",
       "damiane"
     ],
-    "description": "Leather helm with Momentum skill \u2014 +35% Turning Slash Damage.",
+    "description": "Leather helm with Momentum skill — +35% Turning Slash Damage.",
     "acquisition": {
       "method": "location",
       "recipe_slug": null,
@@ -439,7 +439,7 @@ window.__ARMOR__ = [
     "character_restrictions": [
       "damiane"
     ],
-    "description": "Dark cloth armor with Lv 1 Movement Speed. Light and mystical \u2014 perfect for magic users.",
+    "description": "Dark cloth armor with Lv 1 Movement Speed. Light and mystical — perfect for magic users.",
     "acquisition": {
       "method": "boss_drop",
       "recipe_slug": null,

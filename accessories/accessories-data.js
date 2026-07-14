@@ -157,7 +157,7 @@ window.__ACCESSORIES__ = [
     "special_effect": "+0.3 Spirit/sec",
     "required_level": 22,
     "character_restrictions": [],
-    "description": "A necklace crafted from a white lion's fang. Same stats as Necklace of Lightning \u2014 Lv 4 Critical Rate.",
+    "description": "A necklace crafted from a white lion's fang. Same stats as Necklace of Lightning — Lv 4 Critical Rate.",
     "acquisition": {
       "method": "boss_drop",
       "recipe_slug": null,
