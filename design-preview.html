@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>导航方案设计 — CrimsonDesertDB 综合站</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#1a1210; --surface:#241a16; --border:rgba(196,96,64,0.15);
+  --border-s:rgba(196,96,64,0.4); --text:#fff; --text2:#b8a89a; --text3:#8a7c70;
+  --accent:#c46040; --accent-l:rgba(196,96,64,0.1); --accent-d:#d88468;
+  --gold:#d4a644; --gold-l:rgba(212,166,68,0.1);
+  --blue:#4a90d9; --blue-l:rgba(74,144,217,0.1);
+  --green:#5a9e6f; --green-l:rgba(90,158,111,0.1);
+  --purple:#9b6bae; --purple-l:rgba(155,107,174,0.1);
+  --red:#e05550; --red-l:rgba(224,85,80,0.1);
+  --nav-bg:#1e1610; --radius:12px; --radius-sm:8px; --mw:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 24px}
+
+.header{text-align:center;padding:48px 0 32px}
+.header h1{font-size:34px;font-weight:700;margin-bottom:8px}
+.header h1 span{color:var(--accent)}
+.header p{color:var(--text3);font-size:15px;max-width:640px;margin:0 auto;line-height:1.7}
+
+.sec-title{font-size:20px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-title .badge{font-size:11px;padding:3px 10px;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.badge-proposed{background:var(--accent);color:#fff}
+.badge-detail{background:var(--blue);color:#fff}
+.badge-compare{background:var(--purple);color:#fff}
+
+/* ── Nav Bar ── */
+.nav-bar{background:var(--nav-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px}
+.nav-row{display:flex;align-items:center;gap:0;padding:0 16px;height:52px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav-row::-webkit-scrollbar{height:3px}
+.nav-row::-webkit-scrollbar-thumb{background:var(--border-s);border-radius:2px}
+.nav-logo{display:flex;align-items:center;gap:6px;font-size:19px;font-weight:700;color:var(--text);white-space:nowrap;margin-right:12px;flex-shrink:0;text-decoration:none}
+.nav-logo .dot{width:30px;height:30px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.nav-logo span{color:var(--accent)}
+.nav-link{display:inline-flex;align-items:center;padding:7px 14px;border-radius:var(--radius-sm);font-size:15px;font-weight:500;color:var(--text2);white-space:nowrap;flex-shrink:0;cursor:default;transition:color .15s,background .15s}
+.nav-link:hover{color:var(--text);background:var(--accent-l)}
+.nav-link.active{color:var(--accent-d);background:var(--accent-l)}
+.nav-sep{width:1px;height:20px;background:var(--border);margin:0 4px;flex-shrink:0}
+.nav-row{display:flex;align-items:center;gap:2px;padding:0 20px;height:56px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── Content Inventory Cards ── */
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:24px}
+.inv-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.inv-card .inv-top{padding:18px 20px 12px;display:flex;align-items:center;gap:10px}
+.inv-card .inv-icon{font-size:26px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.inv-card .inv-name{font-size:16px;font-weight:700}
+.inv-card .inv-sub{font-size:12px;color:var(--text3)}
+.inv-card .inv-list{padding:0 20px 16px;display:flex;flex-direction:column;gap:5px}
+.inv-card .inv-item{font-size:13px;color:var(--text2);padding:6px 10px;background:rgba(255,255,255,0.015);border-radius:4px;display:flex;align-items:center;gap:6px}
+.inv-card .inv-item .bullet{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.inv-card .inv-tags{padding:0 20px 14px;display:flex;flex-wrap:wrap;gap:5px}
+.inv-card .inv-tag{font-size:11px;padding:3px 9px;border-radius:8px;font-weight:600;letter-spacing:.03em}
+.tag-exist{background:var(--accent-l);color:var(--accent-d)}
+.tag-new{background:var(--green-l);color:var(--green)}
+.tag-plan{background:var(--blue-l);color:var(--blue)}
+
+/* ── Detail Page Mockups ── */
+.mockup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px;margin-bottom:32px}
+.mockup{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.mockup-label{padding:12px 16px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.mockup-label .ml-dot{width:8px;height:8px;border-radius:50%}
+.mockup-body{padding:20px;font-size:13px;color:var(--text2);line-height:1.8}
+.mockup-body .ml{display:flex;align-items:center;gap:8px;padding:5px 0}
+.mockup-body .ml-icon{font-size:15px;width:22px;text-align:center}
+.mockup-body .ml-bold{color:var(--text);font-weight:600}
+.mockup-body .ml-dim{color:var(--text3);font-size:12px}
+.mockup-body .ml-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:6px;font-weight:600;margin-left:4px}
+.mockup-body .ml-box{border:1px dashed var(--border);border-radius:6px;padding:12px;margin:8px 0;text-align:center;color:var(--text3);font-size:13px}
+.mockup-body .ml-table{width:100%;border-collapse:collapse;margin:8px 0}
+.mockup-body .ml-table th,.mockup-body .ml-table td{padding:6px 10px;border:1px solid var(--border);text-align:left;font-size:12px}
+.mockup-body .ml-table th{color:var(--text3);font-weight:600}
+.mockup-body .ml-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.mockup-body .ml-stat{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;padding:12px;text-align:center}
+.mockup-body .ml-stat-val{font-size:20px;font-weight:700;color:var(--accent-d)}
+.mockup-body .ml-stat-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.04em}
+.mockup-body .ml-hr{border:none;border-top:1px solid var(--border);margin:10px 0}
+
+/* ── Comparison Table ── */
+.cmp-table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:32px}
+.cmp-table th{text-align:left;padding:12px 16px;border-bottom:2px solid var(--border);color:var(--text2);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.cmp-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;line-height:1.7}
+.cmp-table tr:hover td{background:var(--accent-l)}
+
+/* ── Decision cards ── */
+.dec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:32px}
+.dec-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.dec-card .dc-label{font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600;margin-bottom:6px}
+.dec-card .dc-title{font-size:17px;font-weight:700;margin-bottom:8px}
+.dec-card .dc-body{font-size:14px;color:var(--text2);line-height:1.7}
+.dec-card.q{border-left:3px solid var(--gold)}
+.dec-card.a{border-left:3px solid var(--green)}
+.dec-card.warn{border-left:3px solid var(--red)}
+
+/* Homepage layout mockup */
+.home-mock{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.home-mock .hm-section{margin-bottom:16px;padding:12px;border:1px dashed var(--border);border-radius:8px}
+.home-mock .hm-section:last-child{margin-bottom:0}
+.home-mock .hm-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text3);margin-bottom:8px}
+.home-mock .hm-hero{text-align:center;padding:24px;background:rgba(255,255,255,0.01);border-radius:6px}
+.home-mock .hm-hero-title{font-size:24px;font-weight:700}
+.home-mock .hm-search{max-width:440px;margin:12px auto;padding:12px;border:1px solid var(--border-s);border-radius:var(--radius-sm);color:var(--text3);font-size:14px;text-align:center}
+.home-mock .hm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.home-mock .hm-grid-3{grid-template-columns:repeat(3,1fr)}
+.home-mock .hm-card{padding:16px 12px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:13px;color:var(--text2)}
+.home-mock .hm-card .hmc-icon{font-size:22px;margin-bottom:5px}
+.home-mock .hm-card .hmc-title{font-weight:600;color:var(--text);font-size:14px}
+
+@media(max-width:900px){
+  .home-mock .hm-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .mockup-grid{grid-template-columns:1fr}
+  .inv-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .header h1{font-size:26px}
+  .sec-title{font-size:17px}
+  .nav-row{padding:0 12px;height:48px}
+  .nav-link{font-size:13px;padding:5px 10px}
+  .nav-logo{font-size:16px}
+  .nav-logo .dot{width:26px;height:26px;font-size:12px}
+  .cmp-table{font-size:12px}
+  .cmp-table th,.cmp-table td{padding:8px 10px}
+  .dec-card{padding:16px}
+}
+@media(max-width:480px){
+  .header{padding:32px 0 20px}
+  .header h1{font-size:22px}
+  .header p{font-size:13px}
+  .sec-title{font-size:15px}
+  .inv-grid{grid-template-columns:1fr}
+  .dec-grid{grid-template-columns:1fr}
+  .mockup-body{font-size:12px}
+  .mockup-body .ml-stat-val{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="header">
+  <h1>CrimsonDesertDB — 综合站导航 <span>设计方案</span></h1>
+  <p>定位：Database + Guide 综合游戏站 &nbsp;|&nbsp; 导航：8 个平铺顶部菜单，无下拉 &nbsp;|&nbsp; 覆盖：数据查询 · 地图探索 · 玩法攻略 · 交互工具</p>
+</div>
+
+<!-- ════════════════ 1. NAV BAR ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-proposed">方案</span> 导航栏 — 8 项平铺，无二级下拉</h2>
+
+<div class="nav-bar">
+  <div class="nav-row">
+    <a class="nav-logo"><span class="dot">CD</span>Crimson<span>DB</span></a>
+    <span class="nav-link active">⚔️ Weapons</span>
+    <span class="nav-link">🛡️ Armor</span>
+    <span class="nav-link">💍 Accessories</span>
+    <span class="nav-link">⚡ Skills & Gears</span>
+    <span class="nav-link">👹 Bestiary</span>
+    <span class="nav-link">🗺️ Map</span>
+    <span class="nav-link">📖 Guides</span>
+    <span class="nav-link">🛠️ Tools</span>
+  </div>
+</div>
+
+<!-- ════════════════ 2. CONTENT INVENTORY ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-proposed">内容清单</span> 每个菜单项下的页面 &amp; 状态</h2>
+
+<div class="inv-grid">
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--accent-l)">⚔️</div>
+      <div><div class="inv-name">Weapons</div><div class="inv-sub">武器数据库</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> Listing 页（卡片 + 表格 + 筛选）</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> 20 个武器详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--gold)"></span> 详情页模板：Stats · Description · Acquisition</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">已有 21 页</span><span class="inv-tag tag-exist">JSON 数据驱动</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--accent-l)">🛡️</div>
+      <div><div class="inv-name">Armor</div><div class="inv-sub">防具数据库</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> Listing 页（卡片 + 表格 + 筛选）</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> 20 个防具详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--gold)"></span> 详情页模板：Stats · Set Bonus · Acquisition</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">已有 21 页</span><span class="inv-tag tag-exist">含 Set Bonus</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--accent-l)">💍</div>
+      <div><div class="inv-name">Accessories</div><div class="inv-sub">饰品数据库</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> Listing 页（卡片 + 表格 + 筛选）</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> 12 个饰品详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--gold)"></span> 详情页模板：Stats · Special Effect · Acquisition</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">已有 13 页</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--purple-l)">⚡</div>
+      <div><div class="inv-name">Skills &amp; Gears</div><div class="inv-sub">技能 + Abyss Gears</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> Skills Listing + 15 个详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> Abyss Gears Listing + N 个详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--gold)"></span> 详情页模板：Effects · Upgrades · Requirements</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">Skills 已有 16 页</span><span class="inv-tag tag-plan">Gears 待开发</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--red-l)">👹</div>
+      <div><div class="inv-name">Bestiary</div><div class="inv-sub">敌人 &amp; Boss 图鉴</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> Listing 页（卡片 + 地区筛选）</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> N 个敌人/Boss 详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--gold)"></span> 详情页模板：Stats · Weakness · Drops · Location</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-plan">待开发</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--blue-l)">🗺️</div>
+      <div><div class="inv-name">Map</div><div class="inv-sub">交互地图 + 地区解析</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> Interactive Map 工具页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> 5 个 Region 详情页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--green)"></span> Map Size Comparison 对比页</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--green)"></span> Dragon Stone Chamber 副本页</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">Map 已有占位</span><span class="inv-tag tag-plan">Region 内容可恢复</span><span class="inv-tag tag-new">2 页新内容</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--green-l)">📖</div>
+      <div><div class="inv-name">Guides</div><div class="inv-sub">玩法攻略 &amp; 系统解析</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> Beginner Guide（原 /wiki/ 内容恢复）</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--accent-d)"></span> Combat System · Progression 解析</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--green)"></span> Fishing Guide · Cooking & Alchemy</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--green)"></span> Boss Strategies · Character Builds</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">3 页可恢复</span><span class="inv-tag tag-new">5+ 页新内容</span></div>
+  </div>
+
+  <div class="inv-card">
+    <div class="inv-top">
+      <div class="inv-icon" style="background:var(--gold-l)">🛠️</div>
+      <div><div class="inv-name">Tools</div><div class="inv-sub">交互工具 &amp; 计算器</div></div>
+    </div>
+    <div class="inv-list">
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> Build Calculator</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> Skill Planner</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--blue)"></span> Equipment Compare</div>
+      <div class="inv-item"><span class="bullet" style="background:var(--green)"></span> Recipe Finder · Companion App</div>
+    </div>
+    <div class="inv-tags"><span class="inv-tag tag-exist">3 个已有占位</span><span class="inv-tag tag-new">2+ 个规划中</span></div>
+  </div>
+
+</div>
+
+<!-- ════════════════ 3. DETAIL PAGE TEMPLATES ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-detail">详情页模板</span> 5 种页面类型 — 每种的结构设计</h2>
+
+<div class="mockup-grid">
+
+  <!-- Type A: Database Listing -->
+  <div class="mockup">
+    <div class="mockup-label"><span class="ml-dot" style="background:var(--accent)"></span> Type A — 数据库列表页</div>
+    <div class="mockup-body">
+      <div class="ml"><span class="ml-bold">适用：</span>Weapons / Armor / Accessories / Skills 列表</div>
+      <div class="ml-hr"></div>
+      <div class="ml"><span class="ml-icon">📄</span> <span class="ml-bold">H1</span> + 副标题</div>
+      <div class="ml"><span class="ml-icon">🏷️</span> Rarity Chips：All | Legendary | Epic | Rare | Uncommon | Common</div>
+      <div class="ml"><span class="ml-icon">🔍</span> Search bar + Type▾ Class▾ Sort▾ + View toggle [Grid|Table]</div>
+      <div class="ml-box">Ad Slot</div>
+      <div class="ml"><span class="ml-icon">▦</span> Card Grid：图标 + 名称 + Rarity Badge + 核心数值</div>
+      <div><span style="font-size:11px;color:var(--text3)">or</span></div>
+      <div class="ml"><span class="ml-icon">☰</span> Data Table：可排序列 + checkbox（支持多选对比）</div>
+      <div class="ml-box">Ad Slot</div>
+      <div class="ml-dim">↑ 已有，可直接复用</div>
+    </div>
+  </div>
+
+  <!-- Type B: Database Detail -->
+  <div class="mockup">
+    <div class="mockup-label"><span class="ml-dot" style="background:var(--accent-d)"></span> Type B — 数据库详情页</div>
+    <div class="mockup-body">
+      <div class="ml"><span class="ml-bold">适用：</span>单个 Weapon / Armor / Accessory / Skill / Enemy</div>
+      <div class="ml-hr"></div>
+      <div class="ml"><span class="ml-icon">🧭</span> Breadcrumb：Home &gt; Weapons &gt; Hwando</div>
+      <div class="ml"><span class="ml-icon">🖼️</span> Detail Header：[Icon 80px] + 名称 + <span class="ml-tag" style="background:var(--blue-l);color:var(--blue)">RARITY</span> + 类型 · 职业 · Tier</div>
+      <div class="ml"><span class="ml-icon">🏷️</span> Tags：[Kliff Only] [Atk Speed Lv 3]</div>
+      <div class="ml-box">Ad Slot</div>
+      <div class="ml-grid">
+        <div class="ml-stat"><div class="ml-stat-val">43</div><div class="ml-stat-lbl">ATK</div></div>
+        <div class="ml-stat"><div class="ml-stat-val">5</div><div class="ml-stat-lbl">DEF</div></div>
+        <div class="ml-stat"><div class="ml-stat-val">Lv 3</div><div class="ml-stat-lbl">Speed</div></div>
+        <div class="ml-stat"><div class="ml-stat-val">Lv 1</div><div class="ml-stat-lbl">Crit</div></div>
+      </div>
+      <div class="ml"><span class="ml-icon">📝</span> <span class="ml-bold">Description</span> — 正文描述</div>
+      <div class="ml"><span class="ml-icon">📍</span> <span class="ml-bold">Acquisition</span> — Method / Boss / Location / Recipe</div>
+      <div class="ml-box">Ad Slot</div>
+      <div class="ml-dim">↑ 已有，可直接复用</div>
+    </div>
+  </div>
+
+  <!-- Type C: Map Tool -->
+  <div class="mockup">
+    <div class="mockup-label"><span class="ml-dot" style="background:var(--blue)"></span> Type C — 交互地图页</div>
+    <div class="mockup-body">
+      <div class="ml"><span class="ml-bold">适用：</span>Interactive Map 主工具</div>
+      <div class="ml-hr"></div>
+      <div class="ml"><span class="ml-icon">🧭</span> Breadcrumb：Home &gt; Map</div>
+      <div style="display:flex;gap:12px;margin:8px 0">
+        <div style="flex:0 0 160px">
+          <div class="ml" style="font-weight:600">Filter</div>
+          <div class="ml"><span class="ml-icon">☑</span> Bosses</div>
+          <div class="ml"><span class="ml-icon">☑</span> Resources</div>
+          <div class="ml"><span class="ml-icon">☐</span> NPCs</div>
+          <div class="ml"><span class="ml-icon">☐</span> Dungeons</div>
+          <div class="ml"><span class="ml-icon">☐</span> Fast Travel</div>
+          <div class="ml" style="margin-top:8px">Region ▾</div>
+        </div>
+        <div class="ml-box" style="flex:1;min-height:200px;display:flex;align-items:center;justify-content:center">
+          🗺️ Map Canvas<br><span style="font-size:10px">Leaflet / Static Image</span>
+        </div>
+      </div>
+      <div class="ml-box">Ad Slot</div>
+      <div class="ml-dim">↑ 新开发，可参考 MapGenie 布局</div>
+    </div>
+  </div>
+
+  <!-- Type D: Guide Article -->
+  <div class="mockup">
+    <div class="mockup-label"><span class="ml-dot" style="background:var(--green)"></span> Type D — 攻略文章页</div>
+    <div class="mockup-body">
+      <div class="ml"><span class="ml-bold">适用：</span>Fishing Guide / Boss Strategy / Beginner Guide / Build Guide</div>
+      <div class="ml-hr"></div>
+      <div class="ml"><span class="ml-icon">🧭</span> Breadcrumb：Home &gt; Guides &gt; Fishing</div>
+      <div class="ml"><span class="ml-icon">📰</span> <span class="ml-bold">H1</span> + Updated Date + Difficulty Badge</div>
+      <div class="ml-box" style="background:rgba(212,166,68,0.05);border-color:var(--gold-l)">
+        💡 <strong>TL;DR Box</strong> — 30 秒速览核心要点
+      </div>
+      <div class="ml"><span class="ml-icon">H2</span> Step 1：Get a Fishing Rod</div>
+      <div class="ml" style="padding-left:28px">↳ 关联数据库链接：[Iron Fishing Rod →]</div>
+      <div class="ml"><span class="ml-icon">H2</span> Step 2：Best Fishing Spots</div>
+      <div class="ml" style="padding-left:28px">↳ 内嵌地图截图 / 数据表格</div>
+      <div class="ml"><span class="ml-icon">H2</span> Step 3：Fish Types & Rewards</div>
+      <div class="ml-box" style="margin-top:12px">Related Guides：[Cooking] [Alchemy] [Crafting]</div>
+      <div class="ml-dim">↑ 新模板，文章型内容统一用这个</div>
+    </div>
+  </div>
+
+  <!-- Type E: Tool / App -->
+  <div class="mockup">
+    <div class="mockup-label"><span class="ml-dot" style="background:var(--gold)"></span> Type E — 交互工具页</div>
+    <div class="mockup-body">
+      <div class="ml"><span class="ml-bold">适用：</span>Build Calculator / Skill Planner / Equipment Compare</div>
+      <div class="ml-hr"></div>
+      <div class="ml"><span class="ml-icon">🧭</span> Breadcrumb：Home &gt; Tools &gt; Build Calculator</div>
+      <div class="ml"><span class="ml-icon">📊</span> <span class="ml-bold">H1</span> + 功能说明</div>
+      <div style="display:flex;gap:12px;margin:8px 0">
+        <div style="flex:1">
+          <div class="ml" style="font-weight:600;margin-bottom:6px">Gear Slots</div>
+          <div class="ml"><span class="ml-icon">▾</span> Weapon ▾</div>
+          <div class="ml"><span class="ml-icon">▾</span> Helmet ▾</div>
+          <div class="ml"><span class="ml-icon">▾</span> Chest ▾</div>
+          <div class="ml"><span class="ml-icon">▾</span> Gloves ▾</div>
+          <div class="ml"><span class="ml-icon">▾</span> Boots ▾</div>
+        </div>
+        <div style="flex:1">
+          <div class="ml" style="font-weight:600;margin-bottom:6px">Total Stats</div>
+          <div class="ml-stat" style="margin-bottom:4px"><div class="ml-stat-val">145</div><div class="ml-stat-lbl">ATK</div></div>
+          <div class="ml-stat" style="margin-bottom:4px"><div class="ml-stat-val">89</div><div class="ml-stat-lbl">DEF</div></div>
+          <div class="ml-stat"><div class="ml-stat-val">Lv 8</div><div class="ml-stat-lbl">Speed</div></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px">
+        <span style="font-size:11px;padding:4px 12px;background:var(--accent);color:#fff;border-radius:4px;font-weight:600">Save Build</span>
+        <span style="font-size:11px;padding:4px 12px;background:var(--muted-bg, #2c2018);border:1px solid var(--border);color:var(--text2);border-radius:4px">Compare →</span>
+      </div>
+      <div class="ml-dim" style="margin-top:12px">↑ 新开发，参考 WoWHead Talent Calc 交互模式</div>
+    </div>
+  </div>
+
+  <!-- Type F: Region / Lore Page -->
+  <div class="mockup">
+    <div class="mockup-label"><span class="ml-dot" style="background:var(--purple)"></span> Type F — 地区/设定解析页</div>
+    <div class="mockup-body">
+      <div class="ml"><span class="ml-bold">适用：</span>Region 详情 / Map Size Comparison / Dragon Stone Chamber</div>
+      <div class="ml-hr"></div>
+      <div class="ml"><span class="ml-icon">🧭</span> Breadcrumb：Home &gt; Map &gt; Hernand</div>
+      <div class="ml"><span class="ml-icon">🏰</span> <span class="ml-bold">Region Name</span> + <span class="ml-tag" style="background:var(--gold-l);color:var(--gold)">Lv 1–20</span></div>
+      <div class="ml-box">Region Map Image / Mini Map</div>
+      <div class="ml"><span class="ml-icon">📍</span> <span class="ml-bold">Key Locations</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;padding-left:28px">
+        <span style="font-size:11px;padding:3px 10px;background:var(--muted-bg, #2c2018);border:1px solid var(--border);border-radius:10px;color:var(--text2)">Village A</span>
+        <span style="font-size:11px;padding:3px 10px;background:var(--muted-bg, #2c2018);border:1px solid var(--border);border-radius:10px;color:var(--text2)">Temple B</span>
+        <span style="font-size:11px;padding:3px 10px;background:var(--muted-bg, #2c2018);border:1px solid var(--border);border-radius:10px;color:var(--text2)">Ruins C</span>
+      </div>
+      <div class="ml" style="margin-top:8px"><span class="ml-icon">👹</span> <span class="ml-bold">Bosses</span></div>
+      <table class="ml-table"><tr><th>Name</th><th>Level</th><th>Drops</th></tr><tr><td>Goblin King</td><td>15</td><td>→ DB link</td></tr></table>
+      <div class="ml" style="margin-top:8px"><span class="ml-icon">⚔️</span> <span class="ml-bold">Notable Gear</span> — DB 链接卡片</div>
+      <div class="ml-dim" style="margin-top:10px">↑ 数据 + 描述混合，和数据库页面互相导流</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════ 4. HOMEPAGE LAYOUT ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-proposed">首页布局</span> 对应 8 菜单项的内容分区</h2>
+
+<div class="home-mock">
+  <div class="hm-section">
+    <div class="hm-label">① Hero + Search</div>
+    <div class="hm-hero">
+      <div class="hm-hero-title">Crimson Desert <span style="color:var(--accent)">Database</span></div>
+      <div style="font-size:12px;color:var(--text2);margin:8px 0">Your data companion — all data, no fluff.</div>
+      <div class="hm-search">🔍 Search weapons, armor, guides, map locations...</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:6px">Quick: [weapons] [armor] [skills] [map] [beginner guide]</div>
+    </div>
+  </div>
+
+  <div class="hm-section">
+    <div class="hm-label">② Database Hub — 对应 Weapons / Armor / Accessories / Skills & Gears / Bestiary</div>
+    <div class="hm-grid">
+      <div class="hm-card"><div class="hmc-icon">⚔️</div><div class="hmc-title">Weapons</div><div style="font-size:10px;color:var(--text3)">20 items</div></div>
+      <div class="hm-card"><div class="hmc-icon">🛡️</div><div class="hmc-title">Armor</div><div style="font-size:10px;color:var(--text3)">20 items</div></div>
+      <div class="hm-card"><div class="hmc-icon">💍</div><div class="hmc-title">Accessories</div><div style="font-size:10px;color:var(--text3)">12 items</div></div>
+      <div class="hm-card"><div class="hmc-icon">⚡</div><div class="hmc-title">Skills & Gears</div><div style="font-size:10px;color:var(--text3)">15 skills</div></div>
+      <div class="hm-card"><div class="hmc-icon">👹</div><div class="hmc-title">Bestiary</div><div style="font-size:10px;color:var(--text3)">Coming soon</div></div>
+      <div class="hm-card"><div class="hmc-icon">🔨</div><div class="hmc-title">Crafting</div><div style="font-size:10px;color:var(--text3)">Recipes</div></div>
+      <div class="hm-card"><div class="hmc-icon">🍲</div><div class="hmc-title">Cooking</div><div style="font-size:10px;color:var(--text3)">Recipes</div></div>
+      <div class="hm-card"><div class="hmc-icon">🐎</div><div class="hmc-title">Mounts</div><div style="font-size:10px;color:var(--text3)">Coming soon</div></div>
+    </div>
+  </div>
+
+  <div class="hm-section">
+    <div class="hm-label">③ Map & Regions — 对应 Map 菜单</div>
+    <div class="hm-grid hm-grid-3">
+      <div class="hm-card" style="grid-column:1/-1;background:rgba(74,144,217,0.05);border-color:var(--blue-l)">
+        <div class="hmc-icon">🗺️</div><div class="hmc-title">Interactive Map</div><div style="font-size:10px;color:var(--text2)">Boss locations · Resources · NPCs · Dungeons</div>
+      </div>
+      <div class="hm-card"><div class="hmc-icon">🏰</div><div class="hmc-title">Hernand</div><div style="font-size:10px;color:var(--text3)">Lv 1–20</div></div>
+      <div class="hm-card"><div class="hmc-icon">🏔️</div><div class="hmc-title">Pailune</div><div style="font-size:10px;color:var(--text3)">Lv 15–30</div></div>
+      <div class="hm-card"><div class="hmc-icon">🌑</div><div class="hmc-title">Demeniss</div><div style="font-size:10px;color:var(--text3)">Lv 25–40</div></div>
+      <div class="hm-card"><div class="hmc-icon">🌿</div><div class="hmc-title">Delesyia</div><div style="font-size:10px;color:var(--text3)">Lv 20–35</div></div>
+      <div class="hm-card"><div class="hmc-icon">🏜️</div><div class="hmc-title">Crimson Desert</div><div style="font-size:10px;color:var(--text3)">Lv 35–50</div></div>
+    </div>
+  </div>
+
+  <div class="hm-section">
+    <div class="hm-label">④ Game Systems + Featured Guides — 对应 Guides 菜单</div>
+    <div class="hm-grid hm-grid-3">
+      <div class="hm-card" style="background:rgba(224,85,80,0.05);border-color:var(--red-l)"><div class="hmc-icon">⚔️</div><div class="hmc-title">Combat System</div><div style="font-size:10px;color:var(--text2)">7 stats · Elements · Mounted</div></div>
+      <div class="hm-card" style="background:rgba(155,107,174,0.05);border-color:var(--purple-l)"><div class="hmc-icon">📈</div><div class="hmc-title">Progression</div><div style="font-size:10px;color:var(--text2)">Abyss Artifacts · Skill Trees</div></div>
+      <div class="hm-card" style="background:rgba(74,144,217,0.05);border-color:var(--blue-l)"><div class="hmc-icon">🔮</div><div class="hmc-title">Abyss Gears</div><div style="font-size:10px;color:var(--text2)">Socketable Skills</div></div>
+      <div class="hm-card"><div class="hmc-icon">🎣</div><div class="hmc-title">Fishing Guide</div><div style="font-size:10px;color:var(--text2)">Spots · Rods · Rewards</div></div>
+      <div class="hm-card"><div class="hmc-icon">💀</div><div class="hmc-title">Boss Strategies</div><div style="font-size:10px;color:var(--text2)">Mechanics · Counters</div></div>
+      <div class="hm-card"><div class="hmc-icon">👤</div><div class="hmc-title">Character Builds</div><div style="font-size:10px;color:var(--text2)">Kliff · Oongka · Damiane</div></div>
+    </div>
+  </div>
+
+  <div class="hm-section">
+    <div class="hm-label">⑤ Tools — 对应 Tools 菜单</div>
+    <div class="hm-grid hm-grid-3">
+      <div class="hm-card" style="border-color:var(--blue)"><div class="hmc-icon">📊</div><div class="hmc-title">Build Calculator</div><div style="font-size:10px;color:var(--text2)">Equip → Stats</div></div>
+      <div class="hm-card" style="border-color:var(--purple)"><div class="hmc-icon">🧠</div><div class="hmc-title">Skill Planner</div><div style="font-size:10px;color:var(--text2)">3 chars · Shareable</div></div>
+      <div class="hm-card" style="border-color:var(--green)"><div class="hmc-icon">🧪</div><div class="hmc-title">Recipe Finder</div><div style="font-size:10px;color:var(--text2)">Material → Item</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ 5. KEYWORD MAPPING ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-compare">搜索意图</span> 用户搜什么 → 落到哪个菜单</h2>
+<div style="overflow-x:auto">
+<table class="cmp-table">
+<thead>
+<tr><th>搜索意图</th><th>典型搜索词</th><th>落地菜单</th><th>页面类型</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>品牌入口</strong></td><td>Crimson Desert, CD wiki, CD database, CD game info</td><td>Home</td><td>Landing</td></tr>
+<tr><td><strong>装备数据</strong></td><td>weapons stats, best sword, armor list, accessory effects, skill tier list</td><td>Weapons / Armor / Accessories / Skills &amp; Gears</td><td>Type A + B</td></tr>
+<tr><td><strong>敌人/Boss</strong></td><td>boss locations, enemy weakness, boss drop table, Goblin King</td><td>Bestiary</td><td>Type A + B</td></tr>
+<tr><td><strong>地图探索</strong></td><td>interactive map, map size, dragon stone chamber, region guide, all locations</td><td>Map</td><td>Type C + F</td></tr>
+<tr><td><strong>玩法攻略</strong></td><td>how to fish, fishing spots, beginner tips, boss strategy, best build</td><td>Guides</td><td>Type D</td></tr>
+<tr><td><strong>系统机制</strong></td><td>combat system, stats explained, progression guide, Abyss Gears how to</td><td>Guides</td><td>Type D</td></tr>
+<tr><td><strong>资讯评测</strong></td><td>review, update, patch notes, is it worth playing, release date</td><td>首页资讯卡片 / Guides（Blog 区）</td><td>Type D</td></tr>
+<tr><td><strong>工具计算</strong></td><td>build calculator, skill planner, equipment compare, DPS calc</td><td>Tools</td><td>Type E</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ════════════════ 6. DECISION POINTS ════════════════ -->
+<h2 class="sec-title">待确认的决策点</h2>
+<div class="dec-grid">
+  <div class="dec-card q">
+    <div class="dc-label" style="color:var(--gold)">❓ 决策 1</div>
+    <div class="dc-title">"Skills & Gears" 拆开还是合并？</div>
+    <div class="dc-body">Skills 已有 15 个详情页。Abyss Gears 数据还没做。合并在一起可以省一个菜单位（8 变 7），但概念上它们是两个系统。拆开的话就是 9 个菜单 — 你觉得能接受 9 个吗？</div>
+  </div>
+  <div class="dec-card q">
+    <div class="dc-label" style="color:var(--gold)">❓ 决策 2</div>
+    <div class="dc-title">Crafting / Cooking / Mounts 放哪？</div>
+    <div class="dc-body">这三个现在在首页 Hub Grid 里，没有对应的顶部菜单。选项：① 在首页保留卡片，导航不设菜单；② 归入 Guides 门下（Crafting Guide）；③ 合并为一个 "More" 或 "Wiki" 菜单。你倾向哪个？</div>
+  </div>
+  <div class="dec-card q">
+    <div class="dc-label" style="color:var(--gold)">❓ 决策 3</div>
+    <div class="dc-title">News / Reviews 放在哪？</div>
+    <div class="dc-body">首页 Hero 下面可以有一条「Latest Updates」资讯横条（3-4 篇最新的 patch notes / reviews）。但没有单独的顶部菜单入口。需要给它一个 "News" 菜单吗，还是走首页卡片 + Guides 里的 Blog 区？</div>
+  </div>
+  <div class="dec-card q">
+    <div class="dc-label" style="color:var(--gold)">❓ 决策 4</div>
+    <div class="dc-title">详情页模板优先级</div>
+    <div class="dc-body">Type A/B（数据库列表+详情）已有，直接复用。Type C/D/E/F 四种新模板，开发顺序你希望怎么排？建议：Type D（Guide）→ Type C（Map）→ Type E（Tool）→ Type F（Region）。</div>
+  </div>
+</div>
+
+<div class="dec-card a" style="margin-bottom:32px">
+  <div class="dc-label" style="color:var(--green)">✅ 我的建议</div>
+  <div class="dc-title">先确认导航，再定模板优先级</div>
+  <div class="dc-body">
+    1. 这 8 个菜单名称你看着顺不顺？有没有要改的？<br>
+    2. 如果菜单定了，首页布局基本不用大改 — 现有 Hub Grid + Regions + Systems 结构直接映射到新菜单。<br>
+    3. 模板 Type A/B 不用动（已有），Type D（攻略文章）先做一个出来跑通流程，再推 Type C（地图）和 Type E（工具）。
+  </div>
+</div>
+
+</div>
+</body>
+</html>

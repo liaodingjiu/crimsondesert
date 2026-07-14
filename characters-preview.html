@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Characters 页面设计预览 — CrimsonDesertDB</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#1a1210; --surface:#241a16; --border:rgba(196,96,64,0.15);
+  --border-s:rgba(196,96,64,0.4); --text:#fff; --text2:#b8a89a; --text3:#8a7c70;
+  --accent:#c46040; --accent-l:rgba(196,96,64,0.1); --accent-d:#d88468;
+  --gold:#d4a644; --gold-l:rgba(212,166,68,0.1);
+  --blue:#4a90d9; --blue-l:rgba(74,144,217,0.1);
+  --green:#5a9e6f; --green-l:rgba(90,158,111,0.1);
+  --purple:#9b6bae; --purple-l:rgba(155,107,174,0.1);
+  --red:#e05550; --red-l:rgba(224,85,80,0.1);
+  --nav-bg:#1e1610; --radius:12px; --radius-sm:8px; --mw:1100px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 24px}
+.header{text-align:center;padding:48px 0 32px}
+.header h1{font-size:32px;font-weight:700;margin-bottom:8px}
+.header h1 span{color:var(--accent)}
+.header p{color:var(--text);font-size:16px;max-width:640px;margin:0 auto}
+
+.sec-title{font-size:20px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-title .badge{font-size:11px;padding:3px 10px;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.badge-listing{background:var(--accent);color:#fff}
+.badge-detail{background:var(--blue);color:#fff}
+.badge-data{background:var(--green);color:#fff}
+
+/* ── Nav mockup ── */
+.nav-bar{background:var(--nav-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:32px}
+.nav-row{display:flex;align-items:center;gap:2px;padding:0 20px;height:56px;overflow-x:auto}
+.nav-row::-webkit-scrollbar{height:3px}
+.nav-row::-webkit-scrollbar-thumb{background:var(--border-s)}
+.nav-logo{display:flex;align-items:center;gap:6px;font-size:19px;font-weight:700;color:var(--text);white-space:nowrap;margin-right:12px;flex-shrink:0;text-decoration:none}
+.nav-logo .dot{width:30px;height:30px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.nav-logo span{color:var(--accent)}
+.nav-link{display:inline-flex;align-items:center;padding:7px 14px;border-radius:var(--radius-sm);font-size:15px;font-weight:500;color:var(--text2);white-space:nowrap;flex-shrink:0;cursor:default}
+.nav-link:hover{color:var(--text);background:var(--accent-l)}
+.nav-link.active{color:var(--accent-d);background:var(--accent-l)}
+
+/* ── Listing Page ── */
+.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:20px 0 40px}
+.char-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .25s,transform .25s;text-decoration:none!important;display:block}
+.char-card:hover{border-color:var(--border-s);transform:translateY(-2px)}
+.char-card .cc-banner{height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+.cc-banner.kliff{background:linear-gradient(135deg,#3a2520,#4a3028)}
+.cc-banner.oongka{background:linear-gradient(135deg,#2a2a20,#3a3028)}
+.cc-banner.damiane{background:linear-gradient(135deg,#25203a,#30284a)}
+.cc-banner .cc-avatar{font-size:56px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5))}
+.cc-banner .cc-name-overlay{position:absolute;bottom:12px;left:20px;font-size:24px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.cc-body{padding:20px}
+.cc-body .cc-tagline{font-size:14px;color:var(--accent-d);font-weight:600;margin-bottom:10px}
+.cc-body .cc-desc{font-size:14px;color:var(--text);line-height:1.65;margin-bottom:14px}
+.cc-body .cc-trees{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.cc-body .cc-tree{font-size:12px;padding:4px 10px;border-radius:8px;border:1px solid var(--border);color:var(--text)}
+.cc-body .cc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cc-body .cc-stat{text-align:center;padding:8px;background:rgba(255,255,255,0.02);border-radius:6px}
+.cc-body .cc-stat-val{font-size:18px;font-weight:700;color:var(--accent-d)}
+.cc-body .cc-stat-lbl{font-size:11px;color:var(--text)}
+
+/* ── Detail Page ── */
+.detail-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:24px}
+.detail-hero{padding:32px;display:flex;align-items:center;gap:24px;background:linear-gradient(135deg,#3a2520,#4a3028);flex-wrap:wrap}
+.detail-hero .dh-avatar{font-size:72px;flex-shrink:0;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.5))}
+.detail-hero .dh-info{flex:1;min-width:200px}
+.detail-hero .dh-name{font-size:32px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.detail-hero .dh-tagline{font-size:16px;color:var(--accent-d);font-weight:600;margin:4px 0 10px}
+.detail-hero .dh-quick{display:flex;gap:8px;flex-wrap:wrap}
+.detail-hero .dhq{font-size:13px;padding:3px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8)}
+.detail-body{padding:24px}
+.detail-body h2{font-size:18px;font-weight:700;margin:24px 0 10px}
+.detail-body h2:first-child{margin-top:0}
+.detail-body p{font-size:15px;color:var(--text);line-height:1.75}
+.detail-body .lore-box{background:var(--accent-l);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 20px;margin:16px 0;font-size:15px;color:var(--text);line-height:1.75;font-style:italic}
+.detail-body .lore-box::before{content:'📜 Lore';display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:8px;font-style:normal}
+.detail-body .skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:12px 0}
+.detail-body .skill-chip{display:flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);text-decoration:none!important;transition:border-color .2s}
+.detail-body .skill-chip:hover{border-color:var(--accent)}
+.detail-body .wpn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.detail-body .wpn-chip{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none!important;transition:border-color .2s}
+.detail-body .wpn-chip:hover{border-color:var(--accent)}
+.detail-body .wpn-chip .wc-icon{font-size:20px;flex-shrink:0}
+.detail-body .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin:12px 0}
+.detail-body .tip-card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px}
+.detail-body .tip-card .tip-num{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.detail-body .tip-card p{font-size:14px;line-height:1.6}
+
+/* ── Content inventory ── */
+.inv-table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:32px}
+.inv-table th{text-align:left;padding:12px 16px;border-bottom:2px solid var(--border);color:var(--text2);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
+.inv-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;line-height:1.7}
+.inv-table tr:hover td{background:var(--accent-l)}
+.tag-exist{display:inline-block;font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;background:var(--accent-l);color:var(--accent-d)}
+.tag-new{display:inline-block;font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;background:var(--green-l);color:var(--green)}
+
+@media(max-width:768px){
+  .header h1{font-size:24px}
+  .char-grid{grid-template-columns:1fr}
+  .detail-hero{flex-direction:column;text-align:center}
+  .detail-hero .dh-quick{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="header">
+  <h1>Characters 页面 <span>设计预览</span></h1>
+  <p>Listing 页：3 角色卡片 &nbsp;|&nbsp; Detail 页：角色介绍 + 技能 + 武器 + 攻略小贴士</p>
+</div>
+
+<!-- ════════════════ NAV ════════════════ -->
+<div class="nav-bar">
+  <div class="nav-row">
+    <a class="nav-logo"><span class="dot">CD</span>Crimson<span>DB</span></a>
+    <span class="nav-link">Weapons</span>
+    <span class="nav-link">Armor</span>
+    <span class="nav-link">Accessories</span>
+    <span class="nav-link">Skills</span>
+    <span class="nav-link">Abyss Gears</span>
+    <span class="nav-link">Bestiary</span>
+    <span class="nav-link active">Characters</span>
+    <span class="nav-link">Map</span>
+    <span class="nav-link">Guides</span>
+    <span class="nav-link">Tools</span>
+  </div>
+</div>
+
+<!-- ════════════════ LISTING PAGE ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-listing">Listing 页</span> /characters/ — 3 张角色卡片</h2>
+
+<div class="char-grid">
+
+  <!-- Kliff Card -->
+  <a class="char-card">
+    <div class="cc-banner kliff">
+      <span class="cc-avatar">⚔️</span>
+      <span class="cc-name-overlay">Kliff</span>
+    </div>
+    <div class="cc-body">
+      <div class="cc-tagline">The Shield of Pywel</div>
+      <div class="cc-desc">A master of sword and shield combat. Kliff balances offense and defense, wielding one-handed and two-handed swords with brutal efficiency. Ideal for players who want a versatile frontline fighter.</div>
+      <div class="cc-trees">
+        <span class="cc-tree">⚔️ Warrior</span>
+        <span class="cc-tree">🛡️ Defender</span>
+        <span class="cc-tree">📋 Tactician</span>
+      </div>
+      <div class="cc-stats">
+        <div class="cc-stat"><div class="cc-stat-val">8</div><div class="cc-stat-lbl">Skills</div></div>
+        <div class="cc-stat"><div class="cc-stat-val">12</div><div class="cc-stat-lbl">Weapons</div></div>
+        <div class="cc-stat"><div class="cc-stat-val">All</div><div class="cc-stat-lbl">Armor Types</div></div>
+      </div>
+    </div>
+  </a>
+
+  <!-- Oongka Card -->
+  <a class="char-card">
+    <div class="cc-banner oongka">
+      <span class="cc-avatar">🪓</span>
+      <span class="cc-name-overlay">Oongka</span>
+    </div>
+    <div class="cc-body">
+      <div class="cc-tagline">The Unstoppable Force</div>
+      <div class="cc-desc">A massive warrior wielding heavy axes and spears. Oongka sacrifices speed for devastating raw power, capable of breaking enemy guards and dealing massive area damage. Best for players who favor heavy-hitting playstyles.</div>
+      <div class="cc-trees">
+        <span class="cc-tree">💥 Destroyer</span>
+        <span class="cc-tree">🦍 Juggernaut</span>
+      </div>
+      <div class="cc-stats">
+        <div class="cc-stat"><div class="cc-stat-val">4</div><div class="cc-stat-lbl">Skills</div></div>
+        <div class="cc-stat"><div class="cc-stat-val">3</div><div class="cc-stat-lbl">Weapons</div></div>
+        <div class="cc-stat"><div class="cc-stat-val">All</div><div class="cc-stat-lbl">Armor Types</div></div>
+      </div>
+    </div>
+  </a>
+
+  <!-- Damiane Card -->
+  <a class="char-card">
+    <div class="cc-banner damiane">
+      <span class="cc-avatar">🔮</span>
+      <span class="cc-name-overlay">Damiane</span>
+    </div>
+    <div class="cc-body">
+      <div class="cc-tagline">The Arcane Mystic</div>
+      <div class="cc-desc">A ranged magic specialist wielding arcane bolts and elemental spells. Damiane fights from a distance with bows and powerful magic, using ice, fire, and lightning to control the battlefield. Perfect for tactical, magic-focused players.</div>
+      <div class="cc-trees">
+        <span class="cc-tree">✨ Mystic</span>
+        <span class="cc-tree">🔥 Elementalist</span>
+      </div>
+      <div class="cc-stats">
+        <div class="cc-stat"><div class="cc-stat-val">3</div><div class="cc-stat-lbl">Skills</div></div>
+        <div class="cc-stat"><div class="cc-stat-val">2</div><div class="cc-stat-lbl">Weapons</div></div>
+        <div class="cc-stat"><div class="cc-stat-val">All</div><div class="cc-stat-lbl">Armor Types</div></div>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ════════════════ DETAIL PAGE ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-detail">详情页</span> /characters/kliff/ — Kliff 角色详情页模板</h2>
+
+<div class="detail-wrap">
+  <!-- Hero -->
+  <div class="detail-hero">
+    <span class="dh-avatar">⚔️</span>
+    <div class="dh-info">
+      <div class="dh-name">Kliff</div>
+      <div class="dh-tagline">The Shield of Pywel — Master of Sword & Shield</div>
+      <div class="dh-quick">
+        <span class="dhq">⚔️ 1H & 2H Swords</span>
+        <span class="dhq">🪓 Axes</span>
+        <span class="dhq">🗡️ Daggers</span>
+        <span class="dhq">🛡️ All Armor Types</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="detail-body">
+
+    <!-- Lore -->
+    <div class="lore-box">
+      Once a captain of the fallen Hernand Guard, Kliff now wanders Pywel seeking redemption for a past he cannot undo. His blade — said to be forged from the shards of a fallen star — has never dulled, and his shield has never broken. Some say he fights not for glory, but for the ghosts that follow him.
+    </div>
+
+    <!-- Playstyle -->
+    <h2>Playstyle Overview</h2>
+    <p>Kliff is the most <strong>versatile</strong> of the three characters. His three skill trees allow him to adapt to any situation — offensive sword combos (Warrior), defensive shield tactics (Defender), and party-wide buffs (Tactician). He can equip the widest range of weapons and is the best choice for new players.</p>
+
+    <!-- Skill Trees -->
+    <h2>Skill Trees & Abilities</h2>
+    <div class="skill-grid">
+      <a class="skill-chip">⚔️ Heavy Swing</a>
+      <a class="skill-chip">⚔️ Whirlwind Slash</a>
+      <a class="skill-chip">⚔️ Precision Strike</a>
+      <a class="skill-chip">🛡️ Shield Bash</a>
+      <a class="skill-chip">🛡️ Iron Will</a>
+      <a class="skill-chip">🛡️ War Cry</a>
+      <a class="skill-chip">📋 Frost Nova</a>
+      <a class="skill-chip">📋 Ground Slam</a>
+    </div>
+
+    <!-- Compatible Weapons -->
+    <h2>Compatible Weapons <span style="font-size:13px;color:var(--text3);font-weight:400">— from database</span></h2>
+    <div class="wpn-grid">
+      <a class="wpn-chip"><span class="wc-icon">⚔️</span> Iron Sword <span style="margin-left:auto;font-size:12px;color:var(--accent-d);font-weight:600">ATK 45</span></a>
+      <a class="wpn-chip"><span class="wc-icon">⚔️</span> Survivor's Solitude <span style="margin-left:auto;font-size:12px;color:var(--accent-d);font-weight:600">ATK 32</span></a>
+      <a class="wpn-chip"><span class="wc-icon">⚔️</span> Hwando <span style="margin-left:auto;font-size:12px;color:var(--accent-d);font-weight:600">ATK 43</span></a>
+      <a class="wpn-chip"><span class="wc-icon">⚔️</span> Fated Shadow <span style="margin-left:auto;font-size:12px;color:var(--accent-d);font-weight:600">ATK 85</span></a>
+      <a class="wpn-chip"><span class="wc-icon">⚔️</span> Steel Longsword <span style="margin-left:auto;font-size:12px;color:var(--accent-d);font-weight:600">ATK 25</span></a>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:4px">→ <a href="/weapons/?q=kliff" style="color:var(--accent-d)">View all 12 Kliff-compatible weapons in database</a></p>
+
+    <!-- Tips -->
+    <h2>Pro Tips</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-num">Tip 01</div><p>Start with <strong>Warrior tree</strong> for early game — Heavy Swing combos clear basic enemies quickly.</p></div>
+      <div class="tip-card"><div class="tip-num">Tip 02</div><p>Invest in <strong>Defender</strong> before boss fights. Shield Bash can interrupt enemy ultimate attacks.</p></div>
+      <div class="tip-card"><div class="tip-num">Tip 03</div><p>Pair <strong>Hwando</strong> with Insight Abyss Gears for a crit-focused build (Speed × Crit synergy).</p></div>
+      <div class="tip-card"><div class="tip-num">Tip 04</div><p>Kliff's Tactician buffs affect all party members — essential for co-op boss encounters.</p></div>
+    </div>
+
+    <!-- Related -->
+    <h2>Related Content</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <a style="padding:8px 16px;border:1px solid var(--border-s);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none">⚡ All Kliff Skills →</a>
+      <a style="padding:8px 16px;border:1px solid var(--border-s);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none">⚔️ Compatible Weapons →</a>
+      <a style="padding:8px 16px;border:1px solid var(--border-s);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none">🛡️ Best Armor Sets →</a>
+      <a style="padding:8px 16px;border:1px solid var(--border-s);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none">📖 Beginner Guide →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════ CONTENT INVENTORY ════════════════ -->
+<h2 class="sec-title"><span class="badge badge-data">内容清单</span> Characters 板块需要产出哪些内容</h2>
+<div style="overflow-x:auto">
+<table class="inv-table">
+<thead><tr><th>页面</th><th>内容来源</th><th>示例内容</th><th>状态</th></tr></thead>
+<tbody>
+
+<tr>
+  <td><strong>/characters/</strong> Listing 页</td>
+  <td>手写 + 数据</td>
+  <td>3 张角色卡片：Banner → 简介 → 技能树 → 武器/技能数量（从数据库取数）</td>
+  <td><span class="tag-new">新建</span></td>
+</tr>
+
+<tr>
+  <td><strong>/characters/kliff/</strong><br>/characters/oongka/<br>/characters/damiane/</td>
+  <td>手写 + 数据库</td>
+  <td>
+    🔹 Hero Banner + 角色 Tagline<br>
+    🔹 <strong>Lore</strong>（手写角色背景故事）<br>
+    🔹 <strong>Playstyle</strong>（手写玩法风格概述）<br>
+    🔹 <strong>Skill Trees</strong>（从 skills.json 筛选该角色技能并渲染）<br>
+    🔹 <strong>Compatible Weapons</strong>（从 weapons.json 筛选并渲染）<br>
+    🔹 <strong>Compatible Armor</strong>（从 armor.json 筛选，如无限制则说明）<br>
+    🔹 <strong>Pro Tips</strong>（手写 4-6 条攻略小贴士）<br>
+    🔹 <strong>Related Links</strong>
+  </td>
+  <td><span class="tag-new">新建</span></td>
+</tr>
+
+<tr>
+  <td><strong>导航入口</strong></td>
+  <td>全站 nav 更新</td>
+  <td>导航栏新增 "Characters" 链接，10 个平铺菜单</td>
+  <td><span class="tag-new">待改</span></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+</body>
+</html>

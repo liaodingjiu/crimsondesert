@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Interactive Map — All 5 Regions of Pywel | CrimsonDesertDB</title>
+<meta name="description" content="Interactive map of Pywel — all 5 regions with boss locations, resource nodes, NPCs, and fast travel points. Hernand, Pailune, Demeniss, Delesyia, Crimson Desert.">
+<meta name="keywords" content="Crimson Desert map, Pywel map, Crimson Desert regions, interactive map, boss locations, resource nodes, Hernand, Pailune, Demeniss, Delesyia, Crimson Desert">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://pyweldb.com/tools/map/">
+<meta property="og:title" content="Crimson Desert Interactive Map — All 5 Regions"><meta property="og:description" content="Explore the 90km² continent of Pywel — boss locations, resource nodes, NPCs, and key landmarks across all 5 regions.">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
+<meta property="og:type" content="website"><meta property="og:url" content="https://pyweldb.com/tools/map/">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Crimson Desert Interactive Map"><meta name="twitter:description" content="Explore all 5 regions of Pywel with boss locations and resource nodes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+.mp-hero{text-align:center;padding:36px 0 12px}
+.mp-hero h1{font-size:31px;font-weight:700}.mp-hero h1 span{color:var(--accent)}
+.mp-hero .mp-sub{color:var(--text);font-size:17px;max-width:700px;margin:8px auto 0;line-height:1.7}
+
+/* ── Region overview map (CSS) ── */
+.map-overview{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:24px 0;text-align:center}
+.map-visual{display:grid;grid-template-columns:2fr 1fr 2fr;grid-template-rows:auto auto;gap:8px;max-width:800px;margin:0 auto 20px}
+.map-region{padding:20px 16px;border-radius:var(--radius-sm);cursor:pointer;transition:transform .2s,box-shadow .2s;text-align:center;text-decoration:none!important;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.map-region:hover{transform:scale(1.03);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.map-region .mr-icon{font-size:36px;margin-bottom:6px}
+.map-region .mr-name{font-size:17px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.map-region .mr-level{font-size:12px;color:rgba(255,255,255,0.7);margin-top:2px}
+.hernand{background:linear-gradient(135deg,#4a6b3a,#3d5c2e);grid-column:1;grid-row:1}
+.pailune{background:linear-gradient(135deg,#6b5a3a,#5c4e2e);grid-column:2;grid-row:1}
+.demeniss{background:linear-gradient(135deg,#3a2a4a,#2e1e3c);grid-column:3;grid-row:1}
+.delesyia{background:linear-gradient(135deg,#3a5a4a,#2e4e3c);grid-column:1/3;grid-row:2}
+.crimson{background:linear-gradient(135deg,#8b4513,#6b3010);grid-column:3;grid-row:2}
+@media(max-width:600px){.map-visual{grid-template-columns:1fr 1fr;grid-template-rows:auto}.map-region{min-height:60px}.delesyia{grid-column:1;grid-row:3}.crimson{grid-column:2;grid-row:3}.hernand{grid-column:1;grid-row:1}.pailune{grid-column:2;grid-row:1}.demeniss{grid-column:1/3;grid-row:2}}
+
+.overview-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:12px}
+.ov-stat{text-align:center}
+.ov-stat .ovs-val{font-size:22px;font-weight:700;color:var(--accent-d)}
+.ov-stat .ovs-lbl{font-size:13px;color:var(--text)}
+
+/* ── Region detail cards ── */
+.region-detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin:24px 0}
+.rd-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.rd-header{padding:20px 24px;display:flex;align-items:center;gap:14px}
+.rd-header .rdh-icon{font-size:36px;flex-shrink:0}
+.rd-header .rdh-name{font-size:20px;font-weight:700;color:var(--text)}
+.rd-header .rdh-level{font-size:13px;color:var(--accent-d);font-weight:600;margin-top:2px}
+.rd-body{padding:0 24px 20px}
+.rd-body .rdb-desc{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:14px}
+.rd-body h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin:12px 0 6px}
+.rd-body .rdb-list{display:flex;flex-wrap:wrap;gap:6px}
+.rd-body .rdb-tag{font-size:13px;padding:5px 11px;border-radius:8px;border:1px solid var(--border);color:var(--text);text-decoration:none!important;transition:border-color .2s,background .2s;display:inline-flex;align-items:center;gap:5px}
+.rd-body .rdb-tag:hover{border-color:var(--accent);background:var(--accent-l)}
+.rd-body .rdb-tag.boss{border-color:var(--red);background:var(--red-l);color:var(--red)}
+.rd-body .rdb-tag.weapon{border-color:var(--accent);color:var(--accent-d)}
+
+.hernand-h{background:linear-gradient(90deg,#3d5c2e,transparent)}.pailune-h{background:linear-gradient(90deg,#5c4e2e,transparent)}.demeniss-h{background:linear-gradient(90deg,#2e1e3c,transparent)}.delesyia-h{background:linear-gradient(90deg,#2e4e3c,transparent)}.crimson-h{background:linear-gradient(90deg,#6b3010,transparent)}
+
+@media(max-width:600px){.region-detail-grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Crimson Desert Interactive Map — All 5 Regions of Pywel","description":"Explore the 90km² continent of Pywel — 5 regions with boss locations, notable gear, resources, and key landmarks.","url":"https://pyweldb.com/tools/map/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Map","item":"https://pyweldb.com/tools/map/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How big is the Crimson Desert map?","acceptedAnswer":{"@type":"Answer","text":"The continent of Pywel spans approximately 90km² across 5 distinct regions — larger than Skyrim. Crossing it on horseback takes about 2 hours."}},{"@type":"Question","name":"What are the 5 regions of Pywel?","acceptedAnswer":{"@type":"Answer","text":"Hernand (Lv 1-20, starting region), Pailune (Lv 15-30, mountains), Demeniss (Lv 25-40, Abyss zone), Delesyia (Lv 20-35, ancient forests), and Crimson Desert (Lv 35-50, endgame wasteland)."}},{"@type":"Question","name":"Which region should I go to first?","acceptedAnswer":{"@type":"Answer","text":"Start in Hernand (Lv 1-20). Progress to Pailune (Lv 15-30), then Delesyia (Lv 20-35), Demeniss (Lv 25-40), and finally the Crimson Desert (Lv 35-50) for endgame content."}}]}
+</script>
+</head>
+<body>
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="page">
+<div class="mp-hero">
+  <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> Map of Pywel</div>
+  <h1>Map of <span>Pywel</span></h1>
+  <p class="mp-sub">90km² across 5 distinct regions — each with unique biomes, bosses, resources, and gear. Click a region to jump to its details below.</p>
+</div>
+
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<!-- SVG Map -->
+<div style="max-width:1000px;margin:0 auto 24px;border-radius:12px;overflow:hidden">
+  <div id="svgMap" style="background:#1a1210;border-radius:12px 12px 0 0"></div>
+  <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding:16px;background:var(--surface);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px">
+    <div style="text-align:center"><div style="font-size:20px;font-weight:700;color:var(--accent-d)">90 km²</div><div style="font-size:12px;color:var(--text)">Total Area</div></div>
+    <div style="text-align:center"><div style="font-size:20px;font-weight:700;color:var(--accent-d)">5</div><div style="font-size:12px;color:var(--text)">Regions</div></div>
+    <div style="text-align:center"><div style="font-size:20px;font-weight:700;color:var(--accent-d)">11</div><div style="font-size:12px;color:var(--text)">Major Bosses</div></div>
+    <div style="text-align:center"><div style="font-size:20px;font-weight:700;color:var(--accent-d)">50+</div><div style="font-size:12px;color:var(--text)">Key Locations</div></div>
+    <div style="text-align:center"><a href="#hernand" style="font-size:12px;color:var(--accent-d);display:inline-block;padding:4px 10px;border:1px solid var(--accent);border-radius:12px;text-decoration:none">Jump to Regions ↓</a></div>
+  </div>
+</div>
+
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<!-- Region Details -->
+<h2 style="font-size:20px;font-weight:700;margin:8px 0 4px">Region <span style="color:var(--accent)">Breakdown</span></h2>
+<p style="font-size:14px;color:var(--text);margin-bottom:16px">Detailed info for each region — bosses, notable gear, resources, and key locations.</p>
+
+<div class="region-detail-grid">
+
+  <!-- Hernand -->
+  <div class="rd-card" id="hernand"><div class="rd-header hernand-h"><span class="rdh-icon">🏰</span><div><div class="rdh-name">Hernand</div><div class="rdh-level">Starting Region · Lv 1–20</div></div></div>
+  <div class="rd-body">
+    <div class="rdb-desc">The gateway to Pywel — rolling grasslands, scattered villages, and ancient ruins. Ideal for new players to learn combat basics and collect early-game gear. Home to the Shadow Set and several tutorial bosses.</div>
+    <h4>Major Bosses</h4><div class="rdb-list"><a href="/enemies/" class="rdb-tag boss">👑 Goblin King</a><a href="/enemies/" class="rdb-tag boss">Shadow Warrior</a></div>
+    <h4>Notable Gear</h4><div class="rdb-list"><a href="/weapons/hwando/" class="rdb-tag">Hwando · ATK 43</a><a href="/weapons/survivors-solitude/" class="rdb-tag">Survivor's Solitude · ATK 32</a><a href="/weapons/iron-sword/" class="rdb-tag">Iron Sword · ATK 45</a><a href="/armor/sets/" class="rdb-tag">Shadow Set</a></div>
+    <h4>Resources</h4><div class="rdb-list"><span class="rdb-tag">Iron Ore</span><span class="rdb-tag">Basic Herbs</span><span class="rdb-tag">Leather Scraps</span><span class="rdb-tag">Common Crystals</span></div>
+    <h4>Key Locations</h4><div class="rdb-list"><span class="rdb-tag">Hernand Village</span><span class="rdb-tag">Goblin Caverns</span><span class="rdb-tag">Ancient Ruins</span><span class="rdb-tag">Training Grounds</span></div>
+  </div></div>
+
+  <!-- Pailune -->
+  <div class="rd-card" id="pailune"><div class="rd-header pailune-h"><span class="rdh-icon">🏔️</span><div><div class="rdh-name">Pailune</div><div class="rdh-level">Mountain Region · Lv 15–30</div></div></div>
+  <div class="rd-body">
+    <div class="rdb-desc">A rugged mountain region with ancient temples and harsh weather. Mid-game zone introducing complex Abyss Gears and elemental enemies. The Witch of the Marsh resides in the foggy wetlands.</div>
+    <h4>Major Bosses</h4><div class="rdb-list"><a href="/enemies/" class="rdb-tag boss">🧙 Witch of the Marsh</a><a href="/enemies/" class="rdb-tag boss">👻 Warlord Ghost</a></div>
+    <h4>Notable Gear</h4><div class="rdb-list"><a href="/weapons/tauria-curved-sword/" class="rdb-tag">Tauria Curved Sword · ATK 56</a><a href="/accessories/witchs-earring/" class="rdb-tag">Witch's Earring</a><a href="/accessories/witchs-ring/" class="rdb-tag">Witch's Ring</a></div>
+    <h4>Resources</h4><div class="rdb-list"><span class="rdb-tag">Mountain Herbs</span><span class="rdb-tag">Silver Ore</span><span class="rdb-tag">Ancient Relics</span></div>
+    <h4>Key Locations</h4><div class="rdb-list"><span class="rdb-tag">Marshlands</span><span class="rdb-tag">Ancient Temple</span><span class="rdb-tag">Mountain Pass</span><span class="rdb-tag">Warlord's Keep</span></div>
+  </div></div>
+
+  <!-- Demeniss -->
+  <div class="rd-card" id="demeniss"><div class="rd-header demeniss-h"><span class="rdh-icon">🌑</span><div><div class="rdh-name">Demeniss</div><div class="rdh-level">Abyss Zone · Lv 25–40</div></div></div>
+  <div class="rd-body">
+    <div class="rdb-desc">A dark, corrupted region where the Abyss's influence is strongest. End-game zone with legendary equipment drops. The Goyen boss encounter is the gateway to top-tier weapons.</div>
+    <h4>Major Bosses</h4><div class="rdb-list"><a href="/enemies/" class="rdb-tag boss">🌑 Goyen</a><a href="/enemies/" class="rdb-tag boss">Shadow Lord</a><a href="/enemies/" class="rdb-tag boss">Dark Ringleader</a></div>
+    <h4>Notable Gear</h4><div class="rdb-list"><a href="/weapons/fated-shadow/" class="rdb-tag">Fated Shadow · ATK 85</a><a href="/weapons/darkbringer/" class="rdb-tag">Darkbringer · ATK 50</a><a href="/armor/sets/" class="rdb-tag weapon">Dark Ringleader Set</a></div>
+    <h4>Resources</h4><div class="rdb-list"><span class="rdb-tag">Abyss Crystals</span><span class="rdb-tag">Shadow Essence</span><span class="rdb-tag">Corrupted Ore</span></div>
+    <h4>Key Locations</h4><div class="rdb-list"><span class="rdb-tag">Goyen's Arena</span><span class="rdb-tag">Abyss Rift</span><span class="rdb-tag">Shadow Keep</span><span class="rdb-tag">Dark Sanctum</span></div>
+  </div></div>
+
+  <!-- Delesyia -->
+  <div class="rd-card" id="delesyia"><div class="rd-header delesyia-h"><span class="rdh-icon">🌿</span><div><div class="rdh-name">Delesyia</div><div class="rdh-level">Forest Region · Lv 20–35</div></div></div>
+  <div class="rd-body">
+    <div class="rdb-desc">A lush but dangerous region filled with ancient forests and mythical beasts. The richest region for cooking and alchemy ingredients. Home to the Thunder Beast and White Lion.</div>
+    <h4>Major Bosses</h4><div class="rdb-list"><a href="/enemies/" class="rdb-tag boss">⚡ Thunder Beast</a><a href="/enemies/" class="rdb-tag boss">🦁 White Lion</a></div>
+    <h4>Notable Gear</h4><div class="rdb-list"><a href="/accessories/necklace-of-lightning/" class="rdb-tag">Necklace of Lightning</a><a href="/accessories/white-lion-necklace/" class="rdb-tag">White Lion Necklace</a></div>
+    <h4>Resources</h4><div class="rdb-list"><span class="rdb-tag">Rare Herbs</span><span class="rdb-tag">Ancient Wood</span><span class="rdb-tag">Mythical Essence</span><span class="rdb-tag">Cooking Ingredients</span></div>
+    <h4>Key Locations</h4><div class="rdb-list"><span class="rdb-tag">Ancient Grove</span><span class="rdb-tag">Thunder Peak</span><span class="rdb-tag">White Lion Den</span><span class="rdb-tag">Herbalist Camp</span></div>
+  </div></div>
+
+  <!-- Crimson Desert -->
+  <div class="rd-card" id="crimson"><div class="rd-header crimson-h"><span class="rdh-icon">🏜️</span><div><div class="rdh-name">Crimson Desert</div><div class="rdh-level">Endgame · Lv 35–50</div></div></div>
+  <div class="rd-body">
+    <div class="rdb-desc">The namesake endgame region — a harsh desert wasteland with the game's toughest challenges. The Abyss Warden and Crimson Dragon await, dropping the best gear in the game. Not for the unprepared.</div>
+    <h4>Major Bosses</h4><div class="rdb-list"><a href="/enemies/" class="rdb-tag boss">⚔️ Abyss Warden</a><a href="/enemies/" class="rdb-tag boss">🐉 Crimson Dragon</a></div>
+    <h4>Notable Gear</h4><div class="rdb-list"><a href="/weapons/abyssal-longspear/" class="rdb-tag">Abyssal Longspear · ATK 72</a><a href="/accessories/crimson-ruby-earring/" class="rdb-tag">Crimson Ruby Earring</a><a href="/accessories/ring-of-the-abyss/" class="rdb-tag">Ring of the Abyss</a></div>
+    <h4>Resources</h4><div class="rdb-list"><span class="rdb-tag">Dragon Scales</span><span class="rdb-tag">Abyss Essence</span><span class="rdb-tag">Crimson Crystals</span><span class="rdb-tag">Ancient Artifacts</span></div>
+    <h4>Key Locations</h4><div class="rdb-list"><span class="rdb-tag">Dragon's Lair</span><span class="rdb-tag">Abyss Gate</span><span class="rdb-tag">Warden's Sanctum</span><span class="rdb-tag">Crimson Oasis</span></div>
+  </div></div>
+
+</div>
+
+<div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+
+<!-- Related -->
+<div style="margin:24px 0">
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:12px">Explore More</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px">
+    <a href="/enemies/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">👹 Boss Database</a>
+    <a href="/weapons/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">⚔️ Weapon Database</a>
+    <a href="/equipment/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📦 All Equipment</a>
+    <a href="/characters/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">👤 Characters</a>
+    <a href="/mounts/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🐎 Mounts</a>
+    <a href="/guides/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📖 Game Guides</a>
+  </div>
+</div>
+
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+<script src="/cookie-consent.js"></script>
+<script>
+// Load SVG inline for clickable regions + working filters
+fetch('/images/regions/pywel-map.svg')
+  .then(function(r){ return r.text(); })
+  .then(function(svg){
+    var div = document.getElementById('svgMap');
+    div.innerHTML = svg;
+    var svgEl = div.querySelector('svg');
+    svgEl.style.width = '100%';
+    svgEl.style.height = 'auto';
+    svgEl.style.display = 'block';
+    svgEl.style.borderRadius = '12px 12px 0 0';
+    // Make regions clickable
+    addRegionLinks(svgEl);
+  })
+  .catch(function(){
+    document.getElementById('svgMap').innerHTML = '<p style="color:var(--text3);text-align:center;padding:60px">Map loading...</p>';
+  });
+
+function addRegionLinks(svg){
+  var regions = {
+    Hernand: '#hernand',
+    Pailune: '#pailune',
+    Demeniss: '#demeniss',
+    Delesyia: '#delesyia',
+    Crimson: '#crimson'
+  };
+  // Find region name text elements and wrap in links
+  var texts = svg.querySelectorAll('text');
+  texts.forEach(function(t){
+    var name = t.textContent.trim();
+    if (regions[name]) {
+      var a = document.createElementNS('http://www.w3.org/2000/svg','a');
+      a.setAttribute('href', regions[name]);
+      a.setAttribute('style', 'cursor:pointer');
+      t.parentNode.insertBefore(a, t);
+      a.appendChild(t);
+    }
+  });
+}
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

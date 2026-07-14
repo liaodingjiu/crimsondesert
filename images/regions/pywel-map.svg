@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" style="background:#1a1210;border-radius:12px">
+  <defs>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/></filter>
+    <linearGradient id="hernandGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4a7a3a"/><stop offset="100%" stop-color="#2d4a20"/></linearGradient>
+    <linearGradient id="pailuneGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7a6a4a"/><stop offset="100%" stop-color="#4a3d28"/></linearGradient>
+    <linearGradient id="demenissGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4a305a"/><stop offset="100%" stop-color="#2a1a35"/></linearGradient>
+    <linearGradient id="delesyiaGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a6a4a"/><stop offset="100%" stop-color="#1e3d2a"/></linearGradient>
+    <linearGradient id="crimsonGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a05030"/><stop offset="100%" stop-color="#6a2010"/></linearGradient>
+    <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1a2a"/><stop offset="100%" stop-color="#152535"/></linearGradient>
+    <radialGradient id="compassGrad"><stop offset="0%" stop-color="#3a2518"/><stop offset="100%" stop-color="#1a1008"/></radialGradient>
+  </defs>
+
+  <!-- Ocean background -->
+  <rect width="1000" height="700" fill="url(#oceanGrad)"/>
+
+  <!-- Grid lines (subtle) -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="100" x2="1000" y2="100"/><line x1="0" y1="200" x2="1000" y2="200"/>
+    <line x1="0" y1="300" x2="1000" y2="300"/><line x1="0" y1="400" x2="1000" y2="400"/>
+    <line x1="0" y1="500" x2="1000" y2="500"/><line x1="0" y1="600" x2="1000" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="700"/><line x1="400" y1="0" x2="400" y2="700"/>
+    <line x1="600" y1="0" x2="600" y2="700"/><line x1="800" y1="0" x2="800" y2="700"/>
+  </g>
+
+  <!-- Ocean labels -->
+  <text x="30" y="50" fill="rgba(255,255,255,0.08)" font-family="Inter,sans-serif" font-size="14" font-style="italic">The Northern Sea</text>
+  <text x="770" y="680" fill="rgba(255,255,255,0.08)" font-family="Inter,sans-serif" font-size="14" font-style="italic">The Great Ocean</text>
+
+  <!-- ── HERNAND (South-West) ── -->
+  <g filter="url(#shadow)">
+    <path d="M80,520 L60,420 L100,340 L180,310 L260,330 L300,380 L330,460 L310,540 L280,580 L200,600 L120,580 Z" fill="url(#hernandGrad)" stroke="#5a9a4a" stroke-width="2" opacity="0.9"/>
+    <!-- Terrain lines -->
+    <path d="M120,450 Q180,420 240,440" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <path d="M100,500 Q160,480 220,510" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <path d="M160,380 Q200,370 250,390" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+    <path d="M140,420 Q170,410 200,430" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  </g>
+  <text x="195" y="468" fill="#fff" font-family="Inter,sans-serif" font-size="22" font-weight="700" text-anchor="middle" filter="url(#glow)">Hernand</text>
+  <text x="195" y="486" fill="rgba(255,255,255,0.7)" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Lv 1–20 · Starting Region</text>
+  <!-- Boss marker -->
+  <circle cx="230" cy="450" r="12" fill="none" stroke="#e05550" stroke-width="2" opacity="0.8"/>
+  <text x="230" y="454" fill="#e05550" font-size="14" text-anchor="middle">👑</text>
+  <text x="230" y="472" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">Goblin King</text>
+
+  <!-- ── PAILUNE (North-West) ── -->
+  <g filter="url(#shadow)">
+    <path d="M100,340 L80,230 L120,140 L200,110 L290,100 L340,130 L370,180 L360,260 L320,310 L260,330 Z" fill="url(#pailuneGrad)" stroke="#8a7a5a" stroke-width="2" opacity="0.9"/>
+    <!-- Snow peaks -->
+    <polygon points="180,140 200,95 220,140" fill="rgba(255,255,255,0.15)"/>
+    <polygon points="240,120 260,75 280,120" fill="rgba(255,255,255,0.12)"/>
+    <polygon points="150,170 165,135 180,170" fill="rgba(255,255,255,0.1)"/>
+    <path d="M140,220 L160,220" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <path d="M170,250 L200,250" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  </g>
+  <text x="240" y="245" fill="#fff" font-family="Inter,sans-serif" font-size="22" font-weight="700" text-anchor="middle" filter="url(#glow)">Pailune</text>
+  <text x="240" y="263" fill="rgba(255,255,255,0.7)" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Lv 15–30 · Mountains</text>
+  <circle cx="190" cy="190" r="10" fill="none" stroke="#e05550" stroke-width="2" opacity="0.8"/>
+  <text x="190" y="194" fill="#e05550" font-size="12" text-anchor="middle">🧙</text>
+  <text x="190" y="210" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Witch</text>
+
+  <!-- ── DEMENISS (North-East) ── -->
+  <g filter="url(#shadow)">
+    <path d="M380,130 L440,100 L540,90 L620,120 L680,160 L720,220 L710,300 L680,370 L610,400 L540,390 L470,350 L420,280 L380,200 Z" fill="url(#demenissGrad)" stroke="#6a4a7a" stroke-width="2" opacity="0.9"/>
+    <!-- Dark crystal formations -->
+    <polygon points="500,130 510,95 520,130" fill="rgba(180,120,220,0.2)"/>
+    <polygon points="580,150 590,115 600,150" fill="rgba(180,120,220,0.15)"/>
+    <polygon points="620,250 630,220 640,250" fill="rgba(180,120,220,0.12)"/>
+    <path d="M480,200 L520,200" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+    <path d="M500,240 L550,240" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+    <path d="M520,280 L570,280" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+  </g>
+  <text x="550" y="270" fill="#fff" font-family="Inter,sans-serif" font-size="22" font-weight="700" text-anchor="middle" filter="url(#glow)">Demeniss</text>
+  <text x="550" y="288" fill="rgba(255,255,255,0.7)" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Lv 25–40 · Abyss Zone</text>
+  <circle cx="560" cy="180" r="12" fill="none" stroke="#e05550" stroke-width="2" opacity="0.9"/>
+  <text x="560" y="184" fill="#e05550" font-size="14" text-anchor="middle">🌑</text>
+  <text x="560" y="200" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">Goyen</text>
+  <circle cx="640" cy="340" r="10" fill="none" stroke="#e05550" stroke-width="2" opacity="0.8"/>
+  <text x="640" y="344" fill="#e05550" font-size="12" text-anchor="middle">🃏</text>
+  <text x="640" y="358" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Dark Ring.</text>
+
+  <!-- ── DELESYIA (South-East) ── -->
+  <g filter="url(#shadow)">
+    <path d="M330,460 L380,400 L460,380 L560,390 L640,420 L690,470 L710,550 L680,620 L600,650 L500,640 L420,600 L370,550 Z" fill="url(#delesyiaGrad)" stroke="#4a8a5a" stroke-width="2" opacity="0.9"/>
+    <!-- Forest tree icons -->
+    <circle cx="450" cy="480" r="4" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="500" cy="510" r="5" fill="rgba(255,255,255,0.1)"/>
+    <circle cx="550" cy="470" r="4" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="470" cy="550" r="3" fill="rgba(255,255,255,0.08)"/>
+    <circle cx="590" cy="520" r="4" fill="rgba(255,255,255,0.1)"/>
+    <path d="M420,500 L480,500" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+    <path d="M500,560 L560,560" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  </g>
+  <text x="525" y="550" fill="#fff" font-family="Inter,sans-serif" font-size="22" font-weight="700" text-anchor="middle" filter="url(#glow)">Delesyia</text>
+  <text x="525" y="568" fill="rgba(255,255,255,0.7)" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Lv 20–35 · Ancient Forests</text>
+  <circle cx="490" cy="460" r="10" fill="none" stroke="#e05550" stroke-width="2" opacity="0.8"/>
+  <text x="490" y="464" fill="#e05550" font-size="12" text-anchor="middle">⚡</text>
+  <text x="490" y="478" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Thunder B.</text>
+
+  <!-- ── CRIMSON DESERT (Far East) ── -->
+  <g filter="url(#shadow)">
+    <path d="M710,220 L740,180 L810,160 L880,180 L940,230 L960,300 L940,380 L900,440 L840,460 L780,430 L740,370 L710,300 Z" fill="url(#crimsonGrad)" stroke="#b06040" stroke-width="2" opacity="0.9"/>
+    <!-- Sand dune lines -->
+    <path d="M760,240 Q800,230 840,250" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    <path d="M750,300 Q800,290 860,310" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <path d="M770,360 Q820,350 880,370" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+    <path d="M800,280 Q830,275 860,285" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  </g>
+  <text x="840" y="330" fill="#fff" font-family="Inter,sans-serif" font-size="22" font-weight="700" text-anchor="middle" filter="url(#glow)">Crimson</text>
+  <text x="840" y="348" fill="rgba(255,255,255,0.7)" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Desert</text>
+  <text x="840" y="366" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Lv 35–50 · Endgame</text>
+  <circle cx="820" cy="240" r="13" fill="none" stroke="#e05550" stroke-width="2" opacity="0.95"/>
+  <text x="820" y="244" fill="#e05550" font-size="16" text-anchor="middle">🐉</text>
+  <text x="820" y="262" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">Crimson Dragon</text>
+  <circle cx="880" cy="400" r="11" fill="none" stroke="#e05550" stroke-width="2" opacity="0.9"/>
+  <text x="880" y="404" fill="#e05550" font-size="13" text-anchor="middle">⚔️</text>
+  <text x="880" y="420" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="8" text-anchor="middle">Abyss W.</text>
+
+  <!-- ── Region labels ── -->
+
+  <!-- ── Connecting paths (roads) ── -->
+  <g fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="8,6">
+    <!-- Hernand → Pailune -->
+    <path d="M220,360 Q280,340 320,310"/>
+    <!-- Hernand → Delesyia -->
+    <path d="M330,480 Q380,490 420,500"/>
+    <!-- Pailune → Demeniss -->
+    <path d="M370,180 Q420,160 470,180"/>
+    <!-- Demeniss → Crimson Desert -->
+    <path d="M720,250 Q760,240 810,250"/>
+    <!-- Delesyia → Crimson Desert -->
+    <path d="M710,420 Q760,430 840,440"/>
+    <!-- Demeniss → Delesyia -->
+    <path d="M610,400 Q580,430 560,460"/>
+  </g>
+
+  <!-- ── Compass Rose ── -->
+  <g transform="translate(890,80)">
+    <circle cx="0" cy="0" r="40" fill="url(#compassGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+    <polygon points="0,-28 5,-8 0,-12 -5,-8" fill="#c46040"/>
+    <polygon points="0,28 5,8 0,12 -5,8" fill="rgba(255,255,255,0.4)"/>
+    <polygon points="-28,0 -8,5 -12,0 -8,-5" fill="rgba(255,255,255,0.3)"/>
+    <polygon points="28,0 8,5 12,0 8,-5" fill="rgba(255,255,255,0.3)"/>
+    <text x="0" y="-34" fill="#c46040" font-family="Inter,sans-serif" font-size="9" font-weight="700" text-anchor="middle">N</text>
+    <text x="0" y="44" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="9" font-weight="700" text-anchor="middle">S</text>
+    <text x="40" y="4" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">E</text>
+    <text x="-40" y="4" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">W</text>
+  </g>
+
+  <!-- ── Scale bar ── -->
+  <g transform="translate(30,650)">
+    <line x1="0" y1="0" x2="120" y2="0" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <line x1="60" y1="-3" x2="60" y2="3" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+    <line x1="120" y1="-5" x2="120" y2="5" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <text x="0" y="18" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="10" text-anchor="middle">0</text>
+    <text x="120" y="18" fill="rgba(255,255,255,0.4)" font-family="Inter,sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.4)">~15 km</text>
+  </g>
+
+  <!-- ── Title ── -->
+  <text x="500" y="30" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="14" text-anchor="middle" letter-spacing="6" text-transform="uppercase">THE CONTINENT OF PYWEL</text>
+
+  <!-- Legend -->
+  <g transform="translate(30,590)">
+    <rect x="0" y="0" width="150" height="48" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="10" y="16" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9">Legend</text>
+    <circle cx="14" cy="30" r="4" fill="none" stroke="#e05550" stroke-width="2"/>
+    <text x="24" y="33" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9">Major Boss</text>
+    <line x1="84" y1="30" x2="120" y2="30" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="126" y="33" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9">Road</text>
+  </g>
+
+  <!-- Border line around Pywel continents -->
+  <path d="M80,230 Q60,300 80,420 L80,520 Q60,580 120,580 L200,600 Q280,620 310,540 L330,460" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <path d="M330,460 L370,550 Q420,600 500,640 L600,650 Q680,640 710,550 L710,470" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <path d="M710,470 L690,420 Q640,390 610,400 L540,390 Q470,350 420,280 L380,200 L360,260 L320,310" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <path d="M380,200 L370,180 Q340,130 290,100 L200,110 Q120,140 100,340" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+</svg>

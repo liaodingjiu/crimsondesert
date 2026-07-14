@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Guides — Beginner Tips, Boss Strategies &amp; Builds | CrimsonDesertDB</title>
+<meta name="description" content="Comprehensive Crimson Desert guides covering beginner tips, fishing spots, boss strategies, character builds for Kliff/Oongka/Damiane, progression paths, and combat system deep-dives. Get started fast and master the game.">
+<meta name="keywords" content="Crimson Desert guides, Crimson Desert beginner guide, Crimson Desert boss strategies, Crimson Desert character builds, Kliff build, Oongka build, Damiane build, combat system guide">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/guides/">
+<meta property="og:title" content="Crimson Desert Guides — Beginner Tips, Boss Strategies &amp; Builds">
+<meta property="og:description" content="Master Crimson Desert with our in-depth guides. Beginner essentials, fishing spots, boss mechanics, character builds, and combat system explained.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/guides/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Guides Hub">
+<meta name="twitter:description" content="All Crimson Desert game guides in one place — beginner tips, boss strategies, character builds, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .page-header { padding: 28px 0 8px; }
+  .page-header h1 { font-size: 31px; font-weight: 700; }
+  .page-header h1 span { color: var(--accent); }
+  .page-header .page-desc { color: var(--text); font-size: 17px; max-width: 720px; margin-top: 6px; line-height: 1.7; }
+
+  .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  @media (max-width: 768px) { .guide-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .guide-grid { grid-template-columns: 1fr; } }
+
+  .guide-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; transition: border-color .25s, transform .25s; text-decoration: none !important; display: flex; flex-direction: column; }
+  .guide-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .guide-card .gc-icon { font-size: 36px; width: 56px; height: 56px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .guide-card .gc-icon.green { background: var(--green-l); }
+  .guide-card .gc-icon.blue { background: var(--blue-l); }
+  .guide-card .gc-icon.gold { background: var(--gold-l); }
+  .guide-card .gc-icon.purple { background: var(--purple-l); }
+  .guide-card .gc-icon.red { background: var(--red-l); }
+  .guide-card .gc-icon.accent { background: var(--accent-l); }
+  .guide-card .gc-name { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .guide-card .gc-desc { font-size: 14px; color: var(--text2); line-height: 1.65; flex: 1; }
+  .guide-card .gc-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--accent-d); }
+  .guide-card:hover .gc-link { color: var(--accent); }
+
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 16px 0 32px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; transition: border-color .2s; }
+  .faq-item:hover { border-color: var(--border-hover); }
+  .faq-item .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.95; }
+  .faq-item .faq-q .faq-icon { color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .faq-item .faq-a { font-size: 14px; color: var(--text2); line-height: 2.15; padding-left: 24px; }
+
+  @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Crimson Desert Guides",
+  "description": "Comprehensive Crimson Desert guides — beginner tips, boss strategies, character builds, progression paths, and combat system explained.",
+  "url": "https://pyweldb.com/guides/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://pyweldb.com/guides/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best beginner class?","acceptedAnswer":{"@type":"Answer","text":"Kliff is the most beginner-friendly — balanced stats, versatile weapons (1H/2H swords, axes, daggers), and forgiving defense. Oongka is for aggressive players. Damiane requires careful ranged positioning."}},{"@type":"Question","name":"How long does it take to beat Crimson Desert?","acceptedAnswer":{"@type":"Answer","text":"The main story takes approximately 30-40 hours. Side quests and optional bosses add 20-30 hours. Full completion with all legendary gear can exceed 80+ hours."}},{"@type":"Question","name":"Is Crimson Desert multiplayer?","acceptedAnswer":{"@type":"Answer","text":"Crimson Desert is primarily a single-player open-world action RPG. There is no co-op campaign. Post-launch content may include optional online features like leaderboards."}},{"@type":"Question","name":"What is the hardest boss?","acceptedAnswer":{"@type":"Answer","text":"The Crimson Dragon is the hardest encounter — requires aerial combat on dragonback, multiple phase transitions, and optimized Tier 5 legendary gear. Goyen and Abyss Warden are also major skill checks."}}]}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> Guides</div>
+    <h1>Crimson Desert <span>Guides</span> &amp; Resources</h1>
+    <p class="page-desc">Quick access to every database and tool on CrimsonDesertDB. From beginner essentials to endgame optimization — everything linked below is a real page with real data.</p>
+  </div>
+
+  <div class="ad-box ad-banner">Advertisement</div>
+
+  <div class="guide-grid">
+
+    <a href="/best-early-game/" class="guide-card">
+      <div class="gc-icon green">🌱</div>
+      <div class="gc-name">Best Early Game Gear</div>
+      <div class="gc-desc">Optimal weapons, armor, and accessories for Lv 1–15. What to craft, buy, and farm before your first boss. Starter recommendations for Kliff, Oongka, and Damiane.</div>
+      <span class="gc-link">Browse Gear →</span>
+    </a>
+
+    <a href="/cooking/" class="guide-card">
+      <div class="gc-icon blue">🍲</div>
+      <div class="gc-name">Cooking &amp; Alchemy</div>
+      <div class="gc-desc">Food recipes for stat boosts, potions for elemental resistance, and ingredient farming locations across all 5 regions. Essential prep for endgame bosses.</div>
+      <span class="gc-link">Browse Recipes →</span>
+    </a>
+
+    <a href="/enemies/" class="guide-card">
+      <div class="gc-icon red">👹</div>
+      <div class="gc-name">Boss Database</div>
+      <div class="gc-desc">All 11 major bosses with level ranges, weaknesses, and drop tables. See exactly what each boss drops and where to find them across Pywel's 5 regions.</div>
+      <span class="gc-link">View Bosses →</span>
+    </a>
+
+    <a href="/characters/" class="guide-card">
+      <div class="gc-icon gold">👤</div>
+      <div class="gc-name">Character Database</div>
+      <div class="gc-desc">Kliff, Oongka, and Damiane — skill trees, compatible weapons, playstyle tips, and lore. Compare characters and pick the one that fits your style.</div>
+      <span class="gc-link">View Characters →</span>
+    </a>
+
+    <a href="/equipment/" class="guide-card">
+      <div class="gc-icon purple">📦</div>
+      <div class="gc-name">Equipment Database</div>
+      <div class="gc-desc">All 52 weapons, armor pieces, and accessories. Tier lists, stat rankings, and acquisition methods. Your gear defines your power — find the best.</div>
+      <span class="gc-link">Browse Equipment →</span>
+    </a>
+
+    <a href="/abyss-gears/" class="guide-card">
+      <div class="gc-icon accent">🔮</div>
+      <div class="gc-name">Abyss Gears &amp; Combat</div>
+      <div class="gc-desc">Socketable skill gems explained — Swift, Insight, Vigor, Composure, Elemental. Weapon compatibility matrix and best setups per character build.</div>
+      <span class="gc-link">Browse Gears →</span>
+    </a>
+
+  </div>
+
+  <div class="ad-box ad-banner">Advertisement</div>
+
+  <div class="section-heading" style="margin-top:32px"><h2>Frequently Asked Questions</h2></div>
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> What is the best beginner class?</div>
+      <div class="faq-a"><strong>Kliff</strong> is the most beginner-friendly character due to his balanced stats, versatile weapon options (1H/2H swords, axes, daggers), and forgiving defense. He can tank hits while learning enemy patterns. Oongka is also a solid choice if you prefer a more aggressive spear-based playstyle, while Damiane requires more careful positioning as a ranged character.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> How long does it take to beat Crimson Desert?</div>
+      <div class="faq-a">The main story takes approximately <strong>30–40 hours</strong> for a focused playthrough. Completing all side quests, optional bosses, and exploration adds another 20–30 hours. Full completion — including all Abyss Artifact unlocks, legendary gear farming, and all mount types — can exceed 80+ hours.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> Is Crimson Desert multiplayer?</div>
+      <div class="faq-a">Crimson Desert is primarily a <strong>single-player</strong> open-world action RPG. There is no co-op campaign or persistent multiplayer. However, Pearl Abyss has indicated that post-launch content may include optional online features such as leaderboards and asynchronous social elements. The core experience is solo.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> What is the hardest boss in the game?</div>
+      <div class="faq-a">The <strong>Crimson Dragon</strong> (endgame flying boss) is widely considered the hardest encounter. It requires mastery of aerial combat on dragonback, has multiple phase transitions with devastating AOE attacks, and demands optimized gear (Tier 5 legendary weapons, full Abyss Gear set). Other challenging fights include Goyen (mid-game skill check) and the Abyss Warden (mechanical complexity).</div>
+    </div>
+
+  </div>
+
+  <div class="section-heading" style="margin-top:32px"><h2>Explore More</h2></div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 24px">
+    <a href="/weapons/tier-list/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">📊 Weapon Tier List</a>
+    <a href="/tools/build-calculator/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🧮 Build Calculator</a>
+    <a href="/tools/skill-planner/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🧠 Skill Planner</a>
+    <a href="/tools/map/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🗺️ Interactive Map</a>
+    <a href="/crafting/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🔨 Crafting System</a>
+    <a href="/mounts/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🐎 Mounts</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

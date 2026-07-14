@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Weapons — All Weapon Stats & Database | CrimsonDesertDB</title>
+<meta name="description" content="All Crimson Desert weapons with complete stats — Attack, Attack Speed, Critical Rate. Filter by one-handed, two-handed, swords, spears, axes, daggers, bows.">
+<meta name="keywords" content="Crimson Desert weapons, Crimson Desert weapon stats, Crimson Desert weapon list, Crimson Desert swords, Crimson Desert spears, Crimson Desert axes">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/weapons/">
+<meta property="og:title" content="Crimson Desert Weapons Database — All Stats">
+<meta property="og:description" content="All Crimson Desert weapons with complete stats. Filter by type, rarity, and tier. Compare attack, speed, and critical rate.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/weapons/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Weapons Database">
+<meta name="twitter:description" content="Complete weapon stats for Crimson Desert. Search, filter, compare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+.page-header { padding: 28px 0 8px; }
+.page-header h1 { font-size: 31px; font-weight: 700; }
+.page-header h1 span { color: var(--accent); }
+.page-header .page-desc { color: var(--text); font-size: 17px; max-width: 680px; margin-top: 6px; line-height: 1.7; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.toolbar-left { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; flex: 1; }
+#cardGrid.hidden, #tableView.hidden { display: none; }
+.table-note { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+.selection-actions { display: none; margin-left: 12px; }
+.selection-actions.visible { display: flex; gap: 8px; align-items: center; }
+.selection-actions .selected-count { font-size: 14px; color: var(--accent-d); white-space: nowrap; }
+/* ── Quick Stats Bar ── */
+.quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}
+.quick-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;text-align:center}
+.quick-stat .qs-val{font-size:22px;font-weight:700;color:var(--accent-d)}
+.quick-stat .qs-lbl{font-size:13px;color:var(--text);margin-top:2px}
+/* ── Compat Table ── */
+.compat-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px}
+.compat-wrap h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.compat-tbl{width:100%;border-collapse:collapse;font-size:15px}
+.compat-tbl th,.compat-tbl td{padding:8px 12px;border:1px solid var(--border);text-align:center}
+.compat-tbl th{background:var(--muted-bg);color:var(--text);font-weight:600;font-size:14px}
+.compat-tbl td.yes{color:var(--green);font-weight:600}
+.compat-tbl td.no{color:var(--text3)}
+/* ── Top 10 Ranking ── */
+.ranking-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:20px 0}
+.rank-card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;text-decoration:none!important;transition:border-color .2s,transform .2s}
+.rank-card:hover{border-color:var(--border-hover);transform:translateY(-1px)}
+.rank-card .rk-num{font-size:24px;font-weight:700;color:var(--accent);width:32px;text-align:center;flex-shrink:0}
+.rank-card .rk-img{width:44px;height:44px;background:var(--muted-bg);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rank-card .rk-info{flex:1;min-width:0}
+.rank-card .rk-name{font-size:15px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-card .rk-type{font-size:13px;color:var(--text);margin-top:2px}
+.rank-card .rk-atk{font-size:20px;font-weight:700;color:var(--accent-d);flex-shrink:0}
+/* ── Extra Section (FAQ + Links) ── */
+.extra-section{margin:24px 0}
+.extra-section h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.wpn-faq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:20px}
+.wpn-faq{border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 24px;background:var(--surface)}
+.wpn-faq .faq-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.7}
+.wpn-faq .faq-a{font-size:14px;color:var(--text);line-height:1.8}
+.wpn-faq .faq-a a{color:var(--accent-d);font-weight:500}
+.rel-links{display:flex;flex-wrap:wrap;gap:10px}
+.rel-links a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none!important;transition:border-color .2s,background .2s}
+.rel-links a:hover{border-color:var(--accent);background:var(--accent-l)}
+.qs-clickable{cursor:pointer;transition:border-color .15s,transform .15s}
+.qs-clickable:hover{border-color:var(--accent);transform:translateY(-1px)}
+.qs-clickable .qs-val{transition:color .15s}
+.qs-clickable:hover .qs-val{color:var(--accent)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.quick-stats{grid-template-columns:repeat(2,1fr)}.ranking-grid{grid-template-columns:1fr}.wpn-faq-grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Crimson Desert Weapons Database",
+  "description": "All Crimson Desert weapons with complete stats — Attack, Attack Speed, Critical Rate. Filter by type, rarity, and tier.",
+  "url": "https://pyweldb.com/weapons/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 20
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Equipment", "item": "https://pyweldb.com/equipment/" },
+    { "@type": "ListItem", "position": 3, "name": "Weapons", "item": "https://pyweldb.com/weapons/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is the best weapon in Crimson Desert?","acceptedAnswer":{"@type":"Answer","text":"It depends on your character and build. For raw Attack, Abyssal Longspear (ATK 56) leads. Fated Shadow (ATK 55) and Darkbringer (ATK 39, Crit 3) are top legendary picks. Check the Weapon Tier List for full data-driven rankings."}},
+    {"@type":"Question","name":"Can any character use any weapon?","acceptedAnswer":{"@type":"Answer","text":"No. Weapons have character restrictions. Kliff uses swords, spears, daggers. Oongka uses spears and axes. Damiane uses bows. Some weapons are unrestricted — check each weapon's page for character compatibility."}},
+    {"@type":"Question","name":"1H vs 2H — which is better?","acceptedAnswer":{"@type":"Answer","text":"One-handed weapons have lower base ATK but higher Attack Speed. Two-handed weapons deliver higher damage per hit but swing slower. Choose based on your playstyle — fast combos vs heavy hits."}},
+    {"@type":"Question","name":"How do I get legendary weapons?","acceptedAnswer":{"@type":"Answer","text":"Legendary weapons drop from endgame bosses: Goyen (Demeniss) drops Fated Shadow, Darkbringer, and Vessel of Dark Pursuit. Abyss Warden (Crimson Desert) drops Abyssal Longspear. Check each weapon's detail page for acquisition info."}}
+  ]
+}
+</script>
+</head>
+<body>
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> <a href="/equipment/">Equipment</a> <span class="sep">›</span> Weapons</div>
+  <div class="page-header">
+    <h1>Crimson Desert <span>Weapons</span> Database</h1>
+    <p class="page-desc">Complete weapon stats for Crimson Desert. Filter by type, rarity, class, and tier. Click any weapon for detailed stats, acquisition info, and build compatibility.</p>
+  </div>
+
+  <!-- Quick Stats Bar -->
+  <div class="quick-stats" id="quickStats"></div>
+
+  <!-- Rarity Chips -->
+  <div class="filter-chips" id="rarityChips">
+    <button class="chip active" data-value="all">All</button>
+    <button class="chip" data-value="legendary">Legendary</button>
+    <button class="chip" data-value="epic">Epic</button>
+    <button class="chip" data-value="rare">Rare</button>
+    <button class="chip" data-value="uncommon">Uncommon</button>
+    <button class="chip" data-value="common">Common</button>
+  </div>
+
+  <!-- Search + Filter Bar -->
+  <div class="filter-bar">
+    <input type="text" id="searchInput" placeholder="Search weapons..." autocomplete="off">
+    <span class="result-count" id="resultCount">0/0</span>
+    <select id="typeFilter">
+      <option value="all">All Types</option>
+      <option value="one-handed-sword">1H Sword</option>
+      <option value="two-handed-sword">2H Sword</option>
+      <option value="spear">Spear</option>
+      <option value="axe">Axe</option>
+      <option value="dagger">Dagger</option>
+      <option value="bow">Bow</option>
+    </select>
+    <select id="classFilter">
+      <option value="all">All Classes</option>
+      <option value="one-handed">One-Handed</option>
+      <option value="two-handed">Two-Handed</option>
+    </select>
+    <select id="sortBy">
+      <option value="name">Name A-Z</option>
+      <option value="attack-desc">Attack ↓</option>
+      <option value="tier-desc">Tier ↓</option>
+      <option value="attack_speed-desc">Atk Speed ↓</option>
+      <option value="critical_rate-desc">Crit Rate ↓</option>
+    </select>
+    <div class="view-toggle">
+      <button id="viewCard" class="active" title="Card view">▦</button>
+      <button id="viewTable" title="Table view">☰</button>
+    </div>
+    <div class="selection-actions" id="selectionActions">
+      <span class="selected-count" id="selectedCount">0 selected</span>
+      <button class="btn btn-blue" id="compareBtn" style="padding:7px 14px;font-size:14px;">Compare</button>
+    </div>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+  <!-- Card Grid -->
+  <div class="card-grid" id="cardGrid"></div>
+
+  <!-- Table View -->
+  <div class="data-table-wrap hidden" id="tableView">
+    <p class="table-note">Click column headers to sort. Check ⬜ to compare items.</p>
+    <table class="data-table" id="dataTable">
+      <thead>
+        <tr>
+          <th>⬜</th>
+          <th data-sort="name">Name <span class="sort-arrow">↕</span></th>
+          <th data-sort="type">Type</th>
+          <th data-sort="class">Class</th>
+          <th data-sort="rarity">Rarity</th>
+          <th data-sort="tier">Tier</th>
+          <th data-sort="attack">ATK</th>
+          <th data-sort="attack_speed">Atk Spd</th>
+          <th data-sort="critical_rate">Crit</th>
+          <th data-sort="movement_speed">Move</th>
+          <th data-sort="required_level">Req Lv</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Ad -->
+  <div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+
+  <!-- Top 5 Damage Ranking -->
+  <div class="extra-section">
+    <h3>Top 5 Weapons by Attack</h3>
+    <div class="ranking-grid" id="rankingGrid"></div>
+    <div style="text-align:center;margin-top:8px">
+      <a href="/weapons/tier-list/" style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--accent-d);padding:8px 18px;border:1px solid var(--accent);border-radius:20px;text-decoration:none">📊 See Full Weapon Tier List →</a>
+    </div>
+  </div>
+
+  <!-- FAQ + Compat + Links (two-col) -->
+  <div class="two-col">
+    <div class="extra-section" style="margin:0">
+      <h3>Weapon FAQ</h3>
+      <div class="wpn-faq-grid">
+        <div class="wpn-faq"><div class="faq-q">Q: What is the best weapon in Crimson Desert?</div><div class="faq-a">For raw Attack, <a href="/weapons/abyssal-longspear/">Abyssal Longspear</a> (ATK 56) leads. <a href="/weapons/fated-shadow/">Fated Shadow</a> (ATK 55) and <a href="/weapons/darkbringer/">Darkbringer</a> (ATK 39, Crit 3) are top legendary picks. See the <a href="/weapons/tier-list/">Weapon Tier List →</a></div></div>
+        <div class="wpn-faq"><div class="faq-q">Q: Can any character use any weapon?</div><div class="faq-a">No. Kliff uses swords, spears, daggers. Oongka uses spears and axes. Damiane uses bows. Check the compatibility table →</div></div>
+        <div class="wpn-faq"><div class="faq-q">Q: 1H vs 2H — which is better?</div><div class="faq-a"><strong>1H</strong> = lower ATK, faster swings. <strong>2H</strong> = higher damage, slower. Choose based on playstyle — fast combos vs heavy hits.</div></div>
+        <div class="wpn-faq"><div class="faq-q">Q: How do I get legendary weapons?</div><div class="faq-a">Drops from endgame bosses: <strong>Goyen</strong> (3 legendaries), <strong>Abyss Warden</strong> (Abyssal Longspear). Most are in Demeniss and Crimson Desert regions.</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="compat-wrap">
+        <h3>Character Weapon Compatibility</h3>
+        <div style="overflow-x:auto">
+        <table class="compat-tbl" id="compatTable">
+          <thead><tr><th>Weapon Type</th><th>Kliff</th><th>Oongka</th><th>Damiane</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        </div>
+      </div>
+      <div class="extra-section" style="margin:16px 0 0">
+        <h3>Explore More</h3>
+        <div class="rel-links">
+          <a href="/weapons/tier-list/">📊 Weapon Tier List</a>
+          <a href="/equipment/">📦 All Equipment</a>
+          <a href="/armor/">🛡️ Armor Database</a>
+          <a href="/accessories/">💍 Accessories</a>
+          <a href="/abyss-gears/">🔮 Abyss Gears</a>
+          <a href="/tools/build-calculator/">🧮 Build Calculator</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script src="weapons-data.js"></script>
+<script>
+(function() {
+  var D = window.__WEAPONS__ || [];
+  var currentRarity = 'all';
+  var currentView = 'card'; // 'card' or 'table'
+  var currentSort = { field: 'name', dir: 'asc' };
+  var selected = {}; // slug -> true
+
+  var TYPE_LABELS = {
+    'one-handed-sword': '1H Sword', 'two-handed-sword': '2H Sword',
+    'spear': 'Spear', 'axe': 'Axe', 'dagger': 'Dagger', 'bow': 'Bow'
+  };
+  var CLASS_LABELS = { 'one-handed': '1H', 'two-handed': '2H' };
+
+  // ── Filter & Sort ──
+  function getFiltered() {
+    var q = document.getElementById('searchInput').value.toLowerCase();
+    var typeVal = document.getElementById('typeFilter').value;
+    var classVal = document.getElementById('classFilter').value;
+
+    return D.filter(function(item) {
+      if (currentRarity !== 'all' && item.rarity !== currentRarity) return false;
+      if (typeVal !== 'all' && item.type !== typeVal) return false;
+      if (classVal !== 'all' && item.class !== classVal) return false;
+      if (q && item.name.toLowerCase().indexOf(q) < 0 &&
+          (item.description || '').toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+  }
+
+  function sortList(list) {
+    var sortVal = document.getElementById('sortBy').value;
+    var s = list.slice();
+    switch (sortVal) {
+      case 'attack-desc': s.sort(function(a, b) { return (b.stats.attack||0) - (a.stats.attack||0); }); break;
+      case 'tier-desc': s.sort(function(a, b) { return (b.tier||0) - (a.tier||0); }); break;
+      case 'attack_speed-desc': s.sort(function(a, b) { return (b.stats.attack_speed||0) - (a.stats.attack_speed||0); }); break;
+      case 'critical_rate-desc': s.sort(function(a, b) { return (b.stats.critical_rate||0) - (a.stats.critical_rate||0); }); break;
+      default: s.sort(function(a, b) { return a.name.localeCompare(b.name); }); break;
+    }
+    return s;
+  }
+
+  // ── Render: Cards ──
+  function renderCards(list) {
+    document.getElementById('resultCount').textContent = list.length + '/' + D.length;
+    document.getElementById('cardGrid').innerHTML = list.map(function(item) {
+      return '<a href="/weapons/' + item.slug + '/" class="item-card">' +
+        '<span class="item-rarity r-' + item.rarity + '">' + item.rarity.toUpperCase() + '</span>' +
+        '<div class="item-img"><img src="' + (item.image || '/images/weapons/placeholder.webp') + '" alt="' + item.name + '" loading="lazy" onerror="this.parentElement.textContent=\'⚔️\'"></div>' +
+        '<span class="item-name">' + item.name + '</span>' +
+        '<span class="item-meta">ATK ' + (item.stats.attack||0) + ' | SPD ' + (item.stats.attack_speed||0) + '</span>' +
+        '<span class="item-meta">' + (TYPE_LABELS[item.type] || item.type) + ' · Tier ' + item.tier + '</span>' +
+      '</a>';
+    }).join('');
+  }
+
+  // ── Render: Table ──
+  function renderTable(list) {
+    document.getElementById('resultCount').textContent = list.length + '/' + D.length;
+    document.getElementById('tableBody').innerHTML = list.map(function(item) {
+      var checked = selected[item.slug] ? ' checked' : '';
+      return '<tr>' +
+        '<td><input type="checkbox" class="item-check" data-slug="' + item.slug + '"' + checked + '></td>' +
+        '<td class="td-name"><a href="/weapons/' + item.slug + '/">' + item.name + '</a></td>' +
+        '<td>' + (TYPE_LABELS[item.type] || item.type) + '</td>' +
+        '<td>' + (CLASS_LABELS[item.class] || item.class) + '</td>' +
+        '<td><span class="r-' + item.rarity + '" style="font-size:14px;font-weight:600;">' + item.rarity.toUpperCase() + '</span></td>' +
+        '<td>' + item.tier + '</td>' +
+        '<td>' + (item.stats.attack||0) + '</td>' +
+        '<td>' + (item.stats.attack_speed||0) + '</td>' +
+        '<td>' + (item.stats.critical_rate||0) + '</td>' +
+        '<td>' + (item.stats.movement_speed||0) + '</td>' +
+        '<td>' + (item.required_level||0) + '</td>' +
+      '</tr>';
+    }).join('');
+
+    // Re-bind checkbox listeners
+    document.querySelectorAll('.item-check').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var slug = cb.getAttribute('data-slug');
+        if (cb.checked) selected[slug] = true;
+        else delete selected[slug];
+        updateSelectionUI();
+      });
+    });
+  }
+
+  // ── Table column sort ──
+  function sortTableData(list, field, dir) {
+    return list.slice().sort(function(a, b) {
+      var av, bv;
+      if (field === 'name') { av = a.name; bv = b.name; return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av); }
+      if (field === 'type') { av = TYPE_LABELS[a.type] || a.type; bv = TYPE_LABELS[b.type] || b.type; return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av); }
+      if (field === 'rarity') { var ro = {legendary:5,epic:4,rare:3,uncommon:2,common:1}; av = ro[a.rarity]||0; bv = ro[b.rarity]||0; }
+      else if (field === 'class') { av = a.class||''; bv = b.class||''; return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av); }
+      else { av = (a.stats && a.stats[field]) || a[field] || 0; bv = (b.stats && b.stats[field]) || b[field] || 0; }
+      return dir === 'asc' ? av - bv : bv - av;
+    });
+  }
+
+  // ── Update selection UI ──
+  function updateSelectionUI() {
+    var count = Object.keys(selected).length;
+    var actions = document.getElementById('selectionActions');
+    document.getElementById('selectedCount').textContent = count + ' selected';
+    if (count > 0 && currentView === 'table') actions.classList.add('visible');
+    else actions.classList.remove('visible');
+  }
+
+  // ── Master render ──
+  function render() {
+    var filtered = getFiltered();
+    var sorted = (currentView === 'table' && currentSort.field)
+      ? sortTableData(filtered, currentSort.field, currentSort.dir)
+      : sortList(filtered);
+
+    if (currentView === 'card') {
+      renderCards(sorted);
+      document.getElementById('cardGrid').classList.remove('hidden');
+      document.getElementById('tableView').classList.add('hidden');
+      document.getElementById('selectionActions').classList.remove('visible');
+    } else {
+      renderTable(sorted);
+      document.getElementById('cardGrid').classList.add('hidden');
+      document.getElementById('tableView').classList.remove('hidden');
+      updateSelectionUI();
+    }
+  }
+
+  // ── Event listeners ──
+  document.getElementById('searchInput').addEventListener('input', render);
+  document.getElementById('typeFilter').addEventListener('change', render);
+  document.getElementById('classFilter').addEventListener('change', render);
+  document.getElementById('sortBy').addEventListener('change', render);
+
+  document.querySelectorAll('#rarityChips .chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('#rarityChips .chip').forEach(function(c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+      currentRarity = chip.getAttribute('data-value');
+      render();
+    });
+  });
+
+  // View toggle
+  document.getElementById('viewCard').addEventListener('click', function() {
+    currentView = 'card';
+    this.classList.add('active');
+    document.getElementById('viewTable').classList.remove('active');
+    render();
+  });
+  document.getElementById('viewTable').addEventListener('click', function() {
+    currentView = 'table';
+    this.classList.add('active');
+    document.getElementById('viewCard').classList.remove('active');
+    render();
+  });
+
+  // Table header sort
+  document.querySelectorAll('#dataTable th[data-sort]').forEach(function(th) {
+    th.addEventListener('click', function() {
+      var field = th.getAttribute('data-sort');
+      if (currentSort.field === field) {
+        currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        currentSort.field = field;
+        currentSort.dir = 'asc';
+      }
+      // Update sort arrows
+      document.querySelectorAll('#dataTable th[data-sort]').forEach(function(t) { t.classList.remove('sorted'); });
+      th.classList.add('sorted');
+      th.querySelector('.sort-arrow').textContent = currentSort.dir === 'asc' ? '↑' : '↓';
+      render();
+    });
+  });
+
+  // Compare button
+  document.getElementById('compareBtn').addEventListener('click', function() {
+    var slugs = Object.keys(selected);
+    if (slugs.length >= 2 && slugs.length <= 4) {
+      window.location.href = '/tools/equipment-compare/?items=' + slugs.join(',');
+    } else if (slugs.length < 2) {
+      alert('Select at least 2 items to compare.');
+    } else {
+      alert('Select up to 4 items to compare.');
+    }
+  });
+
+  // URL query param support
+  var urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('q')) {
+    document.getElementById('searchInput').value = urlParams.get('q');
+  }
+
+  // Initial render
+  render();
+
+  // Preload images on idle
+  if (window.requestIdleCallback) {
+    requestIdleCallback(function() {
+      D.forEach(function(item) {
+        if (item.image) { var img = new Image(); img.src = item.image; }
+      });
+    });
+  }
+
+  // ── Quick Stats Bar ──
+  (function initQuickStats() {
+    var types = {}, rarities = {}, maxAtk = {val:0, name:'', slug:''}, charRestricted = 0;
+    D.forEach(function(w) {
+      var t = TYPE_LABELS[w.type] || w.type;
+      types[t] = (types[t]||0) + 1;
+      rarities[w.rarity] = (rarities[w.rarity]||0) + 1;
+      var atk = w.stats.attack || 0;
+      if (atk > maxAtk.val) { maxAtk.val = atk; maxAtk.name = w.name; maxAtk.slug = w.slug; }
+      if (w.character_restrictions && w.character_restrictions.length > 0) charRestricted++;
+    });
+
+    var stats = [
+      {val: D.length, lbl: 'Total Weapons', click: null},
+      {val: Object.keys(types).length, lbl: 'Weapon Types', click: null},
+      {val: maxAtk.val, lbl: 'Max ATK', sub: maxAtk.name, click: '/weapons/'+maxAtk.slug+'/'},
+      {val: rarities['legendary']||0, lbl: 'Legendary', click: 'filter:legendary'},
+      {val: charRestricted, lbl: 'Character-Locked', click: null}
+    ];
+
+    document.getElementById('quickStats').innerHTML = stats.map(function(s){
+      var cls = s.click ? 'quick-stat qs-clickable' : 'quick-stat';
+      var tag = s.click ? (s.click.indexOf('filter:')===0 ? 'div' : 'a') : 'div';
+      var href = s.click && s.click.indexOf('filter:')!==0 ? ' href="'+s.click+'"' : '';
+      var label = s.lbl + (s.sub ? ' <span style="font-size:11px;color:var(--text3)">('+s.sub+')</span>' : '');
+      return '<'+tag+' class="'+cls+'"'+href+' data-click="'+(s.click||'')+'"><div class="qs-val">'+s.val+'</div><div class="qs-lbl">'+label+'</div></'+tag+'>';
+    }).join('');
+
+    // Click handlers for filter stat boxes
+    document.querySelectorAll('.qs-clickable[data-click^="filter:"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        var rarity = el.getAttribute('data-click').split(':')[1];
+        document.querySelectorAll('#rarityChips .chip').forEach(function(c){ c.classList.remove('active'); });
+        var targetChip = document.querySelector('#rarityChips .chip[data-value="'+rarity+'"]');
+        if (targetChip) targetChip.classList.add('active');
+        currentRarity = rarity;
+        render();
+      });
+    });
+  })();
+
+  // ── Character Compatibility Table ──
+  (function initCompatTable() {
+    var weaponTypes = ['one-handed-sword','two-handed-sword','one-handed-axe','two-handed-axe','spear','dagger','bow'];
+    var typeLabels = {'one-handed-sword':'1H Sword','two-handed-sword':'2H Sword','one-handed-axe':'1H Axe','two-handed-axe':'2H Axe','spear':'Spear','dagger':'Dagger','bow':'Bow'};
+    var characters = ['kliff','oongka','damiane'];
+    var charLabels = {kliff:'Kliff',oongka:'Oongka',damiane:'Damiane'};
+    var rows = '';
+    weaponTypes.forEach(function(wt){
+      rows += '<tr><td style="text-align:left;font-weight:600;color:var(--text)">'+ (typeLabels[wt]||wt) +'</td>';
+      characters.forEach(function(ch){
+        var canUse = D.some(function(w){ return w.type === wt && (!w.character_restrictions || w.character_restrictions.length===0 || w.character_restrictions.indexOf(ch)>=0); });
+        rows += '<td class="'+(canUse?'yes':'no')+'">'+(canUse?'Yes':'—')+'</td>';
+      });
+      rows += '</tr>';
+    });
+    document.querySelector('#compatTable tbody').innerHTML = rows;
+  })();
+
+  // ── Top 10 Damage Ranking ──
+  (function initRanking() {
+    var sorted = D.slice().sort(function(a,b){ return (b.stats.attack||0)-(a.stats.attack||0); }).slice(0,5);
+    document.getElementById('rankingGrid').innerHTML = sorted.map(function(w, i){
+      return '<a href="/weapons/'+w.slug+'/" class="rank-card">' +
+        '<span class="rk-num">#'+(i+1)+'</span>' +
+        '<div class="rk-img"><img src="'+(w.image||'/images/weapons/placeholder.webp')+'" alt="'+w.name+'" style="width:36px;height:36px;object-fit:contain" onerror="this.parentElement.textContent=\'⚔️\'"></div>' +
+        '<div class="rk-info"><div class="rk-name">'+w.name+'</div><div class="rk-type">'+(TYPE_LABELS[w.type]||w.type)+' · Tier '+w.tier+' · <span class="r-'+w.rarity+'" style="font-size:12px;font-weight:600">'+w.rarity.toUpperCase()+'</span></div></div>' +
+        '<span class="rk-atk">ATK '+(w.stats.attack||0)+'</span>' +
+      '</a>';
+    }).join('');
+  })();
+})();
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+#!/usr/bin/env node
+const fs = require('fs'); const path = require('path');
+const DATA = path.join(__dirname, '..', 'data', 'accessories.json');
+const OUT = path.join(__dirname, '..', 'accessories');
+if (!fs.existsSync(DATA)) { console.error('accessories.json not found'); process.exit(1); }
+const items = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
+const TYPE_LABELS = { earring:'Earring', ring:'Ring', necklace:'Necklace' };
+let n = 0;
+
+for (const a of items) {
+  const dir = path.join(OUT, a.slug);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  const tl = TYPE_LABELS[a.type] || a.type;
+  const s = a.stats || {};
+  const statBoxes = [
+    ['Attack',s.attack],['Defense',s.defense],['Attack Speed',s.attack_speed],['Critical Rate',s.critical_rate],
+    ['Movement Speed',s.movement_speed],['Stamina Regen',s.stamina_regen,'%'],['Spirit Regen',s.spirit_regen,'/sec']
+  ].filter(([,v]) => v!==undefined&&v!==null).map(([l,v,suf]) =>
+    `<div class="stat-box"><div class="stat-value">${v}${v>0&&suf?' '+suf:''}</div><div class="stat-label">${l}</div></div>`
+  ).join('\n          ');
+
+  let acqHtml = '';
+  const ac = a.acquisition || {};
+  if (ac.method==='crafting') acqHtml += `<div class="info-row"><span class="info-label">Method</span><span class="info-value">Crafting</span></div>`;
+  if (ac.method==='vendor') acqHtml += `<div class="info-row"><span class="info-label">Method</span><span class="info-value">Vendor Purchase</span></div>`;
+  if (ac.method==='boss_drop') acqHtml += `<div class="info-row"><span class="info-label">Method</span><span class="info-value">Boss Drop</span></div>`;
+  if (ac.vendor) acqHtml += `<div class="info-row"><span class="info-label">Vendor</span><span class="info-value">${ac.vendor.split('-').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ')}</span></div>`;
+  if (ac.boss_drop) acqHtml += `<div class="info-row"><span class="info-label">Boss</span><span class="info-value">${ac.boss_drop.split('-').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ')}</span></div>`;
+  if (ac.location) acqHtml += `<div class="info-row"><span class="info-label">Location</span><span class="info-value">${ac.location.split('-').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ')}</span></div>`;
+  const desc = (a.description||'').replace(/"/g,'\\"');
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>${a.name} — ${tl} | CrimsonDesertDB</title>
+<meta name="description" content="${a.name} — ${tl}. ${a.special_effect||''} ${a.description||''}">
+<meta name="keywords" content="${a.name}, Crimson Desert accessory, ${tl}, ${a.rarity} accessory, Crimson Desert ${a.name}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://crimsondesertdb.com/accessories/${a.slug}/">
+<meta property="og:title" content="${a.name} — Crimson Desert ${tl}">
+<meta property="og:description" content="${a.rarity.toUpperCase()} ${tl}${a.special_effect?' — '+a.special_effect:''}">
+<meta property="og:image" content="https://crimsondesertdb.com/images/og-default.webp">
+<meta property="og:type" content="website"><meta property="og:url" content="https://crimsondesertdb.com/accessories/${a.slug}/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${a.name} — Crimson Desert ${tl}">
+<meta name="twitter:description" content="${a.rarity.toUpperCase()} ${tl}${a.special_effect?' — '+a.special_effect:''}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Accessory > ${tl}","additionalProperty":[{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://crimsondesertdb.com/"},{"@type":"ListItem","position":2,"name":"Accessories","item":"https://crimsondesertdb.com/accessories/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://crimsondesertdb.com/accessories/${a.slug}/"}]}
+</script>
+</head>
+<body>
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+<nav aria-label="Main navigation"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+  <a href="/weapons/" class="nav-link">Weapons</a><a href="/armor/" class="nav-link">Armor</a><a href="/accessories/" class="nav-link">Accessories</a><a href="/skills/" class="nav-link">Skills</a><a href="/abyss-gears/" class="nav-link">Abyss Gears</a><a href="/characters/" class="nav-link">Characters</a><a href="/enemies/" class="nav-link">Enemies</a><a href="/crafting/" class="nav-link">Crafting</a><a href="/tools/map/" class="nav-link">Map</a>
+</div></nav>
+<div class="page">
+<div class="detail-hero">
+<nav class="breadcrumb"><a href="/">Home</a> <span class="sep">/</span> <a href="/accessories/">Accessories</a> <span class="sep">/</span> <span>${a.name}</span></nav>
+<div class="detail-header">
+<div class="detail-icon"><img src="${a.image||'/images/accessories/placeholder.webp'}" alt="${a.name}" onerror="this.parentElement.textContent='💍'"></div>
+<div class="detail-title-block">
+<h1>${a.name} <span class="rarity-badge r-${a.rarity}">${a.rarity.toUpperCase()}</span></h1>
+<p class="detail-sub">${tl} · Tier ${a.tier}</p><p class="detail-sub">Required Level: ${a.required_level}</p>
+${a.special_effect?`<p class="detail-sub" style="color:var(--accent-d);">✨ ${a.special_effect}</p>`:''}
+</div></div></div>
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+<section class="info-section"><h2>Stats</h2><div class="stats-panel">${statBoxes}</div></section>
+${a.description?`<section class="info-section"><h2>Description</h2><p>${a.description}</p></section>`:''}
+${acqHtml?`<section class="info-section"><h2>Acquisition</h2><div class="info-grid">${acqHtml}</div></section>`:''}
+<div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+<p class="suggest-edit">See something wrong? <a href="/contact.html">Suggest an edit</a>.</p>
+</div>
+<footer><div class="footer-inner"><div class="footer-col"><h4>Database</h4><a href="/weapons/">Weapons</a><a href="/armor/">Armor</a><a href="/accessories/">Accessories</a><a href="/skills/">Skills</a><a href="/abyss-gears/">Abyss Gears</a><a href="/enemies/">Enemies</a><a href="/crafting/">Crafting</a></div><div class="footer-col"><h4>Tools</h4><a href="/tools/map/">Interactive Map</a><a href="/tools/build-calculator/">Build Calculator</a><a href="/tools/skill-planner/">Skill Planner</a></div><div class="footer-col"><h4>Site</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/contact.html">Contact</a></div></div><div class="footer-bottom">CrimsonDesertDB is a fan-made database. Crimson Desert is a trademark of <a href="https://pearlabyss.com" rel="noopener" target="_blank">Pearl Abyss</a>.</div></footer>
+<script src="/cookie-consent.js"></script>
+</body></html>`;
+  fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf-8');
+  n++;
+}
+console.log(`Generated ${n} accessory detail pages.`);

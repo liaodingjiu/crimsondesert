@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Mounts — Horses, Bears, Dragons &amp; Special Mounts | CrimsonDesertDB</title>
+<meta name="description" content="Complete guide to Crimson Desert mounts — horses for travel, bears for combat, dragons for endgame flight, and special mounts from quests. Learn mounted combat mechanics, how to tame and summon mounts.">
+<meta name="keywords" content="Crimson Desert mounts, Crimson Desert horses, Crimson Desert bears, Crimson Desert dragons, mounted combat, mount taming, flying mounts Crimson Desert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/mounts/">
+<meta property="og:title" content="Crimson Desert Mounts — Horses, Bears, Dragons &amp; Special Mounts">
+<meta property="og:description" content="Every mount in Crimson Desert. Horses for speed, bears for battle, dragons for the skies. Taming, combat, and acquisition guides.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/mounts/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Mounts Database">
+<meta name="twitter:description" content="All mount types in Crimson Desert — horses, bears, dragons, and special rewards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .page-header { padding: 28px 0 8px; }
+  .page-header h1 { font-size: 31px; font-weight: 700; }
+  .page-header h1 span { color: var(--accent); }
+  .page-header .page-desc { color: var(--text); font-size: 17px; max-width: 720px; margin-top: 6px; line-height: 1.7; }
+
+  .mount-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 24px 0; }
+  .mount-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .25s, transform .25s; }
+  .mount-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .mount-card .mc-icon { font-size: 40px; width: 64px; height: 64px; background: var(--accent-l); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .mount-card .mc-name { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .mount-card .mc-tagline { font-size: 14px; color: var(--accent-d); font-weight: 500; margin-bottom: 10px; }
+  .mount-card .mc-desc { font-size: 15px; color: var(--text2); line-height: 1.65; margin-bottom: 14px; }
+  .mount-card .mc-features { display: flex; flex-wrap: wrap; gap: 6px; }
+  .mount-card .mc-features .tag { font-size: 13px; }
+
+  .info-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; }
+  .info-section h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--text); padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .info-section p { color: var(--text2); font-size: 15px; line-height: 1.7; }
+  .info-section ul { color: var(--text2); font-size: 15px; line-height: 1.9; padding-left: 20px; }
+  .info-section ul li { margin-bottom: 4px; }
+  .info-section ul li strong { color: var(--text); }
+
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 16px 0 32px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; transition: border-color .2s; }
+  .faq-item:hover { border-color: var(--border-hover); }
+  .faq-item .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.95; }
+  .faq-item .faq-q .faq-icon { color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .faq-item .faq-a { font-size: 14px; color: var(--text2); line-height: 2.15; padding-left: 24px; }
+
+  .rel-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 24px; }
+  .rel-links a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none !important; transition: border-color .2s, background .2s; }
+  .rel-links a:hover { border-color: var(--accent); background: var(--accent-l); }
+
+  @media (max-width: 600px) {
+    .mount-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Crimson Desert Mounts",
+  "description": "Complete guide to Crimson Desert mounts — horses, bears, dragons, and special mounts. Mounted combat, taming, and acquisition.",
+  "url": "https://pyweldb.com/mounts/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Horses", "description": "Standard travel mounts for early game exploration" },
+      { "@type": "ListItem", "position": 2, "name": "Bears", "description": "Combat mounts with high HP and crowd control" },
+      { "@type": "ListItem", "position": 3, "name": "Dragons", "description": "Endgame flying mounts found in the Crimson Desert" },
+      { "@type": "ListItem", "position": 4, "name": "Special Mounts", "description": "Quest rewards and unique skin variants" }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Mounts", "item": "https://pyweldb.com/mounts/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get my first mount in Crimson Desert?","acceptedAnswer":{"@type":"Answer","text":"Your first horse becomes available early in Act 1 after the tutorial. Visit any stable in Hernand or tame a wild horse in the open fields using a Lasso. Wild-tamed horses often have better starting stats."}},{"@type":"Question","name":"Can you fight while mounted?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each character has unique mounted movesets — Kliff performs sweeping two-handed strikes, Oongka executes spear charges, and Damiane fires arrows with 360-degree mobility. Bears add melee AOE, and dragons allow aerial combat."}},{"@type":"Question","name":"What is the fastest mount?","acceptedAnswer":{"@type":"Answer","text":"The Crimson Steed (Legendary horse) has the highest base speed. Dragons fly over all terrain, making them functionally the fastest traversal option. Special mounts with speed bonuses can rival dragons on flat ground."}},{"@type":"Question","name":"Are there flying mounts?","acceptedAnswer":{"@type":"Answer","text":"Yes — dragons are flying mounts unlocked in the endgame Crimson Desert region. They allow true three-dimensional flight. Dragon flight has a stamina meter that depletes while airborne."}}]}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> Mounts</div>
+    <h1>Crimson Desert <span>Mounts</span></h1>
+    <p class="page-desc">Every mount type in Crimson Desert — from early-game horses to endgame dragons. Learn about mounted combat, taming mechanics, and how to unlock each mount category.</p>
+  </div>
+
+  <div class="ad-box ad-banner">Advertisement</div>
+
+  <div class="mount-grid">
+
+    <div class="mount-card">
+      <div class="mc-icon">🐴</div>
+      <div class="mc-name">Horses</div>
+      <div class="mc-tagline">Standard Travel Mounts</div>
+      <div class="mc-desc">Your first mount in Crimson Desert. Horses are available early in the game and provide reliable overland travel across all regions of Pywel. Multiple breeds with varying speed and stamina stats.</div>
+      <div class="mc-features">
+        <span class="tag">Early Game</span>
+        <span class="tag">Fast Travel</span>
+        <span class="tag">Stamina-Based</span>
+        <span class="tag">Tameable</span>
+      </div>
+    </div>
+
+    <div class="mount-card">
+      <div class="mc-icon">🐻</div>
+      <div class="mc-name">Bears</div>
+      <div class="mc-tagline">Combat Mounts</div>
+      <div class="mc-desc">Heavy combat mounts with massive HP pools and crowd-control abilities. Bears can swipe, charge, and knock down enemies while mounted. Ideal for players who want to fight without dismounting. Slower but devastating in battle.</div>
+      <div class="mc-features">
+        <span class="tag">High HP</span>
+        <span class="tag">Combat-Focused</span>
+        <span class="tag">CC Abilities</span>
+        <span class="tag">Mid-Game</span>
+      </div>
+    </div>
+
+    <div class="mount-card">
+      <div class="mc-icon">🐉</div>
+      <div class="mc-name">Dragons</div>
+      <div class="mc-tagline">Endgame Flying Mounts</div>
+      <div class="mc-desc">The ultimate mount type — dragons can fly across the Crimson Desert region, bypassing terrain and enemy ground forces. Unlocked through endgame quests and boss encounters. Drogon-like design with aerial combat capabilities and breath attacks.</div>
+      <div class="mc-features">
+        <span class="tag">Flying</span>
+        <span class="tag">Endgame</span>
+        <span class="tag">Aerial Combat</span>
+        <span class="tag">Breath Attack</span>
+      </div>
+    </div>
+
+    <div class="mount-card">
+      <div class="mc-icon">⭐</div>
+      <div class="mc-name">Special Mounts</div>
+      <div class="mc-tagline">Quest Rewards &amp; Unique Skins</div>
+      <div class="mc-desc">Exclusive mounts earned through main story quests, faction reputation, and limited-time events. These include unique skins for existing mount types, rare color variants, and legendary-tier mounts with bonus stats and visual effects.</div>
+      <div class="mc-features">
+        <span class="tag">Quest Rewards</span>
+        <span class="tag">Unique Skins</span>
+        <span class="tag">Legendary Stats</span>
+        <span class="tag">Event-Exclusive</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ad-box ad-banner">Advertisement</div>
+
+  <div class="info-section">
+    <h2>Mounted Combat Mechanics</h2>
+    <p>Mounts in Crimson Desert are more than just transportation — they are integral to combat. While mounted, Kliff can use two-handed weapons with increased reach, Oongka can charge with spears for devastating impact, and Damiane can fire arrows with enhanced mobility. Each mount type offers different combat bonuses:</p>
+    <ul style="margin-top:12px">
+      <li><strong>Horses</strong> — +15% movement speed during combat, lighter attack animations</li>
+      <li><strong>Bears</strong> — +40% stagger resistance, roar AOE that debuffs nearby enemies</li>
+      <li><strong>Dragons</strong> — Full aerial combat with fire breath, dive attacks, and immunity to ground AOE</li>
+      <li><strong>Special Mounts</strong> — Unique combat traits depending on the mount variant</li>
+    </ul>
+  </div>
+
+  <div class="info-section">
+    <h2>How to Obtain Mounts</h2>
+    <p>Mounts are acquired through several methods. Horses can be tamed in the wild using a Lasso (crafted at any stable). Bears require completing the "Beast Master" questline in the Hernand region. Dragons are locked behind the Crimson Desert main story arc. Special mounts are tied to specific NPC quests, faction reputation rewards, or seasonal events. Once unlocked, mounts are summoned via the Whistle item in your quick-slot.</p>
+    <div style="margin-top:16px;border-radius:8px;overflow:hidden;max-width:600px">
+      <div id="mountMap" style="background:#1a1210"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-top:none;border-radius:0 0 8px 8px;font-size:12px;color:var(--text)">
+        <span>🐴 Horses — Hernand fields</span>
+        <span>🐻 Bears — Hernand (Beast Master quest)</span>
+        <span>🐉 Dragons — Crimson Desert (endgame)</span>
+        <span>⭐ Special — NPC quests & events</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading" style="margin-top:32px"><h2>Mount FAQ</h2></div>
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> How do I get my first mount?</div>
+      <div class="faq-a">Your first horse becomes available early in Act 1 after completing the tutorial. Visit any stable in Hernand or Demeniss and speak to the stablemaster. You can either purchase a basic horse for gold or tame a wild horse in the open fields using a Lasso. Wild-tamed horses often have slightly better starting stats than purchased ones.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> Can you fight while mounted?</div>
+      <div class="faq-a">Yes! Crimson Desert features full mounted combat. Each character has unique mounted movesets: Kliff performs sweeping two-handed strikes, Oongka executes devastating spear charges, and Damiane fires arrows with 360-degree mobility. Bears add melee AOE attacks, and dragons allow full aerial combat with dive attacks and breath weapons. Mounted combat drains mount stamina, so manage it carefully.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> What is the fastest mount?</div>
+      <div class="faq-a">Among standard mounts, the <strong>Crimson Steed</strong> (Legendary-tier horse) has the highest base speed. However, for sheer traversal efficiency, dragons are unmatched — they fly over all terrain and obstacles, making them functionally the fastest way to reach any destination. Special mounts with speed bonuses (such as the Windrunner variant) can rival dragons on flat ground.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q:</span> Are there flying mounts in Crimson Desert?</div>
+      <div class="faq-a">Yes — dragons are the game's flying mounts, unlocked in the endgame Crimson Desert region. Unlike ground mounts, dragons allow true three-dimensional flight, letting you soar above mountains, cross chasms, and engage flying enemies. Dragon flight has a stamina meter that depletes while airborne; land periodically to regenerate. Aerial combat with dragons is a core endgame mechanic.</div>
+    </div>
+
+  </div>
+
+  <div class="section-heading"><h2>Explore More</h2></div>
+  <div class="rel-links">
+    <a href="/tools/map/">🗺️ Interactive Map</a>
+    <a href="/equipment/">📦 All Equipment</a>
+    <a href="/weapons/">⚔️ Weapons Database</a>
+    <a href="/characters/">👤 Characters</a>
+    <a href="/enemies/">👹 Enemies &amp; Bosses</a>
+    <a href="/guides/">📖 Game Guides</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script>
+// Load SVG map with mount markers
+fetch('/images/regions/pywel-map.svg')
+  .then(function(r){ return r.text(); })
+  .then(function(svg){
+    var div = document.getElementById('mountMap');
+    div.innerHTML = svg;
+    var svgEl = div.querySelector('svg');
+    svgEl.style.width = '100%';
+    svgEl.style.height = 'auto';
+    svgEl.style.display = 'block';
+    // Add mount markers
+    var ns = 'http://www.w3.org/2000/svg';
+    var markers = [
+      {x:180, y:440, icon:'🐴', label:'Horses', size:16},
+      {x:140, y:380, icon:'🐻', label:'Bears', size:16},
+      {x:860, y:280, icon:'🐉', label:'Dragons', size:16},
+      {x:500, y:580, icon:'⭐', label:'Special', size:14}
+    ];
+    markers.forEach(function(m){
+      var g = document.createElementNS(ns,'g');
+      var a = document.createElementNS(ns,'a');
+      a.setAttribute('href','/tools/map/');
+      var circle = document.createElementNS(ns,'circle');
+      circle.setAttribute('cx',m.x);circle.setAttribute('cy',m.y);circle.setAttribute('r',m.size+4);
+      circle.setAttribute('fill','rgba(196,96,64,0.25)');circle.setAttribute('stroke','#c46040');circle.setAttribute('stroke-width','2');
+      a.appendChild(circle);
+      var text = document.createElementNS(ns,'text');
+      text.setAttribute('x',m.x);text.setAttribute('y',m.y+5);text.setAttribute('text-anchor','middle');
+      text.setAttribute('font-size',m.size);text.textContent = m.icon;
+      a.appendChild(text);
+      var label = document.createElementNS(ns,'text');
+      label.setAttribute('x',m.x);label.setAttribute('y',m.y+m.size+16);label.setAttribute('text-anchor','middle');
+      label.setAttribute('font-size','9');label.setAttribute('fill','rgba(255,255,255,0.6)');label.setAttribute('font-family','Inter,sans-serif');
+      label.textContent = m.label;
+      a.appendChild(label);
+      svgEl.appendChild(a);
+    });
+  })
+  .catch(function(){
+    document.getElementById('mountMap').innerHTML = '';
+  });
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

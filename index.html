@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Database — Weapons, Armor, Skills & Crafting | CrimsonDesertDB</title>
+<meta name="description" content="Crimson Desert database — 20 weapons, 20 armor pieces, 12 accessories, 15 skills. 3 characters, 5 regions, 90km² world. Interactive tools, build calculators, stat breakdowns. All data, no fluff.">
+<meta name="keywords" content="Crimson Desert database, Crimson Desert weapons, Crimson Desert armor, Crimson Desert skills, Crimson Desert characters, Crimson Desert regions, Crimson Desert map, Crimson Desert wiki, Crimson Desert items">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/">
+<meta property="og:title" content="Crimson Desert Database — Weapons, Armor, Skills & Crafting">
+<meta property="og:description" content="The comprehensive Crimson Desert database. All data, no fluff.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Database">
+<meta name="twitter:description" content="The comprehensive Crimson Desert database — all data, no fluff.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CrimsonDesertDB",
+  "url": "https://pyweldb.com/",
+  "description": "The comprehensive Crimson Desert database — weapons, armor, skills, Abyss Gears, crafting recipes, and interactive tools.",
+  "publisher": { "@type": "Organization", "name": "CrimsonDesertDB" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is Crimson Desert?","acceptedAnswer":{"@type":"Answer","text":"Crimson Desert is an open-world action-adventure game developed by Pearl Abyss, set in the continent of Pywel. It features free-form combat, a non-linear story, and a seamless 90km² world."}},
+    {"@type":"Question","name":"Is Crimson Desert an MMO?","acceptedAnswer":{"@type":"Answer","text":"No. Crimson Desert is primarily a single-player open-world game with optional online elements. It shares the BlackSpace engine with Black Desert Online but is a separate, narrative-driven experience."}},
+    {"@type":"Question","name":"How many playable characters are there?","acceptedAnswer":{"@type":"Answer","text":"Three — Kliff (sword & shield warrior), Oongka (heavy weapons destroyer), and Damiane (arcane mystic). Each has unique skill trees and combat styles."}},
+    {"@type":"Question","name":"How do I compare weapons and armor?","acceptedAnswer":{"@type":"Answer","text":"Use the Equipment Compare tool to see stats side-by-side, or the Build Calculator to equip a full gear set and see total stats for each character. Filter by rarity, type, and character for accurate comparisons."}},
+    {"@type":"Question","name":"How are weapon tier rankings calculated?","acceptedAnswer":{"@type":"Answer","text":"Composite Score = ATK + (Speed × 3) + (Crit × 2). Speed and Crit are weighted because they impact DPS more than raw ATK. All rankings are data-driven — no opinion, just math. Filter by weapon type on the Tier List page."}},
+    {"@type":"Question","name":"What are Abyss Gears?","acceptedAnswer":{"@type":"Answer","text":"Socketable items that add special attacks and effects to weapons and armor. Different Gears are compatible with different weapon types. Categories: Swift, Insight, Vigor, Composure, and Elemental."}},
+    {"@type":"Question","name":"How big is the map?","acceptedAnswer":{"@type":"Answer","text":"The continent of Pywel spans approximately 90km² across 5 regions — Hernand, Pailune, Demeniss, Delesyia, and the Crimson Desert. Each has unique biomes, enemies, bosses, and gear."}},
+    {"@type":"Question","name":"How do I find where a specific item drops?","acceptedAnswer":{"@type":"Answer","text":"Every equipment page has an Acquisition section showing how to get it — boss drop (with boss name and region), location find, crafting recipe, or vendor purchase. Browse Weapons, Armor, or Accessories and click any item for full details."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="top-bar">
+  Crimson Desert Database — Your data-driven companion for Crimson Desert. Updated <time datetime="2026-07">July 2026</time>.
+</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Crimson Desert <span>Database</span></h1>
+  <p class="hero-sub">
+    <strong>20 Weapons · 20 Armor Pieces · 12 Accessories · 15 Skills.</strong>
+    Explore 5 regions across 90km² of Pywel. Master 3 unique characters — Kliff, Oongka, and Damiane.
+    Interactive tools, build calculators, and detailed stat breakdowns.
+    <strong>All data, no fluff.</strong>
+  </p>
+  <div class="hero-quick">
+    <a href="/equipment/">
+      <span class="hq-icon">⚔️</span>
+      <span class="hq-label">Browse Equipment</span>
+      <span class="hq-sub">52 weapons &amp; armor</span>
+    </a>
+    <a href="/characters/">
+      <span class="hq-icon">👤</span>
+      <span class="hq-label">Choose Your Hero</span>
+      <span class="hq-sub">Kliff · Oongka · Damiane</span>
+    </a>
+    <a href="/tools/build-calculator/">
+      <span class="hq-icon">🧮</span>
+      <span class="hq-label">Plan Your Build</span>
+      <span class="hq-sub">Compare stats &amp; gear</span>
+    </a>
+  </div>
+</div>
+
+<!-- Ad Slot -->
+<div class="ad-box ad-leaderboard ad-placeholder">Advertisement</div>
+
+<!-- Hub Grid -->
+<section>
+  <div class="hub-grid">
+    <a href="/weapons/" class="hub-card featured">
+      <div class="card-icon" style="background:var(--red-l)">⚔️</div>
+      <span class="card-label">Weapons</span>
+      <span class="card-count">One-handed · Two-handed · Swords · Spears · Axes · Bows</span>
+    </a>
+    <a href="/armor/" class="hub-card featured">
+      <div class="card-icon" style="background:var(--blue-l)">🛡️</div>
+      <span class="card-label">Armor</span>
+      <span class="card-count">Plate · Leather · Cloth · 5 Equipment Slots</span>
+    </a>
+    <a href="/accessories/" class="hub-card">
+      <div class="card-icon" style="background:var(--gold-l)">💍</div>
+      <span class="card-label">Accessories</span>
+      <span class="card-count">Earrings · Rings · Necklaces</span>
+    </a>
+    <a href="/skills/" class="hub-card">
+      <div class="card-icon" style="background:var(--purple-l)">⚡</div>
+      <span class="card-label">Skills</span>
+      <span class="card-count">Kliff · Oongka · Damiane — Active & Passive</span>
+    </a>
+    <a href="/abyss-gears/" class="hub-card">
+      <div class="card-icon" style="background:var(--accent-l)">🔮</div>
+      <span class="card-label">Abyss Gears</span>
+      <span class="card-count">Socketable Skills · Elemental · Utility</span>
+    </a>
+    <a href="/crafting/" class="hub-card">
+      <div class="card-icon" style="background:var(--green-l)">🔨</div>
+      <span class="card-label">Crafting</span>
+      <span class="card-count">Weapons · Armor · Equipment Recipes</span>
+    </a>
+    <a href="/enemies/" class="hub-card">
+      <div class="card-icon" style="background:var(--red-l)">👹</div>
+      <span class="card-label">Enemies &amp; Bosses</span>
+      <span class="card-count">Stats · Weaknesses · Drops · Locations</span>
+    </a>
+    <a href="/cooking/" class="hub-card">
+      <div class="card-icon" style="background:var(--green-l)">🍲</div>
+      <span class="card-label">Cooking &amp; Alchemy</span>
+      <span class="card-count">Recipes · Effects · Ingredients</span>
+    </a>
+    <a href="/mounts/" class="hub-card">
+      <div class="card-icon" style="background:var(--gold-l)">🐎</div>
+      <span class="card-label">Mounts</span>
+      <span class="card-count">Horses · Bears · Dragons · Special Mounts</span>
+    </a>
+  </div>
+</section>
+
+<!-- Ad Slot -->
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<!-- The World of Pywel — Regions -->
+<section>
+  <div class="section-heading">
+    <h2>The World of <span style="color:var(--accent)">Pywel</span></h2>
+    <p>Explore 5 distinct regions — 90km² of biomes, bosses, and legendary gear</p>
+  </div>
+  <div class="region-grid">
+
+    <div class="region-card">
+      <div class="rc-header">
+        <div class="rc-icon">🏰</div>
+        <span class="rc-name">Hernand</span>
+        <span class="rc-level">Lv 1–20</span>
+      </div>
+      <p class="rc-desc">The starting region and your gateway to Pywel. Rolling grasslands, scattered villages, and ancient ruins. Rich in early-game unique weapons and the Shadow Set armor collection.</p>
+      <div class="rc-meta">
+        <span class="rc-tag"><strong>Bosses:</strong> <a href="/enemies/">Goblin King</a>, Shadow Warrior</span>
+        <span class="rc-tag"><strong>Gear:</strong> <a href="/armor/sets/">Shadow Set</a>, <a href="/weapons/hwando/">Hwando</a>, <a href="/weapons/survivors-solitude/">Survivor's Solitude</a></span>
+      </div>
+    </div>
+
+    <div class="region-card">
+      <div class="rc-header">
+        <div class="rc-icon">🏔️</div>
+        <span class="rc-name">Pailune</span>
+        <span class="rc-level">Lv 15–30</span>
+      </div>
+      <p class="rc-desc">A mountainous region with ancient temples and harsh weather. Mid-game zone introducing complex Abyss Gears and elemental enemies. The Witch of the Marsh resides here.</p>
+      <div class="rc-meta">
+        <span class="rc-tag"><strong>Bosses:</strong> <a href="/enemies/">Witch of the Marsh</a>, Warlord Ghost</span>
+        <span class="rc-tag"><strong>Gear:</strong> <a href="/weapons/tauria-curved-sword/">Tauria Curved Sword</a>, <a href="/accessories/witchs-earring/">Witch's Earring</a>, <a href="/accessories/witchs-ring/">Witch's Ring</a></span>
+      </div>
+    </div>
+
+    <div class="region-card">
+      <div class="rc-header">
+        <div class="rc-icon">🌑</div>
+        <span class="rc-name">Demeniss</span>
+        <span class="rc-level">Lv 25–40</span>
+      </div>
+      <p class="rc-desc">A dark, corrupted region where the Abyss's influence is strongest. End-game zone with legendary equipment drops. The Goyen boss encounter unlocks top-tier weapons.</p>
+      <div class="rc-meta">
+        <span class="rc-tag"><strong>Bosses:</strong> <a href="/enemies/">Goyen</a>, Shadow Lord, Dark Ringleader</span>
+        <span class="rc-tag"><strong>Gear:</strong> <a href="/weapons/fated-shadow/">Fated Shadow</a>, <a href="/weapons/darkbringer/">Darkbringer</a>, <a href="/armor/sets/">Dark Ringleader Set</a></span>
+      </div>
+    </div>
+
+    <div class="region-card">
+      <div class="rc-header">
+        <div class="rc-icon">🌿</div>
+        <span class="rc-name">Delesyia</span>
+        <span class="rc-level">Lv 20–35</span>
+      </div>
+      <p class="rc-desc">A lush but dangerous region filled with ancient forests and mythical beasts. Home to the Thunder Beast and White Lion, both dropping top-tier necklaces. Rich in alchemy and cooking ingredients.</p>
+      <div class="rc-meta">
+        <span class="rc-tag"><strong>Bosses:</strong> <a href="/enemies/">Thunder Beast</a>, White Lion</span>
+        <span class="rc-tag"><strong>Gear:</strong> <a href="/accessories/necklace-of-lightning/">Necklace of Lightning</a>, <a href="/accessories/white-lion-necklace/">White Lion Necklace</a></span>
+      </div>
+    </div>
+
+    <div class="region-card">
+      <div class="rc-header">
+        <div class="rc-icon">🏜️</div>
+        <span class="rc-name">Crimson Desert</span>
+        <span class="rc-level">Lv 35–50</span>
+      </div>
+      <p class="rc-desc">The namesake endgame region. A harsh desert wasteland with the game's toughest challenges. The Abyss Warden and Crimson Dragon await — dropping some of the best gear in the game.</p>
+      <div class="rc-meta">
+        <span class="rc-tag"><strong>Bosses:</strong> <a href="/enemies/">Abyss Warden</a>, Crimson Dragon</span>
+        <span class="rc-tag"><strong>Gear:</strong> <a href="/weapons/abyssal-longspear/">Abyssal Longspear</a>, <a href="/accessories/crimson-ruby-earring/">Crimson Ruby Earring</a>, <a href="/accessories/ring-of-the-abyss/">Ring of the Abyss</a></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Ad Slot -->
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<!-- What Are You Looking For -->
+<section>
+  <div class="section-heading">
+    <h2>What Are You <span style="color:var(--accent)">Looking For?</span></h2>
+    <p>Everything you need to master Crimson Desert — all in one place</p>
+  </div>
+  <div class="hub-grid">
+    <div class="hub-card" style="border-color:var(--red);">
+      <div class="card-icon" style="background:var(--red-l)">⚔️</div>
+      <span class="card-label">Gear Database</span>
+      <span class="card-count">Browse 52 weapons, armor &amp; accessories. Complete stats, acquisition methods, boss drop locations, and tier rankings.</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:4px">
+        <a href="/weapons/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Weapons</a>
+        <a href="/armor/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Armor</a>
+        <a href="/weapons/tier-list/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Tier List</a>
+      </div>
+    </div>
+    <div class="hub-card" style="border-color:var(--purple);">
+      <div class="card-icon" style="background:var(--purple-l)">🧠</div>
+      <span class="card-label">Build Planner</span>
+      <span class="card-count">Equip gear, see total stats, compare builds, and allocate skill points. Plan your perfect character setup before you farm.</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:4px">
+        <a href="/tools/build-calculator/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Build Calc</a>
+        <a href="/tools/skill-planner/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Skill Planner</a>
+        <a href="/tools/equipment-compare/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Compare</a>
+      </div>
+    </div>
+    <div class="hub-card" style="border-color:var(--blue);">
+      <div class="card-icon" style="background:var(--blue-l)">🗺️</div>
+      <span class="card-label">Explore the World</span>
+      <span class="card-count">5 regions across 90km². Find boss locations, enemy weaknesses, mount types, and region-specific gear drops.</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:4px">
+        <a href="/enemies/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Enemies</a>
+        <a href="/tools/map/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Map</a>
+        <a href="/mounts/" style="font-size:13px;color:var(--accent-d);padding:3px 10px;border:1px solid var(--border);border-radius:12px;font-weight:500">Mounts</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-heading">
+    <h2>Frequently Asked <span style="color:var(--accent)">Questions</span></h2>
+    <p>Quick answers about Crimson Desert's mechanics, characters, and systems</p>
+  </div>
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> What is Crimson Desert?</div>
+      <div class="faq-a">Crimson Desert is an open-world action-adventure game developed by Pearl Abyss, set in the continent of Pywel. It features free-form combat, a non-linear story, and a seamless 90km² world to explore.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> Is Crimson Desert an MMO?</div>
+      <div class="faq-a">No. Crimson Desert is primarily a single-player open-world game, with optional online elements. It shares the same engine (BlackSpace) as Black Desert Online but is a separate, narrative-driven experience.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> How many playable characters are there?</div>
+      <div class="faq-a">Three — <strong>Kliff</strong> (sword & shield warrior), <strong>Oongka</strong> (heavy weapons destroyer), and <strong>Damiane</strong> (arcane mystic). Each has unique skill trees and combat styles. <a href="/skills/">Browse all skills →</a></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> How do I compare weapons and armor?</div>
+      <div class="faq-a">Use the <a href="/tools/equipment-compare/">Equipment Compare</a> tool to see stats side-by-side, or the <a href="/tools/build-calculator/">Build Calculator</a> to equip a full gear set and see total stats for each character. Filter by rarity, type, and character for accurate comparisons.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> How are weapon tier rankings calculated?</div>
+      <div class="faq-a">Composite Score = <strong>ATK + (Speed × 3) + (Crit × 2)</strong>. Speed and Crit are weighted because they impact DPS more than raw ATK. All rankings are data-driven — no opinion, just math. <a href="/weapons/tier-list/">See the full tier list →</a></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> What are Abyss Gears?</div>
+      <div class="faq-a">Socketable items that add special attacks and effects to your weapons and armor. They are the game's most unique customization system — different Gears are compatible with different weapon types. Categories include Swift, Insight, Vigor, Composure, and Elemental. <a href="/abyss-gears/">Browse Abyss Gears →</a></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> How big is the map?</div>
+      <div class="faq-a">The continent of Pywel spans approximately 90km² across 5 distinct regions — Hernand, Pailune, Demeniss, Delesyia, and the Crimson Desert. Each region has unique biomes, enemies, bosses, and gear drops.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> How do I find where a specific item drops?</div>
+      <div class="faq-a">Every equipment page has an <strong>Acquisition</strong> section showing how to get it — boss drop (with boss name and region), location find, crafting recipe, or vendor purchase. <a href="/weapons/">Browse Weapons</a>, <a href="/armor/">Armor</a>, or <a href="/accessories/">Accessories</a> and click any item for full details.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Interactive Tools -->
+<style>
+.tools-4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+@media(max-width:768px){.tools-4-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tools-4-grid{grid-template-columns:1fr}}
+</style>
+<section>
+  <div class="section-heading">
+    <h2>Interactive Tools</h2>
+    <p>Plan your build and optimize your gameplay</p>
+  </div>
+  <div class="tools-4-grid">
+    <a href="/tools/build-calculator/" class="hub-card" style="border-color:var(--blue);">
+      <div class="card-icon" style="background:var(--blue-l)">📊</div>
+      <span class="card-label">Build Calculator</span>
+      <span class="card-count">Equip gear · See total stats · Compare builds</span>
+    </a>
+    <a href="/tools/skill-planner/" class="hub-card" style="border-color:var(--purple);">
+      <div class="card-icon" style="background:var(--purple-l)">🧠</div>
+      <span class="card-label">Skill Planner</span>
+      <span class="card-count">3 characters · Skill tree allocation · Shareable</span>
+    </a>
+    <a href="/tools/recipe-finder/" class="hub-card" style="border-color:var(--green);">
+      <div class="card-icon" style="background:var(--green-l)">🧪</div>
+      <span class="card-label">Recipe Finder</span>
+      <span class="card-count">Input materials → Find craftable items</span>
+    </a>
+    <a href="/tools/equipment-compare/" class="hub-card" style="border-color:var(--accent);">
+      <div class="card-icon" style="background:var(--accent-l)">⚖️</div>
+      <span class="card-label">Equipment Compare</span>
+      <span class="card-count">Side-by-side stat comparison · Find the best gear</span>
+    </a>
+  </div>
+</section>
+
+<!-- Download Routes -->
+<section>
+  <div class="section-heading">
+    <h2>Download <span style="color:var(--accent)">Crimson Desert</span></h2>
+    <p>Available platforms, install guides, and save file safety</p>
+  </div>
+  <div class="download-grid">
+
+    <div class="dl-card">
+      <div class="dl-icon" style="background:var(--blue-l)">🖥️</div>
+      <div class="dl-name">PC (Windows)</div>
+      <div class="dl-desc">Download directly from the official Pearl Abyss launcher or via Steam. Minimum requirements: GTX 1060 / RX 580, 16GB RAM, 100GB SSD.</div>
+      <div class="dl-meta">
+        <span class="dl-tag blue">Pearl Abyss Launcher</span>
+        <span class="dl-tag blue">Windows 10/11</span>
+      </div>
+    </div>
+
+    <div class="dl-card">
+      <div class="dl-icon" style="background:var(--blue-l)">🎮</div>
+      <div class="dl-name">Steam</div>
+      <div class="dl-desc">Available on Steam with full achievement support, cloud saves, and automatic updates. Steam Deck compatibility is confirmed for launch.</div>
+      <div class="dl-meta">
+        <span class="dl-tag blue">Steam</span>
+        <span class="dl-tag green">Steam Deck ✓</span>
+        <span class="dl-tag gold">Cloud Save</span>
+      </div>
+    </div>
+
+    <div class="dl-card">
+      <div class="dl-icon" style="background:var(--green-l)">📱</div>
+      <div class="dl-name">Mobile (Companion App)</div>
+      <div class="dl-desc">A companion app is in development for iOS and Android — manage inventory, track quests, and sync builds. Not a full game client; pairs with PC.</div>
+      <div class="dl-meta">
+        <span class="dl-tag green">iOS</span>
+        <span class="dl-tag green">Android</span>
+        <span class="dl-tag gold">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="dl-card">
+      <div class="dl-icon" style="background:var(--red-l)">💾</div>
+      <div class="dl-name">Save File Safety</div>
+      <div class="dl-desc"><strong>Save files are stored locally</strong> on your PC (Documents/PearlAbyss/CrimsonDesert/Saves). Cloud sync is available via Steam Cloud. Always back up saves before modding. Save editors from unverified sources may corrupt your progress.</div>
+      <div class="dl-meta">
+        <span class="dl-tag" style="background:var(--red-l);border-color:var(--red);color:var(--red)">Local Storage</span>
+        <span class="dl-tag gold">Steam Cloud Backup</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

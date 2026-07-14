@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Equipment Compare — Weapons, Armor & Accessories Side-by-Side | CrimsonDesertDB</title>
+<meta name="description" content="Compare Crimson Desert weapons, armor, and accessories side by side. All stats shown with the better value highlighted. Switch between Weapons, Armor, and Accessories categories.">
+<meta name="keywords" content="Crimson Desert equipment compare, weapon comparison, armor comparison, stat comparison, compare weapons, best gear Crimson Desert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/tools/equipment-compare/">
+<meta property="og:title" content="Crimson Desert Equipment Compare — Side-by-Side Stats">
+<meta property="og:description" content="Compare any two weapons side by side. All 7 stats shown with the better value highlighted in green.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/tools/equipment-compare/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Equipment Compare">
+<meta name="twitter:description" content="Side-by-side weapon stat comparison for Crimson Desert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .page-header { padding: 28px 0 8px; }
+  .page-header h1 { font-size: 31px; font-weight: 700; }
+  .page-header h1 span { color: var(--accent); }
+  .page-header .page-desc { color: var(--text); font-size: 17px; max-width: 680px; margin-top: 6px; line-height: 1.7; }
+
+  .compare-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+  .compare-panel h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+
+  .compare-form { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: end; margin-bottom: 20px; }
+  @media (max-width: 768px) { .compare-form { grid-template-columns: 1fr; } }
+
+  .compare-form .vs-divider { text-align: center; font-size: 18px; font-weight: 700; color: var(--accent); padding-bottom: 12px; align-self: end; }
+  @media (max-width: 768px) { .compare-form .vs-divider { padding: 8px 0; } }
+
+  .form-group { margin-bottom: 0; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .03em; }
+  .form-select { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--muted-bg); color: var(--text); font-size: 14px; font-family: inherit; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a7c70' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+
+  .btn-row { text-align: center; margin-bottom: 24px; }
+  .btn-compare { padding: 12px 40px; font-size: 16px; }
+
+  #results { display: none; }
+  #results.visible { display: block; }
+
+  .compare-table-wrap { overflow-x: auto; margin-bottom: 24px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .compare-table th, .compare-table td { padding: 12px 16px; border: 1px solid var(--border); text-align: center; }
+  .compare-table th { background: var(--surface); color: var(--text2); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  .compare-table th:first-child { text-align: left; min-width: 140px; }
+  .compare-table td:first-child { text-align: left; font-weight: 500; color: var(--text); }
+  .compare-table .stat-better { color: var(--green); font-weight: 600; }
+  .compare-table .stat-worse { color: var(--red); }
+  .compare-table .stat-equal { color: var(--text3); }
+  .compare-table .item-header { font-size: 16px; font-weight: 700; color: var(--accent-d); }
+
+  .item-info { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .item-info { grid-template-columns: 1fr; } }
+  .item-info-box { background: var(--muted-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; }
+  .item-info-box .iib-name { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .item-info-box .iib-meta { font-size: 13px; color: var(--text2); }
+
+  .no-data { text-align: center; padding: 40px 20px; color: var(--text3); font-size: 15px; }
+
+  .info-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin: 24px 0; }
+  .info-section h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--text); padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .info-section p { color: var(--text2); font-size: 15px; line-height: 1.7; }
+
+  .rel-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 24px; }
+  .rel-links a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none !important; transition: border-color .2s, background .2s; }
+  .rel-links a:hover { border-color: var(--accent); background: var(--accent-l); }
+  .cat-tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+  .cat-tab{padding:10px 20px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;background:var(--surface);color:var(--text2);font-family:inherit;transition:all .15s}
+  .cat-tab:hover{border-color:var(--accent);color:var(--accent-d)}
+  .cat-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  @media (max-width: 600px) { .compare-form { grid-template-columns: 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Crimson Desert Equipment Compare",
+  "description": "Compare any two Crimson Desert weapons side by side. All 7 stats shown with the better value highlighted in green.",
+  "url": "https://pyweldb.com/tools/equipment-compare/",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pyweldb.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Equipment Compare", "item": "https://pyweldb.com/tools/equipment-compare/" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> <a href="/tools/build-calculator/">Tools</a> <span class="sep">›</span> Equipment Compare</div>
+    <h1>Equipment <span>Compare</span></h1>
+    <p class="page-desc">Compare weapons, armor, and accessories side by side. Select a category, pick two items, and see all stats with the better value highlighted in green.</p>
+  </div>
+
+  <div class="ad-box ad-banner">Advertisement</div>
+
+  <div class="compare-panel">
+    <div class="cat-tabs" id="catTabs">
+      <button class="cat-tab active" data-cat="weapons">⚔️ Weapons</button>
+      <button class="cat-tab" data-cat="armor">🛡️ Armor</button>
+      <button class="cat-tab" data-cat="accessories">💍 Accessories</button>
+    </div>
+
+    <div class="compare-form">
+      <div class="form-group">
+        <label for="item1">Item 1</label>
+        <select id="item1" class="form-select">
+          <option value="">-- Select an item --</option>
+        </select>
+      </div>
+      <div class="vs-divider">VS</div>
+      <div class="form-group">
+        <label for="item2">Item 2</label>
+        <select id="item2" class="form-select">
+          <option value="">-- Select an item --</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button id="compareBtn" class="btn btn-primary btn-compare">Compare Items</button>
+    </div>
+
+    <div id="results">
+      <div class="item-info">
+        <div class="item-info-box" id="info1"></div>
+        <div class="item-info-box" id="info2"></div>
+      </div>
+
+      <h3 style="font-size:18px;font-weight:600;margin-bottom:12px">Stat Comparison</h3>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Stat</th>
+              <th id="header1">Item 1</th>
+              <th id="header2">Item 2</th>
+              <th>Winner</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="no-data" id="noData">Select a category above, pick two items, and click <strong>Compare Items</strong> to see the side-by-side breakdown.</div>
+  </div>
+
+  <div class="ad-box ad-banner">Advertisement</div>
+
+  <div class="info-section">
+    <h2>About This Tool</h2>
+    <p>The Equipment Compare tool lets you compare any two weapons from our database side by side. All seven core stats are displayed: Attack, Defense, Attack Speed, Critical Rate, Movement Speed, Stamina Regen, and Spirit Regen. The weapon with the higher value for each stat is highlighted in green.</p>
+    <p style="margin-top:10px">Use this tool when deciding between weapon upgrades, comparing different weapon types (1H vs 2H), or evaluating how a weapon switch changes your overall build stats. Pair with the <a href="/tools/build-calculator/" style="color:var(--accent-d);font-weight:500">Build Calculator</a> for a complete build analysis.</p>
+  </div>
+
+  <div class="section-heading" style="margin-top:24px"><h2>Explore More</h2></div>
+  <div class="rel-links">
+    <a href="/weapons/">⚔️ Weapons Database</a>
+    <a href="/armor/">🛡️ Armor Database</a>
+    <a href="/tools/build-calculator/">📊 Build Calculator</a>
+    <a href="/characters/">👤 Character Database</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script src="/weapons/weapons-data.js"></script>
+<script src="/armor/armor-data.js"></script>
+<script src="/accessories/accessories-data.js"></script>
+<script>
+(function() {
+  var W = window.__WEAPONS__ || [];
+  var A = window.__ARMOR__ || [];
+  var AC = window.__ACCESSORIES__ || [];
+
+  var currentCat = 'weapons';
+  var select1 = document.getElementById('item1');
+  var select2 = document.getElementById('item2');
+  var compareBtn = document.getElementById('compareBtn');
+  var resultsDiv = document.getElementById('results');
+  var noData = document.getElementById('noData');
+  var compareBody = document.getElementById('compareBody');
+  var header1 = document.getElementById('header1');
+  var header2 = document.getElementById('header2');
+  var info1 = document.getElementById('info1');
+  var info2 = document.getElementById('info2');
+
+  var WTYPE = {'one-handed-sword':'1H Sword','two-handed-sword':'2H Sword','spear':'Spear','axe':'Axe','dagger':'Dagger','bow':'Bow'};
+  var ATYPE = {plate:'Plate',leather:'Leather',cloth:'Cloth'};
+  var ASLOT = {head:'Helmet',chest:'Chest',gloves:'Gloves',boots:'Boots',cloak:'Cloak'};
+  var ACTYPE = {earring:'Earring',ring:'Ring',necklace:'Necklace'};
+
+  var STATS = [
+    {key:'attack',label:'Attack'},{key:'defense',label:'Defense'},
+    {key:'attack_speed',label:'Attack Speed'},{key:'critical_rate',label:'Critical Rate'},
+    {key:'movement_speed',label:'Movement Speed'},{key:'stamina_regen',label:'Stamina Regen'},
+    {key:'spirit_regen',label:'Spirit Regen'}
+  ];
+
+  function getData(){
+    if(currentCat==='weapons') return W;
+    if(currentCat==='armor') return A;
+    return AC;
+  }
+
+  function itemLabel(item){
+    if(currentCat==='weapons') return (WTYPE[item.type]||item.type)+' · Tier '+item.tier;
+    if(currentCat==='armor') return (ATYPE[item.type]||item.type)+' · '+(ASLOT[item.slot]||item.slot)+' · Tier '+item.tier+(item.set_name?' · '+item.set_name:'');
+    return (ACTYPE[item.type]||item.type)+' · Tier '+item.tier+(item.special_effect?' · '+item.special_effect:'');
+  }
+
+  function getUrl(item){
+    return '/'+currentCat+'/'+item.slug+'/';
+  }
+
+  function populate(){
+    var data = getData().slice().sort(function(a,b){return a.name.localeCompare(b.name);});
+    [select1,select2].forEach(function(sel){
+      sel.innerHTML = '<option value="">-- Select an item --</option>';
+      data.forEach(function(item){
+        var o = document.createElement('option');
+        o.value = item.slug;
+        o.textContent = item.name + ' (' + item.rarity.toUpperCase() + ')';
+        sel.appendChild(o);
+      });
+    });
+    resultsDiv.classList.remove('visible');
+    noData.style.display = 'block';
+  }
+
+  function renderInfo(box, item){
+    box.innerHTML = '<div class="iib-name"><a href="'+getUrl(item)+'" style="color:var(--accent-d);text-decoration:none">'+item.name+'</a></div>'+
+      '<div class="iib-meta">'+itemLabel(item)+' · <span style="font-weight:600;text-transform:uppercase">'+item.rarity+'</span></div>'+
+      '<div class="iib-meta">Required Level: '+(item.required_level||1)+'</div>';
+  }
+
+  function doCompare(){
+    var slug1 = select1.value, slug2 = select2.value;
+    if(!slug1||!slug2){alert('Please select both items.');return;}
+    if(slug1===slug2){alert('Please select two different items.');return;}
+    var data = getData();
+    var item1 = data.find(function(i){return i.slug===slug1;});
+    var item2 = data.find(function(i){return i.slug===slug2;});
+    if(!item1||!item2){alert('Item data not found.');return;}
+
+    header1.textContent = item1.name; header2.textContent = item2.name;
+    renderInfo(info1, item1); renderInfo(info2, item2);
+
+    var rows = '';
+    STATS.forEach(function(s){
+      var v1 = item1.stats[s.key]||0, v2 = item2.stats[s.key]||0;
+      var c1='',c2='',win='';
+      if(v1>v2){c1='stat-better';c2='stat-worse';win=item1.name;}
+      else if(v2>v1){c1='stat-worse';c2='stat-better';win=item2.name;}
+      else{c1='stat-equal';c2='stat-equal';win='Tie';}
+      rows += '<tr><td>'+s.label+'</td><td class="'+c1+'">'+v1+'</td><td class="'+c2+'">'+v2+'</td><td style="font-weight:600;color:var(--text)">'+win+'</td></tr>';
+    });
+    compareBody.innerHTML = rows;
+    resultsDiv.classList.add('visible');
+    noData.style.display = 'none';
+  }
+
+  // Category tabs
+  document.querySelectorAll('#catTabs .cat-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('#catTabs .cat-tab').forEach(function(t){t.classList.remove('active');});
+      tab.classList.add('active');
+      currentCat = tab.getAttribute('data-cat');
+      select1.value = ''; select2.value = '';
+      populate();
+    });
+  });
+
+  compareBtn.addEventListener('click', doCompare);
+  populate();
+
+  // URL params
+  var params = new URLSearchParams(window.location.search);
+  var items = params.get('items');
+  if(items){
+    var slugs = items.split(',').filter(Boolean);
+    if(slugs.length>=2){
+      select1.value = slugs[0]; select2.value = slugs[1];
+      doCompare();
+    }
+  }
+})();
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

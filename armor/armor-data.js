@@ -1,0 +1,792 @@
+window.__ARMOR__ = [
+  {
+    "name": "Plate Armor of the Shadows",
+    "slug": "plate-armor-of-the-shadows",
+    "type": "plate",
+    "slot": "chest",
+    "set_name": "Shadow Set",
+    "set_slug": "shadow-set",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 0,
+      "defense": 13,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": -1,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 10,
+        "attack": 8
+      },
+      "description": "Full Shadow Set grants +10 DEF and +8 ATK."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Dark plate armor worn by shadow warriors. Solid early-game protection.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Plate Cloak of the Shadows",
+    "slug": "plate-cloak-of-the-shadows",
+    "type": "plate",
+    "slot": "cloak",
+    "set_name": "Shadow Set",
+    "set_slug": "shadow-set",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 0,
+      "defense": 3,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 10,
+        "attack": 8
+      },
+      "description": "Full Shadow Set grants +10 DEF and +8 ATK."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Shadow cloak with Lv 7 Fire Resistance.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Plate Boots of the Shadows",
+    "slug": "plate-boots-of-the-shadows",
+    "type": "plate",
+    "slot": "boots",
+    "set_name": "Shadow Set",
+    "set_slug": "shadow-set",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 16,
+      "defense": 7,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 10,
+        "attack": 8
+      },
+      "description": "Full Shadow Set grants +10 DEF and +8 ATK."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Heavy shadow boots that add +16 Attack.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Plate Gloves of the Shadows",
+    "slug": "plate-gloves-of-the-shadows",
+    "type": "plate",
+    "slot": "gloves",
+    "set_name": "Shadow Set",
+    "set_slug": "shadow-set",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 36,
+      "defense": 17,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 10,
+        "attack": 8
+      },
+      "description": "Full Shadow Set grants +10 DEF and +8 ATK."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Reinforced shadow gauntlets. High attack bonus for gloves slot.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Plate Helmet of the Shadows",
+    "slug": "plate-helmet-of-the-shadows",
+    "type": "plate",
+    "slot": "head",
+    "set_name": "Shadow Set",
+    "set_slug": "shadow-set",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 0,
+      "defense": 10,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 10,
+        "attack": 8
+      },
+      "description": "Full Shadow Set grants +10 DEF and +8 ATK."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Shadow helmet completing the early-game plate set.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Leather Cloak of the Fallen Kingdom",
+    "slug": "leather-cloak-fallen-kingdom",
+    "type": "leather",
+    "slot": "cloak",
+    "set_name": "Fallen Kingdom Set",
+    "set_slug": "fallen-kingdom-set",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 0,
+      "defense": 12,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 1,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 5,
+      "bonus_stats": {
+        "critical_rate": 3,
+        "movement_speed": 2
+      },
+      "description": "Full Fallen Kingdom Set grants +3 Critical Rate and +2 Movement Speed."
+    },
+    "required_level": 12,
+    "character_restrictions": [
+      "kliff",
+      "damiane"
+    ],
+    "description": "A weathered leather cloak from a fallen kingdom. Light and mobile.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/leather.svg"
+  },
+  {
+    "name": "Leather Helm of the Fallen Kingdom",
+    "slug": "leather-helm-fallen-kingdom",
+    "type": "leather",
+    "slot": "head",
+    "set_name": "Fallen Kingdom Set",
+    "set_slug": "fallen-kingdom-set",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 0,
+      "defense": 18,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 5,
+      "bonus_stats": {
+        "critical_rate": 3,
+        "movement_speed": 2
+      },
+      "description": "Full Fallen Kingdom Set grants +3 Critical Rate and +2 Movement Speed."
+    },
+    "required_level": 12,
+    "character_restrictions": [
+      "kliff",
+      "damiane"
+    ],
+    "description": "Leather helm with Momentum skill \u2014 +35% Turning Slash Damage.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/leather.svg"
+  },
+  {
+    "name": "Leather Armor of the Fallen Kingdom",
+    "slug": "leather-armor-fallen-kingdom",
+    "type": "leather",
+    "slot": "chest",
+    "set_name": "Fallen Kingdom Set",
+    "set_slug": "fallen-kingdom-set",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 0,
+      "defense": 32,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 5,
+      "bonus_stats": {
+        "critical_rate": 3,
+        "movement_speed": 2
+      },
+      "description": "Full Fallen Kingdom Set grants +3 Critical Rate and +2 Movement Speed."
+    },
+    "required_level": 12,
+    "character_restrictions": [
+      "kliff",
+      "damiane"
+    ],
+    "description": "Sturdy leather chest piece. Excellent defense for light armor.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/leather.svg"
+  },
+  {
+    "name": "Plate Boots of the Fallen Kingdom",
+    "slug": "plate-boots-fallen-kingdom",
+    "type": "plate",
+    "slot": "boots",
+    "set_name": "Fallen Kingdom Set",
+    "set_slug": "fallen-kingdom-set",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 34,
+      "defense": 21,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 5,
+      "bonus_stats": {
+        "critical_rate": 3,
+        "movement_speed": 2
+      },
+      "description": "Full Fallen Kingdom Set grants +3 Critical Rate and +2 Movement Speed."
+    },
+    "required_level": 12,
+    "character_restrictions": [
+      "kliff",
+      "damiane"
+    ],
+    "description": "Plate boots with significant attack bonus. Blends plate protection with leather mobility.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Plate Gloves of the Fallen Kingdom",
+    "slug": "plate-gloves-fallen-kingdom",
+    "type": "plate",
+    "slot": "gloves",
+    "set_name": "Fallen Kingdom Set",
+    "set_slug": "fallen-kingdom-set",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 35,
+      "defense": 19,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 5,
+      "bonus_stats": {
+        "critical_rate": 3,
+        "movement_speed": 2
+      },
+      "description": "Full Fallen Kingdom Set grants +3 Critical Rate and +2 Movement Speed."
+    },
+    "required_level": 12,
+    "character_restrictions": [
+      "kliff",
+      "damiane"
+    ],
+    "description": "Gauntlets of the fallen. High attack with solid defense.",
+    "acquisition": {
+      "method": "location",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Cloth Armor of the Dark Ringleader",
+    "slug": "cloth-armor-dark-ringleader",
+    "type": "cloth",
+    "slot": "chest",
+    "set_name": "Dark Ringleader Set",
+    "set_slug": "dark-ringleader-set",
+    "tier": 4,
+    "rarity": "epic",
+    "stats": {
+      "attack": 0,
+      "defense": 21,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 2,
+      "stamina_regen": 0,
+      "spirit_regen": 2
+    },
+    "set_bonus": {
+      "pieces_required": 3,
+      "bonus_stats": {
+        "movement_speed": 2,
+        "spirit_regen": 3
+      },
+      "description": "Full Dark Ringleader Set grants +2 Movement Speed and +3 Spirit Regen."
+    },
+    "required_level": 22,
+    "character_restrictions": [
+      "damiane"
+    ],
+    "description": "Dark cloth armor with Lv 1 Movement Speed. Light and mystical \u2014 perfect for magic users.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "dark-ringleader",
+      "location": "demeniss"
+    },
+    "image": "/images/armor/cloth.svg"
+  },
+  {
+    "name": "Leather Gloves of the Dark Ringleader",
+    "slug": "leather-gloves-dark-ringleader",
+    "type": "leather",
+    "slot": "gloves",
+    "set_name": "Dark Ringleader Set",
+    "set_slug": "dark-ringleader-set",
+    "tier": 4,
+    "rarity": "epic",
+    "stats": {
+      "attack": 30,
+      "defense": 18,
+      "attack_speed": 0,
+      "critical_rate": 2,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 3,
+      "bonus_stats": {
+        "movement_speed": 2,
+        "spirit_regen": 3
+      },
+      "description": "Full Dark Ringleader Set grants +2 Movement Speed and +3 Spirit Regen."
+    },
+    "required_level": 22,
+    "character_restrictions": [
+      "damiane"
+    ],
+    "description": "Leather gloves with Lv 2 Critical Rate. 30 ATK for a gloves slot is exceptional.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "dark-ringleader",
+      "location": "demeniss"
+    },
+    "image": "/images/armor/leather.svg"
+  },
+  {
+    "name": "Cloth Helm of the Dark Ringleader",
+    "slug": "cloth-helm-dark-ringleader",
+    "type": "cloth",
+    "slot": "head",
+    "set_name": "Dark Ringleader Set",
+    "set_slug": "dark-ringleader-set",
+    "tier": 4,
+    "rarity": "epic",
+    "stats": {
+      "attack": 0,
+      "defense": 12,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 2,
+      "stamina_regen": 0,
+      "spirit_regen": 1
+    },
+    "set_bonus": {
+      "pieces_required": 3,
+      "bonus_stats": {
+        "movement_speed": 2,
+        "spirit_regen": 3
+      },
+      "description": "Full Dark Ringleader Set grants +2 Movement Speed and +3 Spirit Regen."
+    },
+    "required_level": 22,
+    "character_restrictions": [
+      "damiane"
+    ],
+    "description": "A dark cloth hood with Lv 1 Movement Speed. Mystical and agile.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "dark-ringleader",
+      "location": "demeniss"
+    },
+    "image": "/images/armor/cloth.svg"
+  },
+  {
+    "name": "Iron Plate Helmet",
+    "slug": "iron-plate-helmet",
+    "type": "plate",
+    "slot": "head",
+    "set_name": "Iron Plate Set",
+    "set_slug": "iron-plate-set",
+    "tier": 2,
+    "rarity": "common",
+    "stats": {
+      "attack": 0,
+      "defense": 22,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": -1,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 8
+      },
+      "description": "Full Iron Plate Set grants +8 DEF."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "A standard iron helmet. Solid protection at a minor movement cost.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "iron-plate-helmet-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Iron Plate Armor",
+    "slug": "iron-plate-armor",
+    "type": "plate",
+    "slot": "chest",
+    "set_name": "Iron Plate Set",
+    "set_slug": "iron-plate-set",
+    "tier": 2,
+    "rarity": "common",
+    "stats": {
+      "attack": 0,
+      "defense": 35,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": -2,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 8
+      },
+      "description": "Full Iron Plate Set grants +8 DEF."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Heavy iron chest plate. Maximum early-game physical protection.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "iron-plate-armor-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Iron Plate Gloves",
+    "slug": "iron-plate-gloves",
+    "type": "plate",
+    "slot": "gloves",
+    "set_name": "Iron Plate Set",
+    "set_slug": "iron-plate-set",
+    "tier": 2,
+    "rarity": "common",
+    "stats": {
+      "attack": 5,
+      "defense": 15,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 8
+      },
+      "description": "Full Iron Plate Set grants +8 DEF."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Iron gauntlets with minor attack bonus.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "iron-plate-gloves-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Iron Plate Boots",
+    "slug": "iron-plate-boots",
+    "type": "plate",
+    "slot": "boots",
+    "set_name": "Iron Plate Set",
+    "set_slug": "iron-plate-set",
+    "tier": 2,
+    "rarity": "common",
+    "stats": {
+      "attack": 0,
+      "defense": 18,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": -1,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": {
+      "pieces_required": 4,
+      "bonus_stats": {
+        "defense": 8
+      },
+      "description": "Full Iron Plate Set grants +8 DEF."
+    },
+    "required_level": 5,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Heavy iron boots. Slow but protective.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "iron-plate-boots-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/armor/plate.svg"
+  },
+  {
+    "name": "Scout Leather Vest",
+    "slug": "scout-leather-vest",
+    "type": "leather",
+    "slot": "chest",
+    "set_name": null,
+    "set_slug": null,
+    "tier": 1,
+    "rarity": "common",
+    "stats": {
+      "attack": 0,
+      "defense": 15,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 2,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": null,
+    "required_level": 1,
+    "character_restrictions": [
+      "damiane"
+    ],
+    "description": "A lightweight leather vest for scouts. Prioritizes mobility over protection.",
+    "acquisition": {
+      "method": "vendor",
+      "recipe_slug": null,
+      "vendor": "general-goods-merchant",
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/armor/leather.svg"
+  },
+  {
+    "name": "Mystic Cloth Robe",
+    "slug": "mystic-cloth-robe",
+    "type": "cloth",
+    "slot": "chest",
+    "set_name": null,
+    "set_slug": null,
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 0,
+      "defense": 10,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 1,
+      "stamina_regen": 0,
+      "spirit_regen": 3
+    },
+    "set_bonus": null,
+    "required_level": 8,
+    "character_restrictions": [
+      "damiane"
+    ],
+    "description": "A flowing robe favored by mystics. Boosts spirit regeneration significantly.",
+    "acquisition": {
+      "method": "vendor",
+      "recipe_slug": null,
+      "vendor": "mystic-goods-merchant",
+      "boss_drop": null,
+      "location": "pailune"
+    },
+    "image": "/images/armor/cloth.svg"
+  },
+  {
+    "name": "Reinforced Plate Gauntlets",
+    "slug": "reinforced-plate-gauntlets",
+    "type": "plate",
+    "slot": "gloves",
+    "set_name": null,
+    "set_slug": null,
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 22,
+      "defense": 24,
+      "attack_speed": 1,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "set_bonus": null,
+    "required_level": 15,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "Reinforced gauntlets with Attack Speed bonus. Rare standalone gloves for aggressive builds.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "reinforced-plate-gauntlets-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/armor/plate.svg"
+  }
+];

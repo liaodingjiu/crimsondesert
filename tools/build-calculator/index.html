@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Build Calculator — Crimson Desert | CrimsonDesertDB</title>
+<meta name="description" content="Crimson Desert build calculator — equip weapons, armor, and accessories to see your total stats. Filter by character, compare builds, save and share your setups.">
+<meta name="keywords" content="Crimson Desert build calculator, gear planner, stat calculator, equipment builder">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/tools/build-calculator/">
+<meta property="og:title" content="Crimson Desert Build Calculator">
+<meta property="og:description" content="Plan your Crimson Desert build. Pick your gear, see your stats.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/tools/build-calculator/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+/* ── Layout ── */
+.build-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 32px}
+@media(max-width:768px){.build-wrap{grid-template-columns:1fr}}
+
+/* Page header */
+.bc-header{padding:24px 0 8px}
+.bc-header h1{font-size:28px;font-weight:700}
+.bc-header h1 span{color:var(--accent)}
+.bc-header .bc-desc{color:var(--text);font-size:15px;margin-top:4px;line-height:1.6}
+.bc-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0}
+.bc-toolbar select{padding:10px 32px 10px 14px;border:1px solid var(--border-s);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);font-size:15px;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a7c70' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+
+/* ── Equipment Slots ── */
+.slots-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px}
+.slots-panel h2{font-size:17px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.slot-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}
+.slot-row:last-child{border-bottom:none}
+.slot-icon{font-size:22px;width:40px;text-align:center;flex-shrink:0}
+.slot-label{font-size:14px;font-weight:600;color:var(--text);width:80px;flex-shrink:0}
+.slot-select{flex:1;min-width:0}
+.slot-select select{width:100%;padding:10px 32px 10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--muted-bg);color:var(--text);font-size:15px;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a7c70' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.slot-select select:focus{outline:none;border-color:var(--accent)}
+.slot-preview{font-size:12px;color:var(--text);white-space:nowrap;flex-shrink:0;text-align:right;min-width:70px}
+
+/* ── Stats Panel ── */
+.stats-panel-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;position:sticky;top:70px}
+.stats-panel-box h2{font-size:17px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.stat-line{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.stat-line:last-child{border-bottom:none}
+.stat-name{font-size:14px;font-weight:500;color:var(--text);width:100px;flex-shrink:0}
+.stat-val{font-size:22px;font-weight:700;color:var(--accent-d);width:80px;text-align:right;flex-shrink:0}
+.stat-bar-wrap{flex:1;height:8px;background:var(--muted-bg);border-radius:4px;overflow:hidden}
+.stat-bar-fill{height:100%;background:var(--accent);border-radius:4px;transition:width .3s ease}
+.stat-empty .stat-val{color:var(--text3)}
+.stat-empty .stat-bar-fill{width:0!important}
+.stat-total{border-top:2px solid var(--border-s);padding-top:14px;margin-top:8px}
+.stat-total .stat-name{font-size:16px;font-weight:700}
+.stat-total .stat-val{font-size:28px}
+
+/* ── Set Bonus ── */
+.set-bonus-bar{margin-top:16px;padding:14px 18px;border-radius:var(--radius-sm);font-size:14px;color:var(--text);line-height:1.6}
+.set-bonus-bar.active{background:var(--gold-l);border:1px solid var(--gold);color:var(--gold)}
+.set-bonus-bar.incomplete{background:var(--muted-bg);border:1px solid var(--border);color:var(--text3)}
+
+/* ── Action Buttons ── */
+.bc-actions{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.bc-btn{padding:10px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:opacity .15s,transform .15s;display:inline-flex;align-items:center;gap:6px}
+.bc-btn:hover{opacity:.9;transform:translateY(-1px)}
+.bc-btn.primary{background:var(--accent);color:#fff}
+.bc-btn.secondary{background:var(--muted-bg);color:var(--text);border:1px solid var(--border-s)}
+.bc-btn.green{background:var(--green);color:#fff}
+.bc-btn.blue{background:var(--blue);color:#fff}
+
+/* ── Saved builds list ── */
+.saved-builds{margin-top:20px}
+.saved-builds h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.saved-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--muted-bg);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;font-size:14px;color:var(--text);cursor:pointer;transition:border-color .2s}
+.saved-item:hover{border-color:var(--accent)}
+.saved-item .si-name{flex:1;font-weight:500}
+.saved-item .si-stats{font-size:12px;color:var(--text3)}
+.saved-item .si-del{color:var(--red);cursor:pointer;padding:4px 8px;border-radius:4px;font-size:18px;line-height:1}
+.saved-item .si-del:hover{background:var(--red-l)}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:12px 24px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Crimson Desert Build Calculator","url":"https://pyweldb.com/tools/build-calculator/","description":"Plan your Crimson Desert build — equip weapons, armor, and accessories to see total stats. Filter by character."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://pyweldb.com/tools/build-calculator/"},{"@type":"ListItem","position":3,"name":"Build Calculator","item":"https://pyweldb.com/tools/build-calculator/"}]}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="bc-header">
+  <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> <a href="/tools/build-calculator/">Tools</a> <span class="sep">›</span> Build Calculator</div>
+  <h1>Build <span>Calculator</span></h1>
+  <p class="bc-desc">Equip weapons, armor, and accessories — see your total stats in real time. Filter by character, save builds, and share with your party.</p>
+</div>
+
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<div class="bc-toolbar">
+  <select id="charFilter">
+    <option value="all">All Characters</option>
+    <option value="kliff">Kliff</option>
+    <option value="oongka">Oongka</option>
+    <option value="damiane">Damiane</option>
+  </select>
+  <div class="bc-actions" style="margin:0">
+    <button class="bc-btn secondary" onclick="resetBuild()">↺ Reset</button>
+    <button class="bc-btn green" onclick="saveBuild()">💾 Save</button>
+  </div>
+</div>
+
+<div class="build-wrap">
+
+  <!-- Equipment Slots -->
+  <div class="slots-panel">
+    <h2>Equipment Slots</h2>
+    <div id="slotsContainer"></div>
+  </div>
+
+  <!-- Stats Panel -->
+  <div class="stats-panel-box">
+    <h2>Total Stats</h2>
+    <div id="statsDisplay"></div>
+    <div id="setBonusBar"></div>
+
+    <div style="margin-top:20px">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:8px">Saved Builds</h3>
+      <div id="savedList"><p style="font-size:13px;color:var(--text3)">No builds saved yet.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+
+<!-- How to Use -->
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:0 0 32px">
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px">How to Use the Build Calculator</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+    <div>
+      <div style="font-size:22px;margin-bottom:4px">①</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Pick Your Character</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.7">Select <strong>Kliff, Oongka, or Damiane</strong> from the dropdown. The equipment lists will automatically filter to show only items your character can use. Leave it on "All Characters" if you're just browsing.</div>
+    </div>
+    <div>
+      <div style="font-size:22px;margin-bottom:4px">②</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Fill Your Gear Slots</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.7">Work through each slot — <strong>Weapon, Helmet, Chest, Gloves, Boots, Cloak, Earring, 2× Rings, Necklace.</strong> Each dropdown shows the item name, rarity, and key stats so you can compare without leaving the page.</div>
+    </div>
+    <div>
+      <div style="font-size:22px;margin-bottom:4px">③</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Watch Stats Update Live</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.7">The right panel <strong>recalculates instantly</strong> as you equip items. Each stat shows a visual bar so you can see at a glance where your build is strong or weak. Green bars = high investment.</div>
+    </div>
+    <div>
+      <div style="font-size:22px;margin-bottom:4px">④</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Check Set Bonuses</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.7">Equip multiple pieces from the same set and the calculator <strong>tracks your progress.</strong> A golden banner appears when you hit the required piece count — showing exactly what bonus you've unlocked.</div>
+    </div>
+    <div>
+      <div style="font-size:22px;margin-bottom:4px">⑤</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Save & Compare Builds</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.7">Click <strong>Save</strong> to name and store your build. Saved builds appear below the stats panel — click any to load it instantly. Save multiple builds for the same character to compare different setups.</div>
+    </div>
+    <div>
+      <div style="font-size:22px;margin-bottom:4px">⑥</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Iterate & Optimize</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.7">Swap items and watch how each change affects your totals. <strong>Ring slots are doubled</strong> (you can equip two), so they're the most flexible tuning knobs. Pair rings with Abyss Gears for fine-tuned endgame builds.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Explore More -->
+<div style="margin:24px 0">
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:12px">Explore More</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px">
+    <a href="/tools/equipment-compare/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">⚖️ Equipment Compare</a>
+    <a href="/tools/skill-planner/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🧠 Skill Planner</a>
+    <a href="/weapons/tier-list/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📊 Weapon Tier List</a>
+    <a href="/equipment/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📦 All Equipment</a>
+    <a href="/characters/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">👤 Characters</a>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script src="/weapons/weapons-data.js"></script>
+<script src="/armor/armor-data.js"></script>
+<script src="/accessories/accessories-data.js"></script>
+
+<script>
+(function(){
+var W = window.__WEAPONS__ || [];
+var A = window.__ARMOR__ || [];
+var AC = window.__ACCESSORIES__ || [];
+
+var currentChar = 'all';
+var selected = {}; // slotKey -> item object (or null)
+
+// Slot definitions
+var SLOTS = [
+  {key:'weapon', label:'Weapon', icon:'⚔️', category:'weapon'},
+  {key:'helmet', label:'Helmet', icon:'🪖', category:'armor', slot:'head'},
+  {key:'chest',  label:'Chest',  icon:'🛡️', category:'armor', slot:'chest'},
+  {key:'gloves', label:'Gloves', icon:'🧤', category:'armor', slot:'gloves'},
+  {key:'boots',  label:'Boots',  icon:'🥾', category:'armor', slot:'boots'},
+  {key:'cloak',  label:'Cloak',  icon:'🧣', category:'armor', slot:'cloak'},
+  {key:'earring',label:'Earring',icon:'💎', category:'accessory', atype:'earring'},
+  {key:'ring1',  label:'Ring 1', icon:'💍', category:'accessory', atype:'ring'},
+  {key:'ring2',  label:'Ring 2', icon:'💍', category:'accessory', atype:'ring'},
+  {key:'necklace',label:'Necklace',icon:'📿', category:'accessory', atype:'necklace'}
+];
+
+var STAT_KEYS = ['attack','defense','attack_speed','critical_rate','movement_speed','stamina_regen','spirit_regen'];
+var STAT_LABELS = {attack:'ATK',defense:'DEF',attack_speed:'Atk Speed',critical_rate:'Crit Rate',movement_speed:'Move Speed',stamina_regen:'Stamina Regen',spirit_regen:'Spirit Regen'};
+var STAT_UNITS = {attack:'',defense:'',attack_speed:'Lv',critical_rate:'Lv',movement_speed:'Lv',stamina_regen:'%',spirit_regen:'/sec'};
+
+// ── Filter items by character ──
+function charFilter(list){
+  if(currentChar==='all') return list;
+  return list.filter(function(item){
+    var cr = item.character_restrictions || [];
+    if(cr.length===0) return true;
+    return cr.indexOf(currentChar) >= 0;
+  });
+}
+
+function getItems(category, slotFilter, atypeFilter){
+  var list;
+  if(category==='weapon') list = W;
+  else if(category==='armor') list = A.filter(function(a){return a.slot===slotFilter;});
+  else list = AC.filter(function(a){return a.type===atypeFilter;});
+  return charFilter(list);
+}
+
+// ── Render slots ──
+function renderSlots(){
+  var html = '';
+  SLOTS.forEach(function(sl){
+    var items = getItems(sl.category, sl.slot, sl.atype);
+    var sel = selected[sl.key];
+    html += '<div class="slot-row">';
+    html += '<span class="slot-icon">'+sl.icon+'</span>';
+    html += '<span class="slot-label">'+sl.label+'</span>';
+    html += '<div class="slot-select"><select id="sel_'+sl.key+'" onchange="onSlotChange(\''+sl.key+'\',this.value)">';
+    html += '<option value="">— Empty —</option>';
+    items.forEach(function(item){
+      var preview = getItemPreview(item);
+      html += '<option value="'+item.slug+'"'+(sel&&sel.slug===item.slug?' selected':'')+'>'+item.name+' — '+preview+'</option>';
+    });
+    html += '</select></div>';
+    html += '<span class="slot-preview">'+(sel ? getItemPreview(sel) : '<span style="color:var(--text3)">—</span>')+'</span>';
+    html += '</div>';
+  });
+  document.getElementById('slotsContainer').innerHTML = html;
+}
+
+function getItemPreview(item){
+  var s = item.stats || {};
+  var parts = [];
+  if(s.attack) parts.push('ATK '+s.attack);
+  if(s.defense) parts.push('DEF '+s.defense);
+  if(s.attack_speed) parts.push('Spd '+s.attack_speed);
+  if(s.critical_rate) parts.push('Crit '+s.critical_rate);
+  if(s.movement_speed) parts.push('Mov '+s.movement_speed);
+  if(s.stamina_regen) parts.push('Sta +'+s.stamina_regen+'%');
+  if(s.spirit_regen) parts.push('Spr +'+s.spirit_regen);
+  if(item.rarity) parts.unshift(item.rarity.toUpperCase());
+  return parts.slice(0,3).join(' · ');
+}
+
+// ── Stats calc ──
+function calcStats(){
+  var totals = {}; STAT_KEYS.forEach(function(k){totals[k]=0;});
+  var maxStat = 0;
+  var setCounts = {};
+  var activeSet = null;
+
+  SLOTS.forEach(function(sl){
+    var item = selected[sl.key];
+    if(!item) return;
+    var s = item.stats || {};
+    STAT_KEYS.forEach(function(k){
+      var v = s[k] || 0;
+      totals[k] += v;
+      if(Math.abs(v) > maxStat) maxStat = Math.abs(v);
+    });
+    // Track set pieces
+    if(item.set_name && item.set_bonus){
+      var sn = item.set_name;
+      setCounts[sn] = (setCounts[sn]||0) + 1;
+      if(!activeSet || setCounts[sn] >= (activeSet.pieces||99)){
+        activeSet = {name:sn, pieces:setCounts[sn], required:item.set_bonus.pieces_required, bonus:item.set_bonus};
+      }
+    }
+  });
+
+  return {totals:totals, maxStat:maxStat||1, activeSet:activeSet};
+}
+
+// ── Render stats ──
+function renderStats(){
+  var r = calcStats();
+  var t = r.totals;
+  var html = '';
+
+  // Find max display value for bars
+  var displayMax = Math.max(r.maxStat||1, 50);
+
+  STAT_KEYS.forEach(function(k){
+    var val = t[k];
+    var cls = val===0 ? ' stat-empty' : '';
+    var pct = Math.min(Math.abs(val)/displayMax*100, 100);
+    var unit = STAT_UNITS[k]||'';
+    var displayVal = val;
+    if(k==='stamina_regen') displayVal = (val>0?'+':'')+val+'%';
+    else if(k==='spirit_regen') displayVal = (val>0?'+':'')+val+'/sec';
+    else if(k==='attack_speed'||k==='critical_rate'||k==='movement_speed') displayVal = 'Lv '+val;
+
+    html += '<div class="stat-line'+cls+'">';
+    html += '<span class="stat-name">'+STAT_LABELS[k]+'</span>';
+    html += '<div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:'+pct+'%"></div></div>';
+    html += '<span class="stat-val">'+displayVal+'</span>';
+    html += '</div>';
+  });
+
+  document.getElementById('statsDisplay').innerHTML = html;
+
+  // Set bonus
+  var sb = document.getElementById('setBonusBar');
+  if(r.activeSet && r.activeSet.pieces >= r.activeSet.required){
+    sb.className = 'set-bonus-bar active';
+    sb.innerHTML = '✨ <strong>'+r.activeSet.name+'</strong> Active ('+r.activeSet.pieces+'/'+r.activeSet.required+' pieces) — '+r.activeSet.bonus.description;
+  } else if(r.activeSet){
+    sb.className = 'set-bonus-bar incomplete';
+    sb.innerHTML = '📦 <strong>'+r.activeSet.name+'</strong> ('+r.activeSet.pieces+'/'+r.activeSet.required+' pieces) — equip '+ (r.activeSet.required - r.activeSet.pieces) +' more for bonus';
+  } else {
+    sb.className = 'set-bonus-bar incomplete';
+    sb.innerHTML = '📦 No active set bonus. Equip pieces from the same set to unlock bonuses.';
+  }
+}
+
+// ── Slot change handler ──
+function onSlotChange(slotKey, slug){
+  if(!slug){ selected[slotKey]=null; renderStats(); return; }
+  var sl = SLOTS.find(function(s){return s.key===slotKey;});
+  var items = getItems(sl.category, sl.slot, sl.atype);
+  selected[slotKey] = items.find(function(i){return i.slug===slug;}) || null;
+  renderStats();
+}
+
+// ── Character filter change ──
+document.getElementById('charFilter').addEventListener('change',function(){
+  currentChar = this.value;
+  selected = {};
+  renderSlots();
+  renderStats();
+});
+
+// ── Reset ──
+function resetBuild(){
+  selected = {};
+  renderSlots();
+  renderStats();
+  toast('Build reset');
+}
+
+// ── Save / Load ──
+function saveBuild(){
+  var name = prompt('Build name:','Build '+(new Date().toLocaleDateString()));
+  if(!name) return;
+  var builds = JSON.parse(localStorage.getItem('cd_builds')||'[]');
+  builds.push({name:name,char:currentChar,slots:SLOTS.map(function(sl){var i=selected[sl.key];return i?i.slug:null;})});
+  localStorage.setItem('cd_builds',JSON.stringify(builds));
+  renderSaved();
+  toast('Build saved: '+name);
+}
+
+function loadBuild(idx){
+  var builds = JSON.parse(localStorage.getItem('cd_builds')||'[]');
+  var b = builds[idx];
+  if(!b) return;
+  currentChar = b.char||'all';
+  document.getElementById('charFilter').value = currentChar;
+  selected = {};
+  SLOTS.forEach(function(sl,i){
+    var slug = b.slots[i];
+    if(!slug) return;
+    var items = getItems(sl.category, sl.slot, sl.atype);
+    selected[sl.key] = items.find(function(it){return it.slug===slug;}) || null;
+  });
+  renderSlots();
+  renderStats();
+  toast('Loaded: '+b.name);
+}
+
+function deleteBuild(idx){
+  var builds = JSON.parse(localStorage.getItem('cd_builds')||'[]');
+  var name = builds[idx].name;
+  builds.splice(idx,1);
+  localStorage.setItem('cd_builds',JSON.stringify(builds));
+  renderSaved();
+  toast('Deleted: '+name);
+}
+
+function renderSaved(){
+  var builds = JSON.parse(localStorage.getItem('cd_builds')||'[]');
+  if(!builds.length){
+    document.getElementById('savedList').innerHTML = '<p style="font-size:13px;color:var(--text3)">No builds saved yet.</p>';
+    return;
+  }
+  document.getElementById('savedList').innerHTML = builds.map(function(b,i){
+    return '<div class="saved-item" onclick="loadBuild('+i+')">'+
+      '<span style="font-size:16px">📋</span>'+
+      '<span class="si-name">'+b.name+'</span>'+
+      '<span class="si-stats">'+(b.char==='all'?'All':b.char.charAt(0).toUpperCase()+b.char.slice(1))+' · '+
+      b.slots.filter(Boolean).length+' items</span>'+
+      '<span class="si-del" onclick="event.stopPropagation();deleteBuild('+i+')">×</span>'+
+    '</div>';
+  }).join('');
+}
+
+// ── Toast ──
+function toast(msg){
+  var el = document.getElementById('toast') || (function(){var t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t);return t;})();
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._tid);
+  el._tid = setTimeout(function(){el.classList.remove('show');},2000);
+}
+
+// ── Init ──
+renderSlots();
+renderStats();
+renderSaved();
+
+// URL share param support
+var params = new URLSearchParams(window.location.search);
+if(params.has('char')){currentChar=params.get('char');document.getElementById('charFilter').value=currentChar;}
+if(params.has('slots')){
+  try{
+    var slotSlugs = JSON.parse(params.get('slots'));
+    SLOTS.forEach(function(sl,i){
+      var slug = slotSlugs[i];
+      if(!slug) return;
+      var items = getItems(sl.category,sl.slot,sl.atype);
+      selected[sl.key] = items.find(function(it){return it.slug===slug;})||null;
+    });
+    renderSlots();
+    renderStats();
+  }catch(e){}
+}
+
+})();
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

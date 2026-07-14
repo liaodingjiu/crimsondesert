@@ -1,0 +1,624 @@
+window.__SKILLS__ = [
+  {
+    "name": "Whirlwind Slash",
+    "slug": "whirlwind-slash",
+    "character": "kliff",
+    "skill_tree": "warrior",
+    "tier": 2,
+    "prerequisites": [
+      "basic-slash"
+    ],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 30
+    },
+    "cooldown": 12,
+    "damage_multiplier": 2.5,
+    "weapon_required": "one-handed-sword",
+    "description": "Spin with your blade, dealing damage to all nearby enemies. A core AoE skill for sword users.",
+    "effects": [
+      {
+        "type": "aoe_damage",
+        "radius": 3,
+        "base_damage": 120
+      },
+      {
+        "type": "knockback",
+        "distance": 2
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 3,
+        "radius": 4
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 3.5,
+        "radius": 5
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Shield Bash",
+    "slug": "shield-bash",
+    "character": "kliff",
+    "skill_tree": "defender",
+    "tier": 1,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "stamina",
+      "amount": 20
+    },
+    "cooldown": 8,
+    "damage_multiplier": 1.5,
+    "weapon_required": "one-handed-sword",
+    "description": "Bash forward with your shield, stunning enemies in front of you. Interrupts enemy attacks.",
+    "effects": [
+      {
+        "type": "stun",
+        "duration": 2
+      },
+      {
+        "type": "single_target",
+        "base_damage": 80
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 1.8,
+        "stun_duration": 2.5
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 2.2,
+        "stun_duration": 3
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "War Cry",
+    "slug": "war-cry",
+    "character": "kliff",
+    "skill_tree": "tactician",
+    "tier": 2,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 25
+    },
+    "cooldown": 30,
+    "damage_multiplier": 0,
+    "weapon_required": null,
+    "description": "Let out a mighty war cry, boosting attack of all nearby allies (including comrades) for 20 seconds.",
+    "effects": [
+      {
+        "type": "buff",
+        "stat": "attack",
+        "amount": 20,
+        "duration": 20
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "attack_bonus": 30,
+        "duration": 25
+      },
+      {
+        "level": 3,
+        "attack_bonus": 40,
+        "duration": 30
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Crushing Blow",
+    "slug": "crushing-blow",
+    "character": "oongka",
+    "skill_tree": "destroyer",
+    "tier": 2,
+    "prerequisites": [
+      "heavy-swing"
+    ],
+    "skill_type": "active",
+    "cost": {
+      "type": "stamina",
+      "amount": 40
+    },
+    "cooldown": 15,
+    "damage_multiplier": 3.5,
+    "weapon_required": "axe",
+    "description": "Channel all your strength into a single devastating overhead strike. High damage, slow windup.",
+    "effects": [
+      {
+        "type": "single_target",
+        "base_damage": 250
+      },
+      {
+        "type": "armor_break",
+        "amount": 15,
+        "duration": 10
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 4.2,
+        "armor_break": 20
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 5,
+        "armor_break": 25
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Ground Slam",
+    "slug": "ground-slam",
+    "character": "oongka",
+    "skill_tree": "destroyer",
+    "tier": 3,
+    "prerequisites": [
+      "crushing-blow"
+    ],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 50
+    },
+    "cooldown": 20,
+    "damage_multiplier": 2.8,
+    "weapon_required": "axe",
+    "description": "Slam the ground with tremendous force, creating a shockwave that damages and staggers all nearby enemies.",
+    "effects": [
+      {
+        "type": "aoe_damage",
+        "radius": 5,
+        "base_damage": 180
+      },
+      {
+        "type": "stagger",
+        "duration": 3
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 3.3,
+        "radius": 6
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 4,
+        "radius": 7
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Berserker Rage",
+    "slug": "berserker-rage",
+    "character": "oongka",
+    "skill_tree": "juggernaut",
+    "tier": 3,
+    "prerequisites": [],
+    "skill_type": "ultimate",
+    "cost": {
+      "type": "spirit",
+      "amount": 80
+    },
+    "cooldown": 90,
+    "damage_multiplier": 1.5,
+    "weapon_required": null,
+    "description": "Enter a berserker state. Attack power massively increased, defense reduced. Lasts 30 seconds.",
+    "effects": [
+      {
+        "type": "buff",
+        "stat": "attack",
+        "amount": 60,
+        "duration": 30
+      },
+      {
+        "type": "debuff",
+        "stat": "defense",
+        "amount": -20,
+        "duration": 30
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "attack_bonus": 75,
+        "defense_penalty": -15
+      },
+      {
+        "level": 3,
+        "attack_bonus": 90,
+        "defense_penalty": -10
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Arcane Bolt",
+    "slug": "arcane-bolt",
+    "character": "damiane",
+    "skill_tree": "mystic",
+    "tier": 1,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 15
+    },
+    "cooldown": 4,
+    "damage_multiplier": 1.2,
+    "weapon_required": null,
+    "description": "Fire a bolt of arcane energy at a target. Fast, low-cost ranged attack.",
+    "effects": [
+      {
+        "type": "ranged",
+        "range": 20,
+        "base_damage": 60
+      },
+      {
+        "type": "elemental",
+        "element": "arcane"
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 1.5,
+        "base_damage": 75
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 1.8,
+        "base_damage": 95
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Ice Barrage",
+    "slug": "ice-barrage",
+    "character": "damiane",
+    "skill_tree": "elementalist",
+    "tier": 3,
+    "prerequisites": [
+      "frost-nova"
+    ],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 45
+    },
+    "cooldown": 18,
+    "damage_multiplier": 2,
+    "weapon_required": null,
+    "description": "Summon a barrage of ice shards that rain down on a target area. Applies Chill, slowing enemies.",
+    "effects": [
+      {
+        "type": "aoe_damage",
+        "radius": 4,
+        "base_damage": 140
+      },
+      {
+        "type": "debuff",
+        "element": "ice",
+        "effect": "chill",
+        "duration": 8,
+        "slow_percent": 30
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 2.4,
+        "slow_percent": 40
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 3,
+        "slow_percent": 50,
+        "adds_freeze": true
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Healing Light",
+    "slug": "healing-light",
+    "character": "damiane",
+    "skill_tree": "mystic",
+    "tier": 2,
+    "prerequisites": [
+      "arcane-bolt"
+    ],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 35
+    },
+    "cooldown": 25,
+    "damage_multiplier": 0,
+    "weapon_required": null,
+    "description": "Channel restorative light, healing yourself and nearby allies over 10 seconds.",
+    "effects": [
+      {
+        "type": "heal",
+        "amount_per_second": 25,
+        "duration": 10,
+        "radius": 6
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "amount_per_second": 35,
+        "duration": 10
+      },
+      {
+        "level": 3,
+        "amount_per_second": 45,
+        "duration": 12
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Phantom Step",
+    "slug": "phantom-step",
+    "character": "damiane",
+    "skill_tree": "mystic",
+    "tier": 2,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "stamina",
+      "amount": 25
+    },
+    "cooldown": 10,
+    "damage_multiplier": 0,
+    "weapon_required": null,
+    "description": "Dissolve into mist and reappear a short distance away. Provides brief invulnerability during the dash.",
+    "effects": [
+      {
+        "type": "movement",
+        "teleport_distance": 8
+      },
+      {
+        "type": "invulnerability",
+        "duration": 0.5
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "teleport_distance": 10,
+        "cooldown": 8
+      },
+      {
+        "level": 3,
+        "teleport_distance": 12,
+        "cooldown": 6
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Precision Strike",
+    "slug": "precision-strike",
+    "character": "kliff",
+    "skill_tree": "warrior",
+    "tier": 3,
+    "prerequisites": [
+      "whirlwind-slash"
+    ],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 25
+    },
+    "cooldown": 10,
+    "damage_multiplier": 2.2,
+    "weapon_required": "one-handed-sword",
+    "description": "A precisely aimed thrust that deals bonus damage based on enemy missing HP. Execute-style finisher.",
+    "effects": [
+      {
+        "type": "single_target",
+        "base_damage": 130
+      },
+      {
+        "type": "execute",
+        "hp_threshold": 30,
+        "bonus_damage_percent": 50
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 2.6,
+        "hp_threshold": 35
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 3,
+        "hp_threshold": 40,
+        "bonus_damage_percent": 75
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Iron Will",
+    "slug": "iron-will",
+    "character": "kliff",
+    "skill_tree": "defender",
+    "tier": 2,
+    "prerequisites": [
+      "shield-bash"
+    ],
+    "skill_type": "passive",
+    "cost": null,
+    "cooldown": 0,
+    "damage_multiplier": 0,
+    "weapon_required": null,
+    "description": "Passive: Reduces all incoming damage by 10%. Increases max HP by 15%.",
+    "effects": [
+      {
+        "type": "passive",
+        "damage_reduction_percent": 10,
+        "max_hp_percent": 15
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_reduction_percent": 14,
+        "max_hp_percent": 20
+      },
+      {
+        "level": 3,
+        "damage_reduction_percent": 18,
+        "max_hp_percent": 25
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Heavy Swing",
+    "slug": "heavy-swing",
+    "character": "oongka",
+    "skill_tree": "destroyer",
+    "tier": 1,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "stamina",
+      "amount": 30
+    },
+    "cooldown": 6,
+    "damage_multiplier": 2,
+    "weapon_required": "axe",
+    "description": "A wide horizontal swing with your axe. Hits multiple enemies in front. Basic AoE for heavy weapon builds.",
+    "effects": [
+      {
+        "type": "aoe_damage",
+        "arc": 120,
+        "base_damage": 110
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 2.4,
+        "arc": 150
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 2.8,
+        "arc": 180
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Frost Nova",
+    "slug": "frost-nova",
+    "character": "damiane",
+    "skill_tree": "elementalist",
+    "tier": 2,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "spirit",
+      "amount": 35
+    },
+    "cooldown": 16,
+    "damage_multiplier": 1.5,
+    "weapon_required": null,
+    "description": "Release a burst of ice energy around you. Freezes enemies in melee range.",
+    "effects": [
+      {
+        "type": "aoe_damage",
+        "radius": 4,
+        "base_damage": 90
+      },
+      {
+        "type": "freeze",
+        "duration": 2
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "damage_multiplier": 1.8,
+        "freeze_duration": 2.5
+      },
+      {
+        "level": 3,
+        "damage_multiplier": 2.2,
+        "freeze_duration": 3
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  },
+  {
+    "name": "Unstoppable Charge",
+    "slug": "unstoppable-charge",
+    "character": "oongka",
+    "skill_tree": "juggernaut",
+    "tier": 2,
+    "prerequisites": [],
+    "skill_type": "active",
+    "cost": {
+      "type": "stamina",
+      "amount": 35
+    },
+    "cooldown": 14,
+    "damage_multiplier": 1.8,
+    "weapon_required": null,
+    "description": "Charge forward, knocking aside all enemies in your path. Unstoppable during the charge.",
+    "effects": [
+      {
+        "type": "movement",
+        "charge_distance": 12
+      },
+      {
+        "type": "knockback",
+        "distance": 3
+      },
+      {
+        "type": "damage",
+        "base_damage": 100
+      }
+    ],
+    "upgrade_levels": [
+      {
+        "level": 2,
+        "charge_distance": 15,
+        "damage_multiplier": 2.2
+      },
+      {
+        "level": 3,
+        "charge_distance": 18,
+        "damage_multiplier": 2.6,
+        "adds_stun_at_end": true
+      }
+    ],
+    "image": "/images/skills/placeholder.svg"
+  }
+];

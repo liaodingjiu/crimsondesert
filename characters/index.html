@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Characters — Kliff, Oongka, Damiane | CrimsonDesertDB</title>
+<meta name="description" content="All playable characters in Crimson Desert — Kliff (sword & shield), Oongka (heavy weapons), Damiane (arcane magic). Skill trees, compatible weapons, playstyle tips, and lore.">
+<meta name="keywords" content="Crimson Desert characters, Kliff, Oongka, Damiane, Crimson Desert playable characters, character guide">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/characters/">
+<meta property="og:title" content="Crimson Desert Characters — Kliff, Oongka, Damiane">
+<meta property="og:description" content="All 3 playable characters with skill trees, compatible weapons, playstyle tips, and lore.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/characters/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+/* ── Page Header ── */
+.char-page-header{text-align:center;padding:36px 0 8px}
+.char-page-header h1{font-size:31px;font-weight:700}
+.char-page-header h1 span{color:var(--accent)}
+.char-page-header .cp-sub{color:var(--text);font-size:17px;max-width:620px;margin:8px auto 0;line-height:1.7}
+
+/* ── Character Cards ── */
+.char-detail{margin:28px 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+
+.char-hero{padding:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.char-hero.kliff{background:linear-gradient(135deg,#2a1a15,#3d2820,#2a1a15)}
+.char-hero.oongka{background:linear-gradient(135deg,#1e1e15,#302820,#1e1e15)}
+.char-hero.damiane{background:linear-gradient(135deg,#1a1528,#282038,#1a1528)}
+.char-hero .ch-avatar{font-size:64px;flex-shrink:0;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.5));width:80px;text-align:center}
+.char-hero .ch-info{flex:1;min-width:200px}
+.char-hero .ch-name{font-size:30px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.char-hero .ch-tagline{font-size:16px;color:var(--accent-d);font-weight:600;margin:4px 0 12px}
+.char-hero .ch-meta{display:flex;gap:8px;flex-wrap:wrap}
+.char-hero .ch-meta span{font-size:13px;padding:4px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.85)}
+
+.char-body{padding:24px 28px}
+.char-body h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:var(--text)}
+.char-body h3:first-child{margin-top:0}
+.char-body p{font-size:15px;color:var(--text);line-height:1.75}
+
+/* Lore Box */
+.lore-box{background:var(--accent-l);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 22px;margin:6px 0 16px;font-size:15px;color:var(--text);line-height:1.75;font-style:italic;position:relative}
+.lore-box::before{content:'LORE';display:block;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin-bottom:6px;font-style:normal}
+
+/* Skill & Weapon Chips */
+.ch-chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px;margin:10px 0 18px}
+.ch-chip{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none!important;transition:border-color .2s,background .2s}
+.ch-chip:hover{border-color:var(--accent);background:var(--accent-l)}
+.ch-chip .ch-chip-icon{font-size:18px;flex-shrink:0}
+.ch-chip .ch-chip-stat{margin-left:auto;font-size:12px;color:var(--accent-d);font-weight:600}
+
+/* Tips grid */
+.tip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin:10px 0 18px}
+.tip-card{background:rgba(255,255,255,0.015);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px}
+.tip-card .tip-label{font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.tip-card p{font-size:14px;line-height:1.65}
+
+/* Related links */
+.ch-related{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.ch-related a{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border:1px solid var(--border-s);border-radius:8px;font-size:14px;color:var(--text);text-decoration:none!important;transition:border-color .2s,background .2s}
+.ch-related a:hover{border-color:var(--accent);background:var(--accent-l)}
+
+/* Ad */
+.ch-ad{margin:24px 0}
+
+@media(max-width:600px){
+  .char-hero{flex-direction:column;text-align:center;padding:24px 20px}
+  .char-hero .ch-meta{justify-content:center}
+  .char-body{padding:20px}
+  .ch-chip-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"CollectionPage",
+  "name":"Crimson Desert Characters","description":"All playable characters in Crimson Desert — Kliff, Oongka, Damiane.",
+  "url":"https://pyweldb.com/characters/","mainEntity":{"@type":"ItemList","numberOfItems":3}
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},
+  {"@type":"ListItem","position":2,"name":"Characters","item":"https://pyweldb.com/characters/"}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which character should I pick in Crimson Desert?","acceptedAnswer":{"@type":"Answer","text":"Kliff is best for beginners — versatile, balanced, widest weapon selection. Oongka is for players who prefer slow, heavy hits and high risk/reward. Damiane is for tactical players who prefer ranged combat and elemental crowd control."}},{"@type":"Question","name":"How many playable characters are there?","acceptedAnswer":{"@type":"Answer","text":"Three — Kliff (sword & shield warrior, 3 skill trees), Oongka (heavy weapons destroyer, 2 skill trees), and Damiane (arcane mystic, 2 skill trees). Each has unique weapons, skills, and playstyles."}},{"@type":"Question","name":"Can I switch characters mid-game?","acceptedAnswer":{"@type":"Answer","text":"Crimson Desert is designed around a single protagonist per playthrough. You choose your character at the start and progress through their story. To experience another character, start a new game — save files are per-character."}}]}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="char-page-header">
+  <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> Characters</div>
+  <h1>Characters of <span>Crimson Desert</span></h1>
+  <p class="cp-sub">Three playable characters, each with unique skill trees, weapon compatibility, and combat styles. Choose the one that fits your playstyle — or master all three.</p>
+</div>
+
+<!-- Character Comparison Strip -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:12px 0 24px">
+  <div style="background:linear-gradient(135deg,#2a1a15,#3d2820);border:1px solid var(--accent);border-radius:var(--radius);padding:20px 22px;text-align:center">
+    <div style="font-size:32px;margin-bottom:6px">⚔️</div>
+    <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px">Kliff</div>
+    <div style="font-size:13px;color:var(--accent-d);margin-bottom:10px">Sword & Shield</div>
+    <div style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--text);line-height:1.6">
+      <span>🟢 Difficulty: <strong style="color:var(--green)">Easy</strong></span>
+      <span>⚔️ Damage: <strong>★★★</strong></span>
+      <span>🛡️ Defense: <strong>★★★★★</strong></span>
+      <span>🎯 Range: <strong>Melee</strong></span>
+      <span>✅ <strong style="color:var(--green)">Best for beginners</strong></span>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#1e1e15,#302820);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;text-align:center">
+    <div style="font-size:32px;margin-bottom:6px">🪓</div>
+    <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px">Oongka</div>
+    <div style="font-size:13px;color:var(--accent-d);margin-bottom:10px">Heavy Destroyer</div>
+    <div style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--text);line-height:1.6">
+      <span>🟡 Difficulty: <strong style="color:var(--gold)">Medium</strong></span>
+      <span>⚔️ Damage: <strong>★★★★★</strong></span>
+      <span>🛡️ Defense: <strong>★★★★</strong></span>
+      <span>🎯 Range: <strong>Melee</strong></span>
+      <span>⚡ <strong style="color:var(--gold)">Highest burst damage</strong></span>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#1a1528,#282038);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;text-align:center">
+    <div style="font-size:32px;margin-bottom:6px">🔮</div>
+    <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px">Damiane</div>
+    <div style="font-size:13px;color:var(--accent-d);margin-bottom:10px">Arcane Mystic</div>
+    <div style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--text);line-height:1.6">
+      <span>🔴 Difficulty: <strong style="color:var(--red)">Hard</strong></span>
+      <span>⚔️ Damage: <strong>★★★★</strong></span>
+      <span>🛡️ Defense: <strong>★★</strong></span>
+      <span>🎯 Range: <strong>Ranged</strong></span>
+      <span>🧠 <strong style="color:var(--purple)">Best crowd control</strong></span>
+    </div>
+  </div>
+</div>
+
+<div class="ch-ad"><div class="ad-box ad-banner ad-placeholder">Advertisement</div></div>
+
+<!-- ════════════ KLIFF ════════════ -->
+<div class="char-detail">
+  <div class="char-hero kliff">
+    <span class="ch-avatar">⚔️</span>
+    <div class="ch-info">
+      <div class="ch-name">Kliff</div>
+      <div class="ch-tagline">The Shield of Pywel — Master of Sword & Shield</div>
+      <div class="ch-meta">
+        <span>⚔️ 1H & 2H Swords</span>
+        <span>🪓 Axes</span>
+        <span>🗡️ Daggers</span>
+        <span>🛡️ All Armor Types</span>
+      </div>
+    </div>
+  </div>
+  <div class="char-body">
+    <div class="lore-box">Once a captain of the fallen Hernand Guard, Kliff now wanders Pywel seeking redemption for a past he cannot undo. His blade — said to be forged from the shards of a fallen star — has never dulled, and his shield has never broken. Some say he fights not for glory, but for the ghosts that follow him.</div>
+
+    <h3>Playstyle</h3>
+    <p>Kliff is the most <strong>versatile</strong> of the three characters. His three skill trees allow him to adapt to any situation — offensive sword combos from the Warrior tree, defensive shield tactics from Defender, and party-wide buffs from Tactician. He can equip the widest range of weapons (1H swords, 2H swords, axes, daggers) and all armor types, making him the best choice for new players and those who want a balanced, flexible fighter.</p>
+
+    <h3>Skill Trees</h3>
+    <div class="ch-chip-grid" id="kliffSkills"></div>
+
+    <h3>Compatible Weapons</h3>
+    <div class="ch-chip-grid" id="kliffWeapons"></div>
+
+    <h3>Pro Tips</h3>
+    <div class="tip-grid">
+      <div class="tip-card"><div class="tip-label">Tip 01</div><p>Start with <strong>Warrior tree</strong> for early game — Heavy Swing and Whirlwind Slash clear groups fast. Invest in Defender before your first boss fight.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 02</div><p>Pair <strong>Hwando</strong> with Insight Abyss Gears for a crit-focused build. The Speed × Crit synergy on 2H swords is one of Kliff's strongest combos.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 03</div><p>Shield Bash can <strong>interrupt enemy ultimate attacks</strong>. Time it right and you can cancel a boss's most dangerous moves. This alone makes Defender tree worth investing in.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 04</div><p>Kliff's Tactician buffs affect <strong>all party members</strong>. In co-op, a Tactician Kliff behind a Defender Oongka is one of the most effective duos in the game.</p></div>
+    </div>
+
+    <h3>Related</h3>
+    <div class="ch-related">
+      <a href="/skills/?char=kliff">⚡ All Kliff Skills</a>
+      <a href="/weapons/">⚔️ 1H & 2H Swords</a>
+      <a href="/abyss-gears/">🔮 Insight + Swift Gears</a>
+      <a href="/tools/build-calculator/">🧮 Build Calculator</a>
+      <a href="/tools/skill-planner/">🧠 Skill Planner</a>
+    </div>
+  </div>
+</div>
+
+<div class="ch-ad"><div class="ad-box ad-banner ad-placeholder">Advertisement</div></div>
+
+<!-- ════════════ OONGKA ════════════ -->
+<div class="char-detail">
+  <div class="char-hero oongka">
+    <span class="ch-avatar">🪓</span>
+    <div class="ch-info">
+      <div class="ch-name">Oongka</div>
+      <div class="ch-tagline">The Unstoppable Force — Breaker of Armies</div>
+      <div class="ch-meta">
+        <span>🪓 2H Axes</span>
+        <span>🗡️ Spears</span>
+        <span>🛡️ All Armor Types</span>
+      </div>
+    </div>
+  </div>
+  <div class="char-body">
+    <div class="lore-box">A warrior from the northern wastes where only the strong survive. Oongka never speaks of his past, but the scars on his body tell stories no words could. He wields weapons that ordinary men cannot lift, and his war cry alone has been known to route entire bandit camps. He fights not for honor — he fights because battle is the only language he knows.</div>
+
+    <h3>Playstyle</h3>
+    <p>Oongka is the <strong>heavy damage dealer</strong>. He sacrifices speed for devastating raw power — his 2H axe swings can break enemy guards and deal massive area damage. The Destroyer tree amplifies his offensive output, while Juggernaut gives him unstoppable charges and rage-fueled survivability. He has fewer skill options than Kliff, but each hit counts twice as much. Best for players who prefer slow, deliberate, punishing attacks.</p>
+
+    <h3>Skill Trees</h3>
+    <div class="ch-chip-grid" id="oongkaSkills"></div>
+
+    <h3>Compatible Weapons</h3>
+    <div class="ch-chip-grid" id="oongkaWeapons"></div>
+
+    <h3>Pro Tips</h3>
+    <div class="tip-grid">
+      <div class="tip-card"><div class="tip-label">Tip 01</div><p><strong>Always charge heavy attacks.</strong> Oongka's charged swing hits multiple enemies and breaks guards. Uncharged swings waste his potential.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 02</div><p>Pair <strong>Battle Axe of the Warlord</strong> with Vigor Abyss Gears. Stamina regen is critical — Oongka burns through stamina faster than any other character.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 03</div><p>Juggernaut's <strong>Unstoppable Charge</strong> can plow through enemy formations. Use it to reposition or to close distance on ranged enemies.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 04</div><p>Berserker Rage increases damage output but <strong>reduces defense</strong>. Activate it when you have a healer or when enemies are staggered — not when you're taking heavy fire.</p></div>
+    </div>
+
+    <h3>Related</h3>
+    <div class="ch-related">
+      <a href="/skills/?char=oongka">⚡ All Oongka Skills</a>
+      <a href="/weapons/">🪓 Axes & Spears</a>
+      <a href="/abyss-gears/">🔮 Vigor Gears (Stamina)</a>
+      <a href="/tools/build-calculator/">🧮 Build Calculator</a>
+      <a href="/weapons/tier-list/">📊 Weapon Tier List</a>
+    </div>
+  </div>
+</div>
+
+<div class="ch-ad"><div class="ad-box ad-banner ad-placeholder">Advertisement</div></div>
+
+<!-- ════════════ DAMIANE ════════════ -->
+<div class="char-detail">
+  <div class="char-hero damiane">
+    <span class="ch-avatar">🔮</span>
+    <div class="ch-info">
+      <div class="ch-name">Damiane</div>
+      <div class="ch-tagline">The Arcane Mystic — Weaver of Elements</div>
+      <div class="ch-meta">
+        <span>🏹 Bows</span>
+        <span>✨ Arcane Magic</span>
+        <span>🔥❄️⚡ Elemental Spells</span>
+        <span>🛡️ Cloth Armor Preferred</span>
+      </div>
+    </div>
+  </div>
+  <div class="char-body">
+    <div class="lore-box">A mystic from the eastern sanctuaries where the veil between worlds is thin. Damiane does not wield steel — she commands the elements themselves. Ice freezes her enemies in place, fire consumes them, and lightning strikes from clear skies. She seeks the Abyss Artifacts not for power, but because she believes they hold the key to sealing the Abyss forever.</div>
+
+    <h3>Playstyle</h3>
+    <p>Damiane is the <strong>ranged specialist and crowd controller</strong>. She fights from a distance with bows and devastating magic — ice to freeze, fire to burn over time, lightning to stun. The Mystic tree provides healing and arcane bolts, while the Elementalist tree unleashes elemental devastation. She has the fewest weapon options but makes up for it with spell variety. Best for tactical players who prefer controlling the battlefield over charging into it.</p>
+
+    <h3>Skill Trees</h3>
+    <div class="ch-chip-grid" id="damianeSkills"></div>
+
+    <h3>Compatible Weapons</h3>
+    <div class="ch-chip-grid" id="damianeWeapons"></div>
+
+    <h3>Pro Tips</h3>
+    <div class="tip-grid">
+      <div class="tip-card"><div class="tip-label">Tip 01</div><p><strong>Always keep distance.</strong> Damiane has the lowest defense — use Freeze spells to immobilize enemies before they close in. Frost Nova is your best panic button.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 02</div><p><strong>Elemental combos matter.</strong> Freeze a target first, then hit them with Lightning for bonus damage. Fire DoT stacks with Arcane Bolt's spirit damage.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 03</div><p>Healing Light is the <strong>only healing skill</strong> in the game. In co-op, a Mystic Damiane is invaluable — the Elementalist tree does more damage, but someone needs to keep the party alive.</p></div>
+      <div class="tip-card"><div class="tip-label">Tip 04</div><p>Pair <strong>Precision Compound Bow</strong> with Swift Abyss Gears. Higher attack speed means more arrows, faster spell triggers, and better DPS uptime at range.</p></div>
+    </div>
+
+    <h3>Related</h3>
+    <div class="ch-related">
+      <a href="/skills/?char=damiane">⚡ All Damiane Skills</a>
+      <a href="/weapons/">🏹 Bows</a>
+      <a href="/abyss-gears/">🔮 Composure Gears (Spirit)</a>
+      <a href="/tools/build-calculator/">🧮 Build Calculator</a>
+      <a href="/tools/skill-planner/">🧠 Skill Planner</a>
+    </div>
+  </div>
+</div>
+
+<div class="ch-ad"><div class="ad-box ad-rectangle ad-placeholder">Advertisement</div></div>
+
+<!-- FAQ -->
+<div style="max-width:720px;margin:24px auto">
+  <h2 style="font-size:20px;font-weight:700;margin-bottom:16px;text-align:center">Character <span style="color:var(--accent)">FAQ</span></h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> Which character should I pick?</div>
+      <div class="faq-a"><strong>Kliff</strong> — beginner-friendly, versatile, widest weapon selection. <strong>Oongka</strong> — slow but devastating, highest burst damage. <strong>Damiane</strong> — ranged specialist, best crowd control, hardest to master. New to Crimson Desert? Start with Kliff.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> Can I switch characters mid-game?</div>
+      <div class="faq-a">No. You choose your character at the start. Save files are per-character. To try another, start a new game — your progress is tied to your chosen protagonist.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> How many skill trees does each character have?</div>
+      <div class="faq-a">Kliff: 3 (Warrior/Defender/Tactician). Oongka: 2 (Destroyer/Juggernaut). Damiane: 2 (Mystic/Elementalist). Trees unlock via Abyss Artifacts. Use the <a href="/tools/skill-planner/">Skill Planner</a> to experiment.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-icon">Q</span> Which character does the most damage?</div>
+      <div class="faq-a"><strong>Oongka</strong> has the highest per-hit damage with charged 2H axe attacks and Berserker Rage. <strong>Damiane</strong> has the highest sustained DPS through elemental combos. <strong>Kliff</strong> balances damage with survivability. <a href="/weapons/tier-list/">See weapon tier list →</a></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script src="/skills/skills-data.js"></script>
+<script src="/weapons/weapons-data.js"></script>
+<script>
+(function(){
+  var skills = window.__SKILLS__ || [];
+  var weapons = window.__WEAPONS__ || [];
+
+  var TYPE_LABELS = {
+    'one-handed-sword':'1H Sword','two-handed-sword':'2H Sword','spear':'Spear',
+    'axe':'Axe','dagger':'Dagger','bow':'Bow','one-handed-axe':'1H Axe','two-handed-axe':'2H Axe'
+  };
+  var TREE_LABELS = {warrior:'Warrior',defender:'Defender',tactician:'Tactician',destroyer:'Destroyer',juggernaut:'Juggernaut',mystic:'Mystic',elementalist:'Elementalist'};
+
+  function renderSkills(char, elId){
+    var list = skills.filter(function(s){return s.character===char;});
+    document.getElementById(elId).innerHTML = list.map(function(s){
+      var tree = TREE_LABELS[s.skill_tree] || s.skill_tree;
+      return '<a href="/skills/'+s.slug+'/" class="ch-chip"><span class="ch-chip-icon">⚡</span>'+s.name+'<span style="margin-left:auto;font-size:12px;color:var(--text)">'+tree+'</span></a>';
+    }).join('');
+    if(!list.length) document.getElementById(elId).innerHTML = '<p style="font-size:14px;color:var(--text3)">Skill data loading...</p>';
+  }
+
+  function renderWeapons(char, elId){
+    var list = weapons.filter(function(w){
+      var cr = w.character_restrictions || [];
+      if(cr.length===0) return true; // no restrictions = all can use
+      return cr.indexOf(char) >= 0;
+    });
+    document.getElementById(elId).innerHTML = list.map(function(w){
+      var imgTag = w.image ? '<img src="'+w.image+'" style="width:24px;height:24px;object-fit:contain" onerror="this.style.display=\'none\'">' : '';
+      return '<a href="/weapons/'+w.slug+'/" class="ch-chip">'+imgTag+w.name+'<span class="ch-chip-stat">ATK '+(w.stats.attack||0)+'</span></a>';
+    }).join('');
+    if(!list.length) document.getElementById(elId).innerHTML = '<p style="font-size:14px;color:var(--text3)">Weapon data loading...</p>';
+  }
+
+  renderSkills('kliff','kliffSkills');
+  renderWeapons('kliff','kliffWeapons');
+  renderSkills('oongka','oongkaSkills');
+  renderWeapons('oongka','oongkaWeapons');
+  renderSkills('damiane','damianeSkills');
+  renderWeapons('damiane','damianeWeapons');
+})();
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

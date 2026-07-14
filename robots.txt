@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/skill-planner/editor.html
+Disallow: /tools/build-calculator/editor.html
+
+Sitemap: https://crimsondesertdb.com/sitemap.xml

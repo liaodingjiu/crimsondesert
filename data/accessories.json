@@ -1,0 +1,341 @@
+[
+  {
+    "name": "Witch's Earring",
+    "slug": "witchs-earring",
+    "type": "earring",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 0,
+      "defense": 6,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 7,
+      "stamina_regen": 0,
+      "spirit_regen": 0.6
+    },
+    "special_effect": "+0.6 Spirit/sec regeneration",
+    "required_level": 15,
+    "character_restrictions": [],
+    "description": "An earring imbued with witch's magic. Grants Lv 4 Movement Speed and steady spirit regeneration.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "witch-of-the-marsh",
+      "location": "pailune"
+    },
+    "image": "/images/accessories/earring.svg"
+  },
+  {
+    "name": "Engraved Gold Earring",
+    "slug": "engraved-gold-earring",
+    "type": "earring",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 0,
+      "defense": 6,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 7,
+      "stamina_regen": 0,
+      "spirit_regen": 0.6
+    },
+    "special_effect": "+0.6 Spirit/sec regeneration",
+    "required_level": 15,
+    "character_restrictions": [],
+    "description": "A finely engraved gold earring. Lv 4 Movement Speed with spirit regen. Equivalent to Witch's Earring in stats.",
+    "acquisition": {
+      "method": "vendor",
+      "recipe_slug": null,
+      "vendor": "jewelry-merchant",
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/accessories/earring.svg"
+  },
+  {
+    "name": "Mark of Darkness",
+    "slug": "mark-of-darkness",
+    "type": "ring",
+    "tier": 3,
+    "rarity": "epic",
+    "stats": {
+      "attack": 3,
+      "defense": 0,
+      "attack_speed": 7,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 6,
+      "spirit_regen": 0
+    },
+    "special_effect": "+6% Stamina Regen",
+    "required_level": 18,
+    "character_restrictions": [],
+    "description": "A ring touched by darkness. Lv 4 Attack Speed with significant stamina regeneration.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "shadow-lord",
+      "location": "demeniss"
+    },
+    "image": "/images/accessories/ring.svg"
+  },
+  {
+    "name": "Witch's Ring",
+    "slug": "witchs-ring",
+    "type": "ring",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 3,
+      "defense": 0,
+      "attack_speed": 7,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 6,
+      "spirit_regen": 0
+    },
+    "special_effect": "+6% Stamina Regen",
+    "required_level": 15,
+    "character_restrictions": [],
+    "description": "A ring blessed by the witch. Lv 4 Attack Speed and stamina regeneration. Pairs well with Witch's Earring.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "witch-of-the-marsh",
+      "location": "pailune"
+    },
+    "image": "/images/accessories/ring.svg"
+  },
+  {
+    "name": "Necklace of Lightning",
+    "slug": "necklace-of-lightning",
+    "type": "necklace",
+    "tier": 4,
+    "rarity": "epic",
+    "stats": {
+      "attack": 5,
+      "defense": 0,
+      "attack_speed": 0,
+      "critical_rate": 7,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0.3
+    },
+    "special_effect": "+0.3 Spirit/sec",
+    "required_level": 22,
+    "character_restrictions": [],
+    "description": "A necklace crackling with lightning energy. Lv 4 Critical Rate and spirit regeneration.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "thunder-beast",
+      "location": "delesyia"
+    },
+    "image": "/images/accessories/necklace.svg"
+  },
+  {
+    "name": "White Lion Necklace",
+    "slug": "white-lion-necklace",
+    "type": "necklace",
+    "tier": 4,
+    "rarity": "epic",
+    "stats": {
+      "attack": 5,
+      "defense": 0,
+      "attack_speed": 0,
+      "critical_rate": 7,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0.3
+    },
+    "special_effect": "+0.3 Spirit/sec",
+    "required_level": 22,
+    "character_restrictions": [],
+    "description": "A necklace crafted from a white lion's fang. Same stats as Necklace of Lightning \u2014 Lv 4 Critical Rate.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "white-lion",
+      "location": "delesyia"
+    },
+    "image": "/images/accessories/necklace.svg"
+  },
+  {
+    "name": "Finely Crafted Gold Necklace",
+    "slug": "finely-crafted-gold-necklace",
+    "type": "necklace",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 1,
+      "defense": 0,
+      "attack_speed": 0,
+      "critical_rate": 2,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "special_effect": null,
+    "required_level": 8,
+    "character_restrictions": [],
+    "description": "A simple but well-made gold necklace. Lv 1 Critical Rate. A solid early-game accessory.",
+    "acquisition": {
+      "method": "vendor",
+      "recipe_slug": null,
+      "vendor": "jewelry-merchant",
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/accessories/necklace.svg"
+  },
+  {
+    "name": "Iron Earring",
+    "slug": "iron-earring",
+    "type": "earring",
+    "tier": 1,
+    "rarity": "common",
+    "stats": {
+      "attack": 0,
+      "defense": 3,
+      "attack_speed": 0,
+      "critical_rate": 0,
+      "movement_speed": 3,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "special_effect": null,
+    "required_level": 3,
+    "character_restrictions": [],
+    "description": "A basic iron earring. Entry-level movement speed bonus.",
+    "acquisition": {
+      "method": "vendor",
+      "recipe_slug": null,
+      "vendor": "general-goods-merchant",
+      "boss_drop": null,
+      "location": "hernand"
+    },
+    "image": "/images/accessories/earring.svg"
+  },
+  {
+    "name": "Silver Ring of Precision",
+    "slug": "silver-ring-of-precision",
+    "type": "ring",
+    "tier": 2,
+    "rarity": "uncommon",
+    "stats": {
+      "attack": 5,
+      "defense": 0,
+      "attack_speed": 3,
+      "critical_rate": 0,
+      "movement_speed": 0,
+      "stamina_regen": 0,
+      "spirit_regen": 0
+    },
+    "special_effect": null,
+    "required_level": 10,
+    "character_restrictions": [],
+    "description": "A silver ring that enhances precision strikes. Lv 2 Attack Speed with minor attack bonus.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "silver-ring-of-precision-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/accessories/ring.svg"
+  },
+  {
+    "name": "Necklace of Fortitude",
+    "slug": "necklace-of-fortitude",
+    "type": "necklace",
+    "tier": 3,
+    "rarity": "rare",
+    "stats": {
+      "attack": 2,
+      "defense": 5,
+      "attack_speed": 0,
+      "critical_rate": 3,
+      "movement_speed": 0,
+      "stamina_regen": 3,
+      "spirit_regen": 0
+    },
+    "special_effect": "+3% Stamina Regen",
+    "required_level": 16,
+    "character_restrictions": [
+      "kliff",
+      "oongka"
+    ],
+    "description": "A sturdy necklace for frontline fighters. Lv 2 Critical Rate with defense and stamina bonuses.",
+    "acquisition": {
+      "method": "crafting",
+      "recipe_slug": "necklace-of-fortitude-recipe",
+      "vendor": null,
+      "boss_drop": null,
+      "location": null
+    },
+    "image": "/images/accessories/necklace.svg"
+  },
+  {
+    "name": "Crimson Ruby Earring",
+    "slug": "crimson-ruby-earring",
+    "type": "earring",
+    "tier": 5,
+    "rarity": "legendary",
+    "stats": {
+      "attack": 3,
+      "defense": 8,
+      "attack_speed": 0,
+      "critical_rate": 3,
+      "movement_speed": 8,
+      "stamina_regen": 0,
+      "spirit_regen": 1
+    },
+    "special_effect": "+1.0 Spirit/sec",
+    "required_level": 35,
+    "character_restrictions": [],
+    "description": "A legendary earring set with a deep crimson ruby. Massive Lv 5 Movement Speed plus Critical Rate and Spirit Regen.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "crimson-dragon",
+      "location": "crimson-desert"
+    },
+    "image": "/images/accessories/earring.svg"
+  },
+  {
+    "name": "Ring of the Abyss",
+    "slug": "ring-of-the-abyss",
+    "type": "ring",
+    "tier": 5,
+    "rarity": "legendary",
+    "stats": {
+      "attack": 8,
+      "defense": 0,
+      "attack_speed": 9,
+      "critical_rate": 4,
+      "movement_speed": 0,
+      "stamina_regen": 10,
+      "spirit_regen": 0
+    },
+    "special_effect": "+10% Stamina Regen",
+    "required_level": 38,
+    "character_restrictions": [],
+    "description": "A ring forged in the depths of the Abyss. Lv 5 Attack Speed with exceptional stamina regeneration.",
+    "acquisition": {
+      "method": "boss_drop",
+      "recipe_slug": null,
+      "vendor": null,
+      "boss_drop": "abyss-warden",
+      "location": "crimson-desert"
+    },
+    "image": "/images/accessories/ring.svg"
+  }
+]

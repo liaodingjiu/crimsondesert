@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Abyss Gears — Socketable Skills & Effects | CrimsonDesertDB</title>
+<meta name="description" content="Abyss Gears are socketable items that add special attacks and effects to weapons and armor. Categories: Swift, Insight, Vigor, Composure, Elemental. Compatible by weapon type.">
+<meta name="keywords" content="Crimson Desert Abyss Gears, socketable skills, Abyss Gear types, Swift Insight Vigor Composure Elemental">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/abyss-gears/">
+<meta property="og:title" content="Crimson Desert Abyss Gears — Socketable Skills">
+<meta property="og:description" content="Abyss Gears: socketable items that add special attacks and effects to weapons and armor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/abyss-gears/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+.ag-hero{text-align:center;padding:36px 0 8px}
+.ag-hero h1{font-size:31px;font-weight:700}
+.ag-hero h1 span{color:var(--accent)}
+.ag-hero .ag-sub{color:var(--text);font-size:17px;max-width:680px;margin:8px auto 0;line-height:1.7}
+
+.ag-intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.ag-intro p{font-size:15px;color:var(--text);line-height:1.8}
+
+/* Category cards */
+.ag-cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin:24px 0}
+.ag-cat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;transition:border-color .25s,transform .25s}
+.ag-cat:hover{border-color:var(--border-s);transform:translateY(-2px)}
+.ag-cat .agc-icon{font-size:32px;width:52px;height:52px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.ag-cat .agc-name{font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ag-cat .agc-stat{font-size:13px;color:var(--accent-d);font-weight:600;margin-bottom:8px}
+.ag-cat .agc-desc{font-size:14px;color:var(--text);line-height:1.65}
+
+/* Compat table */
+.ag-compat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.ag-compat h2{font-size:18px;font-weight:700;margin-bottom:8px}
+.ag-compat p{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:16px}
+.ag-ct{width:100%;border-collapse:collapse;font-size:15px}
+.ag-ct th,.ag-ct td{padding:10px 14px;border:1px solid var(--border);text-align:center}
+.ag-ct th{background:var(--muted-bg);color:var(--text);font-weight:600;font-size:14px}
+.ag-ct td.yes{color:var(--green);font-weight:600}
+.ag-ct td.no{color:var(--text3)}
+.ag-ct td:first-child{text-align:left;font-weight:600;color:var(--text)}
+
+/* FAQ */
+.ag-faq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin:24px 0}
+.ag-faq{border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 24px;background:var(--surface)}
+.ag-faq .faq-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.95}
+.ag-faq .faq-a{font-size:14px;color:var(--text);line-height:2.15}
+.ag-faq .faq-a a{color:var(--accent-d);font-weight:500}
+
+@media(max-width:600px){.ag-cat-grid{grid-template-columns:1fr 1fr}.ag-faq-grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Crimson Desert Abyss Gears","description":"Socketable skills and effects for weapons and armor. Swift, Insight, Vigor, Composure, and Elemental categories.","url":"https://pyweldb.com/abyss-gears/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Abyss Gears","item":"https://pyweldb.com/abyss-gears/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get Abyss Gears?","acceptedAnswer":{"@type":"Answer","text":"Abyss Gears drop from bosses, world exploration, and story milestones throughout Pywel. Higher-tier Gears are found in endgame regions — Demeniss and the Crimson Desert. Some unique Gears are tied to specific boss encounters."}},{"@type":"Question","name":"Can I remove a socketed Abyss Gear?","acceptedAnswer":{"@type":"Answer","text":"Yes. Abyss Gears can be freely socketed and unsocketed at any time outside of combat. There is no cost to swap Gears, so experiment with different combinations before boss fights."}},{"@type":"Question","name":"How many Abyss Gears can I equip?","acceptedAnswer":{"@type":"Answer","text":"Each weapon and armor piece has 1-2 Gear slots depending on rarity. Legendary items typically have 2 slots. A full set of equipment can hold 6-12 Gears total."}},{"@type":"Question","name":"Do Abyss Gears stack with passive skills?","acceptedAnswer":{"@type":"Answer","text":"Yes. Abyss Gear effects stack additively with passive skills from your character's skill tree. Crit rate from Insight Gears adds to your base crit and any skill tree bonuses."}},{"@type":"Question","name":"What's the best Abyss Gear setup?","acceptedAnswer":{"@type":"Answer","text":"It depends on your character and build. Kliff benefits from Insight + Swift. Oongka needs Vigor for stamina. Damiane relies on Composure for spirit. See the Abyss Gear Tier List for ranked comparisons."}},{"@type":"Question","name":"Are Abyss Gears character-locked?","acceptedAnswer":{"@type":"Answer","text":"Most Abyss Gears are universal, but some Elemental Gears may be restricted by character or weapon type. Always check the Gear's description before socketing."}}]}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="ag-hero">
+  <h1>Abyss <span>Gears</span></h1>
+  <p class="ag-sub">Socketable items that add special attacks and effects to your weapons and armor. The most unique customization system in Crimson Desert — mix and match for your build.</p>
+</div>
+
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<!-- Quick Stats -->
+<div class="stats-panel">
+  <div class="stat-box"><div class="stat-value">5</div><div class="stat-label">Gear Categories</div></div>
+  <div class="stat-box"><div class="stat-value">6</div><div class="stat-label">Compatible Weapon Types</div></div>
+  <div class="stat-box"><div class="stat-value">2</div><div class="stat-label">Max Slots (Legendary)</div></div>
+  <div class="stat-box"><div class="stat-value">12</div><div class="stat-label">Max Total Slots</div></div>
+</div>
+
+<!-- What Are They -->
+<div class="ag-intro">
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:10px">What Are Abyss Gears?</h2>
+  <p>Abyss Gears are <strong>socketable skill gems</strong> you insert into weapons and armor. Unlike traditional RPG gems that just add stats, Abyss Gears grant <strong>actual combat abilities</strong> — special attacks, elemental effects, and passive bonuses. A "Flame Imbue" Gear socketed into a sword adds fire damage to all attacks. A "Frost Nova" Gear triggers an ice explosion on perfect dodge.</p>
+  <p style="margin-top:10px">They are the key to <strong>endgame build customization</strong>. While your weapon determines base damage and your armor determines defense, Abyss Gears define <em>how</em> you fight. Two players with identical equipment can have completely different combat styles based on their Gear loadout.</p>
+</div>
+
+<!-- Categories -->
+<h2 style="font-size:18px;font-weight:700;margin-bottom:4px">Gear Categories</h2>
+<p style="font-size:14px;color:var(--text);margin-bottom:16px">Abyss Gears are divided into 5 categories, each affecting different stats and providing unique effects.</p>
+
+<div class="ag-cat-grid">
+  <div class="ag-cat">
+    <div class="agc-icon" style="background:var(--blue-l)">⚡</div>
+    <div class="agc-name">Swift</div>
+    <div class="agc-stat">Attack Speed ↑</div>
+    <div class="agc-desc">Increases swing frequency and reduces skill cooldowns. Best for fast-hitting builds — pair with 1H swords and daggers for maximum hits per second.</div>
+  </div>
+  <div class="ag-cat">
+    <div class="agc-icon" style="background:var(--gold-l)">🎯</div>
+    <div class="agc-name">Insight</div>
+    <div class="agc-stat">Critical Rate ↑</div>
+    <div class="agc-desc">Boosts critical hit chance and critical damage multiplier. Essential for crit-based builds. Stacks with rings and necklaces for max crit potential.</div>
+  </div>
+  <div class="ag-cat">
+    <div class="agc-icon" style="background:var(--green-l)">💪</div>
+    <div class="agc-name">Vigor</div>
+    <div class="agc-stat">Stamina Regen ↑</div>
+    <div class="agc-desc">Increases stamina recovery rate — up to +32% with max investment. Critical for heavy weapon users (Oongka) who burn stamina quickly on charged attacks.</div>
+  </div>
+  <div class="ag-cat">
+    <div class="agc-icon" style="background:var(--purple-l)">🧘</div>
+    <div class="agc-name">Composure</div>
+    <div class="agc-stat">Spirit Regen ↑</div>
+    <div class="agc-desc">Boosts spirit recovery — up to +1.2/sec. Spirit fuels active skills and ultimates. Mandatory for Damiane's spell-heavy builds.</div>
+  </div>
+  <div class="ag-cat">
+    <div class="agc-icon" style="background:var(--red-l)">🔥</div>
+    <div class="agc-name">Elemental</div>
+    <div class="agc-stat">Fire · Ice · Lightning</div>
+    <div class="agc-desc">Adds elemental damage and effects to attacks. Burn (DoT), Freeze (immobilize), and Stun (interrupt). Compatible with specific weapon types.</div>
+  </div>
+</div>
+
+<!-- Compatibility -->
+<div class="ag-compat">
+  <h2>Weapon Compatibility</h2>
+  <p>Not every Abyss Gear fits every weapon. Gear compatibility depends on <strong>weapon type and class</strong>. Swift Gears favor fast weapons, Elemental Gears are weapon-specific, and Vigor/Composure Gears are more universal.</p>
+  <div style="overflow-x:auto">
+  <table class="ag-ct">
+    <thead><tr><th>Weapon Type</th><th>Swift</th><th>Insight</th><th>Vigor</th><th>Composure</th><th>Elemental</th></tr></thead>
+    <tbody>
+      <tr><td>1H Sword</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>2H Sword</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>1H Axe</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+      <tr><td>2H Axe</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+      <tr><td>Spear</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+      <tr><td>Dagger</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+      <tr><td>Bow</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px;color:var(--text3);margin-top:8px">Compatibility may vary per individual Gear. Use the <a href="/tools/build-calculator/" style="color:var(--accent-d)">Build Calculator</a> to test Gear + Weapon combinations.</p>
+</div>
+
+<!-- FAQ -->
+<h2 style="font-size:18px;font-weight:700;margin-bottom:4px">Abyss Gear FAQ</h2>
+<div class="ag-faq-grid">
+  <div class="ag-faq"><div class="faq-q">Q: How do I get Abyss Gears?</div><div class="faq-a">Abyss Gears drop from <strong>bosses, world exploration, and story milestones</strong> throughout Pywel. Higher-tier Gears are found in endgame regions — Demeniss and the Crimson Desert. Some unique Gears are tied to specific boss encounters.</div></div>
+  <div class="ag-faq"><div class="faq-q">Q: Can I remove a socketed Abyss Gear?</div><div class="faq-a">Yes. Abyss Gears can be <strong>freely socketed and unsocketed</strong> at any time outside of combat. There is no cost to swap Gears, so experiment with different combinations before boss fights.</div></div>
+  <div class="ag-faq"><div class="faq-q">Q: How many Abyss Gears can I equip?</div><div class="faq-a">Each weapon and armor piece has <strong>1-2 Gear slots</strong> depending on rarity. Legendary items typically have 2 slots. A full set of equipment can hold 6-12 Gears total, allowing for deep build customization.</div></div>
+  <div class="ag-faq"><div class="faq-q">Q: Do Abyss Gears stack with passive skills?</div><div class="faq-a">Yes. Abyss Gear effects <strong>stack additively</strong> with passive skills from your character's skill tree. For example, a +10% crit rate from Insight Gears adds to your base crit and any crit bonuses from the skill tree.</div></div>
+  <div class="ag-faq"><div class="faq-q">Q: What's the best Abyss Gear setup?</div><div class="faq-a">It depends on your character and build. Kliff benefits from <strong>Insight + Swift</strong>. Oongka needs <strong>Vigor</strong>. Damiane relies on <strong>Composure</strong>. See the <a href="/abyss-gears/tier-list/">Abyss Gear Tier List →</a> for ranked comparisons, or use the <a href="/tools/build-calculator/">Build Calculator</a> to test your setup.</div></div>
+  <div class="ag-faq"><div class="faq-q">Q: Are Abyss Gears character-locked?</div><div class="faq-a">Most Abyss Gears are <strong>universal</strong>, but some Elemental Gears may be restricted by character or weapon type. Always check the Gear's description before socketing.</div></div>
+</div>
+
+<div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+
+<!-- Related -->
+<div style="margin:24px 0">
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:12px">Explore More</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px">
+    <a href="/abyss-gears/tier-list/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:var(--radius-sm);font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">📊 Abyss Gear Tier List</a>
+    <a href="/skills/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none">⚡ Skills Database</a>
+    <a href="/weapons/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none">⚔️ Weapons Database</a>
+    <a href="/characters/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none">👤 Characters</a>
+    <a href="/tools/build-calculator/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🧮 Build Calculator</a>
+    <a href="/equipment/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📦 All Equipment</a>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

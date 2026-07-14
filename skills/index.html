@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Skills — All Active & Passive Skills | CrimsonDesertDB</title>
+<meta name="description" content="All Crimson Desert skills for Kliff, Oongka, and Damiane. Filter by character, skill tree, and type. Active, Passive, and Ultimate skills.">
+<meta name="keywords" content="Crimson Desert skills, Kliff skills, Oongka skills, Damiane skills, Crimson Desert skill tree">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://pyweldb.com/skills/">
+<meta property="og:title" content="Crimson Desert Skills Database"><meta property="og:description" content="All skills for Kliff, Oongka, Damiane. Filter by character, skill tree, type.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://pyweldb.com/skills/">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Crimson Desert Skills">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>.page-header{padding:28px 0 8px}.page-header h1{font-size:31px;font-weight:700}.page-header h1 span{color:var(--accent)}.page-header .page-desc{color:var(--text);font-size:17px;max-width:680px;margin-top:6px;line-height:1.7}#cardGrid.hidden,#tableView.hidden{display:none}.table-note{font-size:14px;color:var(--text);margin-bottom:8px}.skill-type-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}.st-active{background:var(--accent-l);color:var(--accent-d)}.st-passive{background:var(--blue-l);color:var(--blue)}.st-ultimate{background:var(--gold-l);color:var(--gold)}
+.quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}
+.quick-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;text-align:center}
+.quick-stat .qs-val{font-size:22px;font-weight:700;color:var(--accent-d)}
+.quick-stat .qs-lbl{font-size:13px;color:var(--text);margin-top:2px}
+.qs-clickable{cursor:pointer;transition:border-color .15s,transform .15s}
+.qs-clickable:hover{border-color:var(--accent);transform:translateY(-1px)}
+.qs-clickable:hover .qs-val{color:var(--accent)}
+.ranking-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:20px 0}
+.rank-card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;text-decoration:none!important;transition:border-color .2s,transform .2s}
+.rank-card:hover{border-color:var(--border-hover);transform:translateY(-1px)}
+.rank-card .rk-num{font-size:24px;font-weight:700;color:var(--accent);width:32px;text-align:center;flex-shrink:0}
+.rank-card .rk-img{width:44px;height:44px;background:var(--muted-bg);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rank-card .rk-info{flex:1;min-width:0}
+.rank-card .rk-name{font-size:15px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-card .rk-type{font-size:13px;color:var(--text);margin-top:2px}
+.rank-card .rk-val{font-size:20px;font-weight:700;color:var(--accent-d);flex-shrink:0}
+.extra-section{margin:24px 0}.extra-section h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.sk-faq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:20px}
+.sk-faq{border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 24px;background:var(--surface)}
+.sk-faq .faq-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.7}
+.sk-faq .faq-a{font-size:14px;color:var(--text);line-height:1.8}
+.sk-faq .faq-a a{color:var(--accent-d);font-weight:500}
+.rel-links{display:flex;flex-wrap:wrap;gap:10px}
+.rel-links a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font-size:14px;font-weight:500;color:var(--text);text-decoration:none!important;transition:border-color .2s,background .2s}
+.rel-links a:hover{border-color:var(--accent);background:var(--accent-l)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.quick-stats{grid-template-columns:repeat(2,1fr)}.ranking-grid{grid-template-columns:1fr}.sk-faq-grid{grid-template-columns:1fr}}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Crimson Desert Skills Database","description":"All skills for Kliff, Oongka, Damiane. Filter by character, tree, type.","url":"https://pyweldb.com/skills/","mainEntity":{"@type":"ItemList","numberOfItems":15}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://pyweldb.com/skills/"}]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many skills are in Crimson Desert?","acceptedAnswer":{"@type":"Answer","text":"15 skills across 3 characters: Kliff (5 skills, 3 trees), Oongka (5 skills, 2 trees), Damiane (5 skills, 2 trees). Types include Active, Passive, and Ultimate skills."}},{"@type":"Question","name":"Which character is best for beginners?","acceptedAnswer":{"@type":"Answer","text":"Kliff — his Warrior tree offers balanced offense and Defender tree provides shield-based defense. Oongka is high-risk/high-reward. Damiane requires ranged positioning skill."}},{"@type":"Question","name":"How do skill trees work?","acceptedAnswer":{"@type":"Answer","text":"Each character has 2-3 trees unlocked via Abyss Artifacts found through exploration and bosses. Mix skills from different trees. Use the Skill Planner to experiment with allocations."}},{"@type":"Question","name":"What are Ultimate skills?","acceptedAnswer":{"@type":"Answer","text":"The most powerful abilities with long cooldowns (60-90s). Berserker Rage (Oongka) boosts ATK for 30s. Each character has one Ultimate — they define endgame builds."}}]}
+</script>
+</head>
+<body>
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="page">
+<div class="page-header"><h1>Crimson Desert <span>Skills</span> Database</h1><p class="page-desc">All skills for Kliff, Oongka, and Damiane. Filter by character, skill tree, and type. Click any skill for effects, upgrades, and requirements.</p></div>
+<div class="quick-stats" id="quickStats"></div>
+<div class="filter-chips" id="charChips"><button class="chip active" data-value="all">All Characters</button><button class="chip" data-value="kliff">Kliff</button><button class="chip" data-value="oongka">Oongka</button><button class="chip" data-value="damiane">Damiane</button></div>
+<div class="filter-bar">
+  <input type="text" id="searchInput" placeholder="Search skills..." autocomplete="off">
+  <span class="result-count" id="resultCount">0/0</span>
+  <select id="typeFilter"><option value="all">All Types</option><option value="active">Active</option><option value="passive">Passive</option><option value="ultimate">Ultimate</option></select>
+  <select id="treeFilter"><option value="all">All Trees</option><option value="warrior">Warrior</option><option value="defender">Defender</option><option value="tactician">Tactician</option><option value="destroyer">Destroyer</option><option value="juggernaut">Juggernaut</option><option value="mystic">Mystic</option><option value="elementalist">Elementalist</option></select>
+  <select id="sortBy"><option value="name">Name A-Z</option><option value="tier-desc">Tier ↓</option><option value="damage-desc">Damage ↓</option></select>
+  <div class="view-toggle"><button id="viewCard" class="active" title="Card view">▦</button><button id="viewTable" title="Table view">☰</button></div>
+</div>
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+<div class="card-grid" id="cardGrid"></div>
+<div class="data-table-wrap hidden" id="tableView"><p class="table-note">Click column headers to sort.</p><table class="data-table" id="dataTable"><thead><tr><th data-sort="name">Name <span class="sort-arrow">↕</span></th><th data-sort="character">Character</th><th data-sort="skill_tree">Tree</th><th data-sort="skill_type">Type</th><th data-sort="tier">Tier</th><th>Cost</th><th>Cooldown</th><th>Weapon Req</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+<div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+
+<!-- Top 5 Skills by Damage -->
+<div class="extra-section">
+  <h3>Top 5 Skills by Damage Multiplier</h3>
+  <div class="ranking-grid" id="rankingGrid"></div>
+</div>
+
+<!-- FAQ + Trees Map + Links (two-col) -->
+<div class="two-col">
+  <div class="extra-section" style="margin:0">
+    <h3>Skills FAQ</h3>
+    <div class="sk-faq-grid">
+      <div class="sk-faq"><div class="faq-q">Q: How many skills are there?</div><div class="faq-a">15 skills: Kliff (5), Oongka (5), Damiane (5). Types: Active, Passive, Ultimate. Each character has 2-3 skill trees. <a href="/characters/">View characters →</a></div></div>
+      <div class="sk-faq"><div class="faq-q">Q: Which character for beginners?</div><div class="faq-a"><strong>Kliff</strong> — Warrior tree for offense, Defender for shields. Most forgiving for new players. Oongka is high-risk, Damiane needs ranged positioning.</div></div>
+      <div class="sk-faq"><div class="faq-q">Q: How do skill trees work?</div><div class="faq-a">Unlocked via Abyss Artifacts. Mix skills across trees. Use the <a href="/tools/skill-planner/">Skill Planner</a> to experiment before committing in-game.</div></div>
+      <div class="sk-faq"><div class="faq-q">Q: What do skills cost?</div><div class="faq-a">Skills consume <strong>Spirit</strong> or <strong>Stamina</strong>. Spirit skills (15-80) regenerate over time. Stamina skills (20-40) drain your stamina bar. Cooldowns range from 4s (Arcane Bolt) to 90s (Berserker Rage).</div></div>
+    </div>
+  </div>
+  <div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:10px">Skill Trees by Character</h3>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:13px;color:var(--text);padding:6px 10px;border:1px solid var(--border);border-radius:8px"><strong style="color:var(--accent-d)">Kliff</strong> · Warrior (3) · Defender (1) · Tactician (1)</div>
+        <div style="font-size:13px;color:var(--text);padding:6px 10px;border:1px solid var(--border);border-radius:8px"><strong style="color:var(--accent-d)">Oongka</strong> · Destroyer (3) · Juggernaut (2)</div>
+        <div style="font-size:13px;color:var(--text);padding:6px 10px;border:1px solid var(--border);border-radius:8px"><strong style="color:var(--accent-d)">Damiane</strong> · Mystic (3) · Elementalist (2)</div>
+      </div>
+    </div>
+    <div class="extra-section" style="margin:16px 0 0">
+      <h3>Explore More</h3>
+      <div class="rel-links">
+        <a href="/tools/skill-planner/">🧠 Skill Planner</a>
+        <a href="/abyss-gears/">🔮 Abyss Gears</a>
+        <a href="/characters/">👤 Characters</a>
+        <a href="/weapons/">⚔️ Weapons</a>
+        <a href="/tools/build-calculator/">🧮 Build Calculator</a>
+        <a href="/guides/">📖 Guides</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+<script src="/cookie-consent.js"></script><script src="skills-data.js"></script>
+<script>
+(function(){var D=window.__SKILLS__||[],cc='all',cv='card',cs={field:'name',dir:'asc'},CHAR={kliff:'Kliff',oongka:'Oongka',damiane:'Damiane'},TREE={warrior:'Warrior',defender:'Defender',tactician:'Tactician',destroyer:'Destroyer',juggernaut:'Juggernaut',mystic:'Mystic',elementalist:'Elementalist'},STYPE={active:'Active',passive:'Passive',ultimate:'Ultimate'};
+function gf(){var q=document.getElementById('searchInput').value.toLowerCase(),tv=document.getElementById('typeFilter').value,trv=document.getElementById('treeFilter').value;return D.filter(function(i){if(cc!=='all'&&i.character!==cc)return false;if(tv!=='all'&&i.skill_type!==tv)return false;if(trv!=='all'&&i.skill_tree!==trv)return false;if(q&&i.name.toLowerCase().indexOf(q)<0&&(i.description||'').toLowerCase().indexOf(q)<0)return false;return true;});}
+function sl(list){var s=list.slice(),sv=document.getElementById('sortBy').value;if(sv==='tier-desc')s.sort(function(a,b){return(b.tier||0)-(a.tier||0)});else if(sv==='damage-desc')s.sort(function(a,b){return(b.damage_multiplier||0)-(a.damage_multiplier||0)});else s.sort(function(a,b){return a.name.localeCompare(b.name)});return s;}
+function rc(list){document.getElementById('resultCount').textContent=list.length+'/'+D.length;document.getElementById('cardGrid').innerHTML=list.map(function(i){var costStr=i.cost?i.cost.amount+' '+i.cost.type:'No cost';return '<a href="/skills/'+i.slug+'/" class="item-card"><span class="skill-type-badge st-'+i.skill_type+'">'+(STYPE[i.skill_type]||i.skill_type).toUpperCase()+'</span><div class="item-img"><img src="'+(i.image||'/images/skills/placeholder.webp')+'" alt="'+i.name+'" loading="lazy" onerror="this.parentElement.textContent=\'⚡\'"></div><span class="item-name">'+i.name+'</span><span class="item-meta">'+(CHAR[i.character]||i.character)+' · '+(TREE[i.skill_tree]||i.skill_tree)+'</span><span class="item-meta">'+costStr+(i.cooldown>0?' · CD '+i.cooldown+'s':'')+'</span></a>';}).join('');}
+function rt(list){document.getElementById('resultCount').textContent=list.length+'/'+D.length;document.getElementById('tableBody').innerHTML=list.map(function(i){return '<tr><td class="td-name"><a href="/skills/'+i.slug+'/">'+i.name+'</a></td><td>'+(CHAR[i.character]||i.character)+'</td><td>'+(TREE[i.skill_tree]||i.skill_tree)+'</td><td><span class="skill-type-badge st-'+i.skill_type+'">'+(STYPE[i.skill_type]||i.skill_type)+'</span></td><td>'+i.tier+'</td><td>'+(i.cost?i.cost.amount+' '+i.cost.type:'—')+'</td><td>'+(i.cooldown>0?i.cooldown+'s':'—')+'</td><td>'+(i.weapon_required?i.weapon_required:'—')+'</td></tr>';}).join('');}
+function render(){var f=gf(),s=sl(f);if(cv==='card'){rc(s);document.getElementById('cardGrid').classList.remove('hidden');document.getElementById('tableView').classList.add('hidden')}else{rt(s);document.getElementById('cardGrid').classList.add('hidden');document.getElementById('tableView').classList.remove('hidden')}}
+document.getElementById('searchInput').addEventListener('input',render);document.getElementById('typeFilter').addEventListener('change',render);document.getElementById('treeFilter').addEventListener('change',render);document.getElementById('sortBy').addEventListener('change',render);
+document.querySelectorAll('#charChips .chip').forEach(function(ch){ch.addEventListener('click',function(){document.querySelectorAll('#charChips .chip').forEach(function(c){c.classList.remove('active')});ch.classList.add('active');cc=ch.getAttribute('data-value');render()})});
+document.getElementById('viewCard').addEventListener('click',function(){cv='card';this.classList.add('active');document.getElementById('viewTable').classList.remove('active');render()});
+document.getElementById('viewTable').addEventListener('click',function(){cv='table';this.classList.add('active');document.getElementById('viewCard').classList.remove('active');render()});
+render();
+
+// ── Quick Stats Bar ──
+(function(){
+  var chars={}, trees={}, types={}, maxDmg={val:0,name:'',slug:''};
+  D.forEach(function(s){
+    chars[s.character]=(chars[s.character]||0)+1;
+    trees[s.skill_tree]=(trees[s.skill_tree]||0)+1;
+    types[s.skill_type]=(types[s.skill_type]||0)+1;
+    var dmg=s.damage_multiplier||0;
+    if(dmg>maxDmg.val){maxDmg.val=dmg;maxDmg.name=s.name;maxDmg.slug=s.slug;}
+  });
+  var stats=[
+    {val:D.length, lbl:'Total Skills', click:null},
+    {val:Object.keys(chars).length, lbl:'Characters', click:'/characters/'},
+    {val:Object.keys(trees).length, lbl:'Skill Trees', click:null},
+    {val:maxDmg.val+'×', lbl:'Max Damage', sub:maxDmg.name, click:'/skills/'+maxDmg.slug+'/'},
+    {val:types['ultimate']||0, lbl:'Ultimates', click:'filter:ultimate'}
+  ];
+  document.getElementById('quickStats').innerHTML = stats.map(function(s){
+    var cls = s.click ? 'quick-stat qs-clickable' : 'quick-stat';
+    var tag = s.click && s.click.indexOf('filter:')===0 ? 'div' : (s.click ? 'a' : 'div');
+    var href = s.click && s.click.indexOf('filter:')!==0 ? ' href="'+s.click+'"' : '';
+    var lbl = s.lbl + (s.sub ? ' <span style="font-size:11px;color:var(--text3)">('+s.sub+')</span>' : '');
+    return '<'+tag+' class="'+cls+'"'+href+' data-click="'+(s.click||'')+'"><div class="qs-val">'+s.val+'</div><div class="qs-lbl">'+lbl+'</div></'+tag+'>';
+  }).join('');
+  document.querySelectorAll('.qs-clickable[data-click^="filter:"]').forEach(function(el){
+    el.addEventListener('click',function(){
+      var val = el.getAttribute('data-click').split(':')[1];
+      document.querySelectorAll('#charChips .chip').forEach(function(c){c.classList.remove('active');});
+      document.querySelector('#charChips .chip[data-value="all"]').classList.add('active');
+      cc='all';
+      document.getElementById('typeFilter').value=val==='ultimate'?'ultimate':'all';
+      document.getElementById('treeFilter').value='all';
+      render();
+    });
+  });
+})();
+
+// ── Top 5 Skills by Damage ──
+(function(){
+  var sorted = D.slice().sort(function(a,b){return(b.damage_multiplier||0)-(a.damage_multiplier||0);}).slice(0,5);
+  document.getElementById('rankingGrid').innerHTML = sorted.map(function(s,i){
+    return '<a href="/skills/'+s.slug+'/" class="rank-card">'+
+      '<span class="rk-num">#'+(i+1)+'</span>'+
+      '<div class="rk-img">⚡</div>'+
+      '<div class="rk-info"><div class="rk-name">'+s.name+'</div><div class="rk-type">'+(CHAR[s.character]||s.character)+' · '+(TREE[s.skill_tree]||s.skill_tree)+' · <span class="skill-type-badge st-'+s.skill_type+'">'+(STYPE[s.skill_type]||s.skill_type).toUpperCase()+'</span></div></div>'+
+      '<span class="rk-val">'+(s.damage_multiplier||0)+'×</span>'+
+    '</a>';
+  }).join('');
+})();
+
+})();
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

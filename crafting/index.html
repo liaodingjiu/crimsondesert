@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Crafting — Recipes, Materials & Crafted Gear | CrimsonDesertDB</title>
+<meta name="description" content="Crimson Desert crafting system — weapon recipes, armor recipes, accessory recipes. Required materials, crafting stations, and where to find rare ingredients.">
+<meta name="keywords" content="Crimson Desert crafting, crafting recipes, weapon crafting, armor crafting, material farming">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://pyweldb.com/crafting/">
+<meta property="og:title" content="Crimson Desert Crafting Guide"><meta property="og:description" content="Craft weapons, armor, and accessories. Find recipes and materials.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+.cr-hero{text-align:center;padding:36px 0 8px}.cr-hero h1{font-size:31px;font-weight:700}.cr-hero h1 span{color:var(--accent)}.cr-hero .cr-sub{color:var(--text);font-size:17px;max-width:680px;margin:8px auto 0;line-height:1.7}
+.cr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:24px 0}
+.cr-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.cr-card .crc-icon{font-size:36px;margin-bottom:10px}.cr-card h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.cr-card p{font-size:14px;color:var(--text);line-height:1.7}
+.cr-faq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin:24px 0}
+.cr-faq{border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 24px;background:var(--surface)}
+.cr-faq .faq-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.95}
+.cr-faq .faq-a{font-size:14px;color:var(--text);line-height:2.15}
+@media(max-width:600px){.cr-grid{grid-template-columns:1fr}.cr-faq-grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Crimson Desert Crafting System","description":"Craft weapons, armor, and accessories from materials gathered across Pywel. Recipes, materials, and crafting stations.","url":"https://pyweldb.com/crafting/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Crafting","item":"https://pyweldb.com/crafting/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I unlock crafting recipes?","acceptedAnswer":{"@type":"Answer","text":"Recipes are found through boss drops, exploration, quests, and vendors. Each region has unique recipes. Legendary recipes require endgame boss kills in Demeniss or the Crimson Desert."}},{"@type":"Question","name":"Where do I farm crafting materials?","acceptedAnswer":{"@type":"Answer","text":"Ores and common materials are found throughout the open world. Rare crystals and essences drop from bosses and high-level enemies. Use the Interactive Map for farming routes."}},{"@type":"Question","name":"Can crafted items match boss drops?","acceptedAnswer":{"@type":"Answer","text":"Yes. Crafted legendary items have identical stats to boss-drop counterparts. Crafting guarantees the item with enough materials; boss drops rely on RNG."}},{"@type":"Question","name":"Is there a crafting level system?","acceptedAnswer":{"@type":"Answer","text":"No. If you have the recipe and materials, you can craft the item. No grinding crafting XP required — you can craft endgame gear as soon as you find the recipe."}}]}
+</script>
+</head>
+<body>
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert</div>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="page">
+<div class="cr-hero">
+  <div class="breadcrumb"><a href="/">Home</a> <span class="sep">›</span> Crafting</div>
+  <h1>Crafting <span>System</span></h1>
+  <p class="cr-sub">Craft weapons, armor, and accessories from materials gathered across Pywel. Find recipes, farm ingredients, and forge your own legendary gear.</p>
+</div>
+<div class="ad-box ad-banner ad-placeholder">Advertisement</div>
+
+<div class="cr-grid">
+  <a href="/weapons/" class="cr-card" style="text-decoration:none;color:inherit;display:block;transition:border-color .25s,transform .25s"><div class="crc-icon">⚔️</div><h3>Weapon Crafting</h3><p>Craft one-handed and two-handed weapons from <a href="/weapons/iron-sword/" style="color:var(--accent-d)">Iron Sword</a> (Tier 2) to legendary blades. Recipes drop from bosses, quests, and exploration. Use the <a href="/tools/recipe-finder/" style="color:var(--accent-d)">Recipe Finder →</a> to find craftable items from your materials.</p></a>
+  <a href="/armor/" class="cr-card" style="text-decoration:none;color:inherit;display:block;transition:border-color .25s,transform .25s"><div class="crc-icon">🛡️</div><h3>Armor Crafting</h3><p>Forge plate, leather, and cloth armor across all 5 slots. The <a href="/armor/sets/" style="color:var(--accent-d)">Iron Plate Set</a> is fully craftable. Some armor sets require specific crafting stations in different regions.</p></a>
+  <a href="/accessories/" class="cr-card" style="text-decoration:none;color:inherit;display:block;transition:border-color .25s,transform .25s"><div class="crc-icon">💍</div><h3>Accessory Crafting</h3><p>Craft rings, earrings, and necklaces like <a href="/accessories/silver-ring-of-precision/" style="color:var(--accent-d)">Silver Ring of Precision</a> and <a href="/accessories/necklace-of-fortitude/" style="color:var(--accent-d)">Necklace of Fortitude</a>. Accessory recipes are rarer — most are boss drops or hidden in endgame dungeons.</p></a>
+  <a href="/cooking/" class="cr-card" style="text-decoration:none;color:inherit;display:block;transition:border-color .25s,transform .25s"><div class="crc-icon">🧪</div><h3>Cooking &amp; Alchemy</h3><p>Combine ingredients for temporary stat boosts, healing items, and elemental resistance potions. Essential for endgame boss preparation. <a href="/cooking/" style="color:var(--accent-d)">Browse Cooking &amp; Alchemy →</a></p></a>
+</div>
+
+<h2 style="font-size:18px;font-weight:700;margin:8px 0 4px">Crafting FAQ</h2>
+<div class="cr-faq-grid">
+  <div class="cr-faq"><div class="faq-q">Q: How do I unlock crafting recipes?</div><div class="faq-a">Recipes are found through <strong>boss drops, exploration, quests, and vendors</strong>. Each region has unique recipes. The Iron Sword recipe is available early in Hernand; legendary recipes require endgame boss kills in Demeniss or the Crimson Desert.</div></div>
+  <div class="cr-faq"><div class="faq-q">Q: Where do I farm crafting materials?</div><div class="faq-a">Ores and common materials are found throughout the open world. <strong>Rare crystals and essences</strong> drop from bosses and high-level enemies. Each region has unique material types — check region pages for farming routes.</div></div>
+  <div class="cr-faq"><div class="faq-q">Q: Can crafted items match boss drops?</div><div class="faq-a"><strong>Yes.</strong> Crafted legendary items have identical stats to their boss-drop counterparts. The difference is acquisition — crafting guarantees the item with enough materials, while boss drops rely on RNG.</div></div>
+  <div class="cr-faq"><div class="faq-q">Q: Is there a crafting level system?</div><div class="faq-a">No. There is no crafting skill level — if you have the recipe and materials, you can craft the item. This means you can craft endgame gear as soon as you find the recipe, without grinding crafting XP.</div></div>
+</div>
+
+<div class="ad-box ad-rectangle ad-placeholder">Advertisement</div>
+<div style="margin:24px 0">
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:12px">Explore More</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px">
+    <a href="/tools/recipe-finder/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🧪 Recipe Finder</a>
+    <a href="/weapons/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">⚔️ Weapon Database</a>
+    <a href="/armor/sets/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🛡️ Armor Sets</a>
+    <a href="/cooking/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🍲 Cooking &amp; Alchemy</a>
+    <a href="/equipment/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📦 All Equipment</a>
+    <a href="/tools/map/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🗺️ Interactive Map</a>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>
