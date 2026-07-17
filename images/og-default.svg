@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1210"/>
+      <stop offset="100%" stop-color="#2c1a12"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c46040"/>
+      <stop offset="100%" stop-color="#d88468"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative border accent -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accent-grad)"/>
+  <rect x="0" y="624" width="1200" height="6" fill="url(#accent-grad)"/>
+
+  <!-- Logo circle -->
+  <circle cx="600" cy="220" r="80" fill="url(#accent-grad)"/>
+
+  <!-- Logo text in circle -->
+  <text x="600" y="240" text-anchor="middle" font-size="52" font-weight="bold" font-family="'Inter', -apple-system, sans-serif" fill="#ffffff">CD</text>
+
+  <!-- Main title -->
+  <text x="600" y="360" text-anchor="middle" font-size="56" font-weight="bold" font-family="'Inter', -apple-system, sans-serif" fill="#ffffff">
+    Crimson<tspan fill="#d88468">Desert</tspan>DB
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="410" text-anchor="middle" font-size="24" font-family="'Inter', -apple-system, sans-serif" fill="#b8a89a">
+    Weapons · Armor · Skills · Abyss Gears — All Data, No Fluff
+  </text>
+
+  <!-- Stats bar -->
+  <g transform="translate(200, 460)">
+    <rect x="0" y="0" width="180" height="70" rx="12" fill="#241a16" stroke="#c46040" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="90" y="30" text-anchor="middle" font-size="28" font-weight="bold" font-family="'Inter', sans-serif" fill="#d88468">52+</text>
+    <text x="90" y="52" text-anchor="middle" font-size="14" font-family="'Inter', sans-serif" fill="#b8a89a">Weapons &amp; Armor</text>
+  </g>
+  <g transform="translate(410, 460)">
+    <rect x="0" y="0" width="180" height="70" rx="12" fill="#241a16" stroke="#c46040" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="90" y="30" text-anchor="middle" font-size="28" font-weight="bold" font-family="'Inter', sans-serif" fill="#d88468">15</text>
+    <text x="90" y="52" text-anchor="middle" font-size="14" font-family="'Inter', sans-serif" fill="#b8a89a">Skills</text>
+  </g>
+  <g transform="translate(620, 460)">
+    <rect x="0" y="0" width="180" height="70" rx="12" fill="#241a16" stroke="#c46040" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="90" y="30" text-anchor="middle" font-size="28" font-weight="bold" font-family="'Inter', sans-serif" fill="#d88468">5</text>
+    <text x="90" y="52" text-anchor="middle" font-size="14" font-family="'Inter', sans-serif" fill="#b8a89a">Regions · 90km²</text>
+  </g>
+  <g transform="translate(830, 460)">
+    <rect x="0" y="0" width="180" height="70" rx="12" fill="#241a16" stroke="#c46040" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="90" y="30" text-anchor="middle" font-size="28" font-weight="bold" font-family="'Inter', sans-serif" fill="#d88468">4</text>
+    <text x="90" y="52" text-anchor="middle" font-size="14" font-family="'Inter', sans-serif" fill="#b8a89a">Interactive Tools</text>
+  </g>
+
+  <!-- URL at bottom -->
+  <text x="600" y="590" text-anchor="middle" font-size="18" font-family="'Inter', sans-serif" fill="#8a7c70">pyweldb.com</text>
+</svg>

@@ -95,7 +95,7 @@ for (const w of weapons) {
 <link rel="canonical" href="https://pyweldb.com/weapons/${w.slug}/">
 <meta property="og:title" content="${w.name} — Crimson Desert ${typeLabel}">
 <meta property="og:description" content="ATK ${stats.attack} | Speed ${stats.attack_speed} | Crit ${stats.critical_rate} — ${w.rarity.toUpperCase()}">
-<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pyweldb.com/weapons/${w.slug}/">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,7 +118,14 @@ for (const w of weapons) {
     { "@type": "PropertyValue", "name": "Critical Rate", "value": "${stats.critical_rate}" },
     { "@type": "PropertyValue", "name": "Rarity", "value": "${w.rarity}" },
     { "@type": "PropertyValue", "name": "Tier", "value": "${w.tier}" }
-  ]
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "${w.tier}",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "1"
+  }
 }
 </script>
 <script type="application/ld+json">

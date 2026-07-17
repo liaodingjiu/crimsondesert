@@ -21,6 +21,10 @@
 <meta property="og:description" content="The comprehensive Crimson Desert database. All data, no fluff.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pyweldb.com/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/svg+xml">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Crimson Desert Database">
 <meta name="twitter:description" content="The comprehensive Crimson Desert database — all data, no fluff.">
@@ -35,7 +39,15 @@
   "name": "CrimsonDesertDB",
   "url": "https://pyweldb.com/",
   "description": "The comprehensive Crimson Desert database — weapons, armor, skills, Abyss Gears, crafting recipes, and interactive tools.",
-  "publisher": { "@type": "Organization", "name": "CrimsonDesertDB" }
+  "publisher": { "@type": "Organization", "name": "CrimsonDesertDB" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://pyweldb.com/?search={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 <script type="application/ld+json">
