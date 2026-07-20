@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NNCE5PJ6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2NNCE5PJ6S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert How to Wait &amp; Pass Time — Bonfire, Bed &amp; Quest Skip | CrimsonDesertDB</title>
+<meta name="description" content="How to wait and pass time in Crimson Desert. Bonfire, bed, and quest skip methods — PC, Xbox &amp; PS5 controls, 10-hour cooldown rule, and fixes for when sleeping won't work.">
+<meta name="keywords" content="Crimson Desert how to wait, how to pass time Crimson Desert, wait bonfire, skip time, can't sleep Crimson Desert, Crimson Desert bed, wait at bonfire">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/guides/waiting-pass-time/">
+<meta property="og:title" content="Crimson Desert How to Wait &amp; Pass Time">
+<meta property="og:description" content="How to wait and pass time in Crimson Desert — bonfires, beds, quest prompts, platform controls, and every fix for when it won't work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/guides/waiting-pass-time/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/svg+xml">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert How to Wait &amp; Pass Time">
+<meta name="twitter:description" content="Bonfire, bed, or quest prompt — every way to pass time in Crimson Desert, with platform controls and troubleshooting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .wt-hero { text-align: center; padding: 32px 0 8px; }
+  .wt-hero h1 { font-size: 31px; font-weight: 700; }
+  .wt-hero h1 span { color: var(--accent); }
+  .wt-hero .wt-sub { color: var(--text); font-size: 16px; max-width: 720px; margin: 8px auto 24px; line-height: 1.7; }
+
+  .wt-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px; }
+  .wt-block h2 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .wt-block h3 { font-size: 17px; font-weight: 700; color: var(--text); margin: 24px 0 10px; }
+  .wt-block h3:first-of-type { margin-top: 0; }
+  .wt-block p { color: var(--text); font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+
+  .fg-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .fg-table th { text-align: left; padding: 10px 14px; background: var(--muted-bg); color: var(--text); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .4px; border-bottom: 1px solid var(--border-strong); }
+  .fg-table td { padding: 10px 14px; color: var(--text2); border-bottom: 1px solid var(--border); }
+  .fg-table tr:last-child td { border-bottom: none; }
+  .fg-table .col-action { color: var(--accent-d); font-weight: 600; white-space: nowrap; }
+
+  .fg-tip { background: var(--accent-l); border: 1px solid var(--accent); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: 14px; color: var(--text); line-height: 1.65; }
+  .fg-tip strong { color: var(--accent); }
+
+  .fg-warn { background: rgba(224, 85, 80, 0.08); border: 1px solid var(--red); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: 14px; color: var(--text); line-height: 1.65; }
+  .fg-warn strong { color: var(--red); }
+
+  .method-card { border-radius: var(--radius-sm); padding: 18px 20px; margin-bottom: 12px; }
+  .method-card.m1 { background: rgba(196, 96, 64, 0.06); border: 1px solid var(--accent); }
+  .method-card.m2 { background: rgba(74, 144, 217, 0.06); border: 1px solid var(--blue); }
+  .method-card.m3 { background: rgba(212, 166, 68, 0.06); border: 1px solid var(--gold); }
+  .method-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .method-card .method-label { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .method-card.m1 .method-label { color: var(--accent-d); }
+  .method-card.m2 .method-label { color: var(--blue); }
+  .method-card.m3 .method-label { color: var(--gold); }
+  .method-card p { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 0; }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 16px 0 32px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; transition: border-color .2s; }
+  .faq-item:hover { border-color: var(--border-hover); }
+  .faq-item .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.95; }
+  .faq-item .faq-q .faq-icon { color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .faq-item .faq-a { font-size: 14px; color: var(--text2); line-height: 2.15; padding-left: 24px; }
+  @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
+
+  .section-heading { margin-top: 32px; margin-bottom: 8px; }
+  .section-heading h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://pyweldb.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Wait &amp; Pass Time Guide", "item": "https://pyweldb.com/guides/waiting-pass-time/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question", "name": "How do you wait and pass time in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Approach a bonfire, cooking pot, or bed. Aim your camera directly at the fire/pot and hold CTRL (PC) or LB/L1 (Controller) until the Wait menu appears. Select 3, 6, or 12 hours to skip. There is no universal 'wait' button — you must be at a valid rest point. Some quests also provide an automatic time-skip prompt (hourglass icon)." }
+    },
+    {
+      "@type": "Question", "name": "Why can't I sleep or wait in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Four common causes: (1) Cooldown — you must wait about 10 in-game hours after resting before you can wait again. (2) Wrong interaction — aim your camera directly at the fire/pot; the prompt is camera-sensitive. (3) Early game lock — resting may not unlock until a certain story point. (4) Active quest — if a quest has its own wait prompt (hourglass icon), the manual wait option may be overridden." }
+    },
+    {
+      "@type": "Question", "name": "Can you skip time without sleeping in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bonfires and cooking pots let you pass time without sleeping. Approach any campfire or cooking station, aim your camera at the fire, hold CTRL (PC) or LB/L1 (Controller), and select your time skip. This is the fastest method — no bed required. Quest-based time skips (hourglass icon) also bypass the need for sleep." }
+    },
+    {
+      "@type": "Question", "name": "What is the wait cooldown in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "After waiting or sleeping, you cannot wait again until approximately 10 in-game hours have passed. This prevents spamming the time-skip mechanic. If you get a 'now is not the time to sleep' message, the cooldown is still active. Continue playing or explore until the cooldown expires." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert. Updated <time datetime="2026-07">July 2026</time>.</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="breadcrumb" style="margin-top:16px"><a href="/">Home</a> <span class="sep">›</span> <a href="/guides/">Guides</a> <span class="sep">›</span> How to Wait &amp; Pass Time</div>
+
+<div class="wt-hero">
+  <h1>How to <span>Wait &amp; Pass Time</span> in Crimson Desert</h1>
+  <p class="wt-sub">There's no universal "wait" button — you need a rest point. Here's exactly how to pass time using <strong>bonfires, beds, and quest prompts</strong> on PC, Xbox, and PS5, plus the cooldown rule and every fix for when it won't work.</p>
+</div>
+
+<!-- 1. QUICK ANSWER -->
+<div class="wt-block">
+  <h2>⏰ 1. The Quick Answer</h2>
+  <p>Find a <strong>bonfire, cooking pot, or bed</strong> → aim your camera directly at the fire/pot → <strong>hold the interact button</strong> → the Wait menu appears → choose <strong>3, 6, or 12 hours</strong> → time advances. You cannot simply press a button anywhere — you must be at a valid rest point.</p>
+
+  <div class="fg-tip">💡 <strong>Key distinction:</strong> Unlike Skyrim or The Witcher 3 where you can "meditate" or "wait" anywhere, Crimson Desert requires you to be physically at a bonfire, cooking station, or bed. Explore to find them, then remember their locations.</div>
+</div>
+
+<!-- 2. THREE METHODS -->
+<div class="wt-block">
+  <h2>🔥 2. All Three Ways to Pass Time</h2>
+
+  <div class="method-card m1">
+    <div class="method-label">Method 1 — Most Common</div>
+    <h4>Bonfires &amp; Cooking Pots</h4>
+    <p>Scattered throughout the wilderness, settlements, and camps across Pywel. Approach the fire or cooking pot, <strong>aim your camera directly at it</strong> (the prompt is camera-sensitive — looking slightly away hides it), then hold the Wait button. This is the fastest and most reliable method — no bed required.</p>
+  </div>
+
+  <div class="method-card m2">
+    <div class="method-label">Method 2 — Best for Long Skips</div>
+    <h4>Beds (Camp &amp; Settlements)</h4>
+    <p>Use your own camp bed or any unoccupied bed in towns. Interact to sleep, then choose your duration (3/6/12 hours). Sleeping may also restore health or apply a rested bonus. If you don't see the sleep prompt, the bed might be occupied or you may still be on cooldown from a recent rest.</p>
+  </div>
+
+  <div class="method-card m3">
+    <div class="method-label">Method 3 — Quest-Only</div>
+    <h4>Automatic Quest Time Skip</h4>
+    <p>When a quest requires a specific time of day (e.g. "meet contact at midnight"), an <strong>hourglass icon ⏳</strong> may appear near the quest marker. Select it and the game automatically advances time to meet the quest requirement — no bonfire needed. This only appears for certain quests and cannot be triggered manually.</p>
+  </div>
+</div>
+
+<!-- 3. CONTROLS -->
+<div class="wt-block">
+  <h2>🎮 3. Platform Controls</h2>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Action</th><th>PC</th><th>Xbox</th><th>PS5</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Trigger Wait/Sleep Prompt</td>
+        <td class="col-action">Aim camera at fire/pot/bed → Hold CTRL</td>
+        <td class="col-action">Aim camera → Hold LB</td>
+        <td class="col-action">Aim camera → Hold L1</td>
+      </tr>
+      <tr>
+        <td>Select Time Skip Duration</td>
+        <td class="col-action">Click option (3/6/12h)</td>
+        <td class="col-action">D-pad or Left Stick → A to confirm</td>
+        <td class="col-action">D-pad or Left Stick → X to confirm</td>
+      </tr>
+      <tr>
+        <td>Quest Time Skip</td>
+        <td class="col-action">Press prompted key at hourglass icon</td>
+        <td class="col-action">Press prompted button at hourglass icon</td>
+        <td class="col-action">Press prompted button at hourglass icon</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fg-warn">⚠️ <strong>Camera sensitivity:</strong> The Wait prompt is camera-dependent. If you're standing right next to a bonfire but no prompt appears, adjust your camera to look directly at the fire. Looking even slightly away from the interaction point hides the prompt.</div>
+</div>
+
+<!-- 4. TIME OPTIONS & COOLDOWN -->
+<div class="wt-block">
+  <h2>🕐 4. Time Skip Options &amp; the Cooldown Rule</h2>
+
+  <h3>Available Wait Durations</h3>
+  <table class="fg-table">
+    <thead>
+      <tr><th>Duration</th><th>Best For</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>3 Hours</strong></td><td>Small time adjustments — shift from day to evening, or wait for a vendor to refresh</td></tr>
+      <tr><td><strong>6 Hours</strong></td><td>Half-day skip — flip from daytime to nighttime or vice versa</td></tr>
+      <tr><td><strong>12 Hours</strong></td><td>Full day/night flip — morning to night, or night to morning</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The 10-Hour Cooldown</h3>
+  <p>You <strong>cannot spam</strong> the wait mechanic. After waiting or sleeping, a cooldown of roughly <strong>10 in-game hours</strong> activates before you can wait again. If you see the message <strong>"Now is not the time to sleep"</strong> or the Wait prompt won't appear, the cooldown is still active. Continue playing, explore, or fight — the cooldown ticks down as time passes naturally.</p>
+
+  <div class="fg-tip">💡 <strong>Smart use:</strong> Combine waiting with other activities. Wait 12 hours → complete a quest or clear a camp → by the time you're done, the cooldown has expired and you can wait again. Don't stand around doing nothing — the game expects you to engage with content between rests.</div>
+</div>
+
+<!-- 5. BEST USE CASES -->
+<div class="wt-block">
+  <h2>🎯 5. When to Use Time Skip</h2>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Goal</th><th>Recommended Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🌙 <strong>Night-only events &amp; enemies</strong></td><td>Wait until evening/night — certain quests, NPCs, and enemies only appear after dark</td></tr>
+      <tr><td>🏪 <strong>Vendor inventory refresh</strong></td><td>Skip to the next day — vendors restock after a day cycle</td></tr>
+      <tr><td>⚔️ <strong>Avoid traveling at night</strong></td><td>Wait until morning — nighttime travel is more dangerous with tougher enemies</td></tr>
+      <tr><td>📋 <strong>Quest time requirements</strong></td><td>Use the quest hourglass prompt if available; otherwise wait at a bonfire until the required time</td></tr>
+      <tr><td>⏸️ <strong>General time skip</strong></td><td>Bonfire is faster than bed — use bonfires/cooking pots for quick skips when you don't need a rested bonus</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6. TROUBLESHOOTING -->
+<div class="wt-block">
+  <h2>🔧 6. Why Can't I Wait or Sleep? — Troubleshooting</h2>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>#</th><th>Symptom</th><th>Cause</th><th>Fix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>"Now is not the time to sleep"</strong></td>
+        <td>Cooldown is active — you waited too recently</td>
+        <td>Wait for 10 in-game hours to pass naturally. Continue playing — the cooldown ticks down as you explore, fight, or travel.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>No prompt at bonfire/bed</strong></td>
+        <td>Camera not aimed correctly at the fire/pot</td>
+        <td>Adjust your camera to look <strong>directly at the fire or cooking pot</strong>. The prompt is camera-sensitive — even a slight angle hides it.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Can't interact with bed</strong></td>
+        <td>Bed is occupied or not interactable</td>
+        <td>Try another bed. Not all beds in the world are usable — camp beds and beds in settlements with NPCs are the most reliable ones.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>No wait option anywhere (early game)</strong></td>
+        <td>Rest mechanic may not be unlocked yet</td>
+        <td>Progress the main story. The resting mechanic typically unlocks early in the campaign — follow the main quest if you haven't seen a bonfire prompt yet.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Wait option blocked during quest</strong></td>
+        <td>Active quest has its own time-skip trigger</td>
+        <td>Check your quest marker for an <strong>hourglass icon ⏳</strong>. If present, use that instead — the quest may have locked manual waiting to prevent sequence breaks.</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>Skip time bug — time didn't change</strong></td>
+        <td>Possible visual bug or cooldown overlap</td>
+        <td>Fast travel to a different region and try a different bonfire. If the issue persists, save and reload. This typically resolves any stuck time-skip states.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FAQ -->
+<div class="section-heading"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-grid">
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do you wait in Crimson Desert?</div>
+    <div class="faq-a">Find a <strong>bonfire, cooking pot, or bed</strong>. Aim your camera directly at the fire/pot/bed. <strong>Hold CTRL (PC) / LB (Xbox) / L1 (PS5)</strong> until the Wait menu appears. Select <strong>3, 6, or 12 hours</strong> to advance time. There is no universal wait button — you must be at a valid rest point.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Can you skip time without sleeping?</div>
+    <div class="faq-a">Yes — <strong>bonfires and cooking pots</strong> let you pass time without sleeping. Approach any campfire or cooking station, aim your camera at it, and hold the Wait button. No bed required. Quest-based time skips (hourglass icon ⏳) also bypass sleeping entirely.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Why can't I sleep or wait?</div>
+    <div class="faq-a">Check: (1) <strong>Cooldown</strong> — you must wait ~10 in-game hours between rests. (2) <strong>Camera angle</strong> — look directly at the fire or pot; the prompt is camera-sensitive. (3) <strong>Early game</strong> — resting may not unlock until a certain story point. (4) <strong>Active quest</strong> — check for an hourglass icon at the quest marker; manual waiting may be overridden.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do I wait at a bonfire on Xbox / PS5?</div>
+    <div class="faq-a">Approach a bonfire or cooking pot → aim your camera directly at the fire → hold <strong>LB (Xbox)</strong> or <strong>L1 (PS5)</strong> until the Wait menu appears → use D-pad or Left Stick to select the duration → press A (Xbox) or X (PS5) to confirm. The prompt is camera-sensitive — look directly at the fire, not the surrounding area.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> What is the wait cooldown in Crimson Desert?</div>
+    <div class="faq-a">After waiting or sleeping, you cannot wait again for approximately <strong>10 in-game hours</strong>. This prevents spamming the time-skip mechanic. The message "Now is not the time to sleep" means the cooldown hasn't expired yet. Continue playing or exploring until it ticks down.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Can you change time in Crimson Desert?</div>
+    <div class="faq-a">Yes, through three methods: (1) <strong>Bonfire/Cooking Pot</strong> — fastest, choose 3/6/12 hour skip. (2) <strong>Bed</strong> — sleep to advance time, may provide rested bonus. (3) <strong>Quest hourglass prompt</strong> — automatically sets time for quest requirements. You cannot manually set a specific hour — only skip by fixed 3/6/12-hour increments.</div>
+  </div>
+</div>
+
+<div class="section-heading"><h2>Related Guides</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 32px">
+  <a href="/guides/fast-travel/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🗺️ Fast Travel Guide</a>
+  <a href="/guides/fishing/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🎣 Fishing Guide</a>
+  <a href="/guides/pickpocketing/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🥷 Pickpocketing Guide</a>
+  <a href="/guides/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📚 All Guides</a>
+  <a href="/guides/story-chapters/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📖 Story Chapters &amp; Game Length</a>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

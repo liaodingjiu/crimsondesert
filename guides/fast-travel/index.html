@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NNCE5PJ6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2NNCE5PJ6S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Fast Travel Guide — Unlock All Abyss Nexus &amp; Crescent Points | CrimsonDesertDB</title>
+<meta name="description" content="Complete Crimson Desert fast travel guide: how to unlock Abyss Nexus &amp; Abyss Crescent points, PC/Xbox/PS5 controls, map filter fix (icons not showing), camp travel, and every fast travel location across Pywel.">
+<meta name="keywords" content="Crimson Desert fast travel, how to fast travel Crimson Desert, fast travel not working, fast travel not showing up, Abyss Nexus, Abyss Crescent, fast travel locations, Crimson Desert fast travel map">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/guides/fast-travel/">
+<meta property="og:title" content="Crimson Desert Fast Travel Guide — Unlock All Points">
+<meta property="og:description" content="How to unlock and use every fast travel point in Crimson Desert. Abyss Nexus vs Abyss Crescent, platform controls, map filter fixes, and all known locations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/guides/fast-travel/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/svg+xml">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Fast Travel Guide">
+<meta name="twitter:description" content="Unlock every fast travel point. Abyss Nexus, Abyss Crescent, platform controls, troubleshooting, and map filter fixes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .ft-hero { text-align: center; padding: 32px 0 8px; }
+  .ft-hero h1 { font-size: 31px; font-weight: 700; }
+  .ft-hero h1 span { color: var(--accent); }
+  .ft-hero .ft-sub { color: var(--text); font-size: 16px; max-width: 720px; margin: 8px auto 24px; line-height: 1.7; }
+
+  .ft-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px; }
+  .ft-block h2 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .ft-block h3 { font-size: 17px; font-weight: 700; color: var(--text); margin: 24px 0 10px; }
+  .ft-block h3:first-of-type { margin-top: 0; }
+  .ft-block p { color: var(--text); font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+
+  .fg-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .fg-table th { text-align: left; padding: 10px 14px; background: var(--muted-bg); color: var(--text); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .4px; border-bottom: 1px solid var(--border-strong); }
+  .fg-table td { padding: 10px 14px; color: var(--text2); border-bottom: 1px solid var(--border); }
+  .fg-table tr:last-child td { border-bottom: none; }
+  .fg-table .col-action { color: var(--accent-d); font-weight: 600; white-space: nowrap; }
+
+  .fg-tip { background: var(--accent-l); border: 1px solid var(--accent); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: 14px; color: var(--text); line-height: 1.65; }
+  .fg-tip strong { color: var(--accent); }
+
+  .fg-warn { background: rgba(224, 85, 80, 0.08); border: 1px solid var(--red); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: 14px; color: var(--text); line-height: 1.65; }
+  .fg-warn strong { color: var(--red); }
+
+  .fg-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  @media (max-width: 640px) { .fg-two-col { grid-template-columns: 1fr; } }
+
+  .ptype-card { border-radius: var(--radius-sm); padding: 18px 20px; margin-bottom: 12px; }
+  .ptype-card.nexus { background: rgba(74, 144, 217, 0.06); border: 1px solid var(--blue); }
+  .ptype-card.crescent { background: rgba(155, 107, 174, 0.06); border: 1px solid var(--purple); }
+  .ptype-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .ptype-card .ptype-icon { font-size: 20px; margin-bottom: 6px; }
+  .ptype-card p { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 0; }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 16px 0 32px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; transition: border-color .2s; }
+  .faq-item:hover { border-color: var(--border-hover); }
+  .faq-item .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.95; }
+  .faq-item .faq-q .faq-icon { color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .faq-item .faq-a { font-size: 14px; color: var(--text2); line-height: 2.15; padding-left: 24px; }
+  @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
+
+  .section-heading { margin-top: 32px; margin-bottom: 8px; }
+  .section-heading h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://pyweldb.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Fast Travel Guide", "item": "https://pyweldb.com/guides/fast-travel/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question", "name": "How do you fast travel in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Activate an Abyss Nexus or Abyss Crescent point first. Then open your map, set the filter to 'All' or 'Environment', select an unlocked fast travel icon (blue/gray), and confirm. PC: double-click the icon. Controller: hover over the icon and hold the travel button (Y on Xbox / Triangle on PS5)." }
+    },
+    {
+      "@type": "Question", "name": "Why is fast travel not showing up on my map?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The #1 cause: your map filter is set to 'Quest' instead of 'All' or 'Environment'. The Quest filter hides Nexus/Crescent icons. Open the map, switch the filter to 'All', and the icons should appear. Also confirm you've actually activated the point — unexplored 'Mysterious Energy' (?) zones on the map indicate undiscovered fast travel locations." }
+    },
+    {
+      "@type": "Question", "name": "When do you unlock fast travel in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fast travel becomes available once you discover and activate your first Abyss Nexus or Abyss Crescent point. The earliest Nexus is near Hernand Castle — simply walk onto the stone platform. Abyss Crescents require solving environmental puzzles. Activate every point you encounter as you explore new regions so your fast travel network grows with your map." }
+    },
+    {
+      "@type": "Question", "name": "What is the difference between Abyss Nexus and Abyss Crescent?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Abyss Nexus points are stone pads/circular pedestals — just walk onto them to activate. Abyss Crescents are pillar structures hidden behind environmental puzzles, climbing challenges, or hidden doors — you must solve the puzzle first. Both function identically as fast travel destinations once activated." }
+    },
+    {
+      "@type": "Question", "name": "Can I fast travel while carrying items or to my camp?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fast travel between activated points is generally unrestricted. Camp fast travel may require a specific camp upgrade or item. Check your camp menu for a 'Travel' or 'Return to Camp' option. Carrying heavy items or being in combat typically blocks fast travel — the standard open-world RPG restrictions apply." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert. Updated <time datetime="2026-07">July 2026</time>.</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="breadcrumb" style="margin-top:16px"><a href="/">Home</a> <span class="sep">›</span> <a href="/guides/">Guides</a> <span class="sep">›</span> Fast Travel Guide</div>
+
+<div class="ft-hero">
+  <h1>Crimson Desert <span>Fast Travel</span> Guide</h1>
+  <p class="ft-sub">How to unlock and use every fast travel point across Pywel. Covering <strong>Abyss Nexus vs Abyss Crescent, PC/Xbox/PS5 controls, the #1 map filter mistake, hidden point locations, camp travel</strong>, and every fix for when it won't work.</p>
+</div>
+
+<!-- 1. OVERVIEW -->
+<div class="ft-block">
+  <h2>🗺️ 1. How Fast Travel Works</h2>
+  <p>Fast travel in Crimson Desert is <strong>point-to-point teleportation</strong> between activated Abyss locations. You cannot freely fast travel from anywhere — you must <strong>first discover and activate</strong> each fast travel point by exploring the world. Once activated, a point becomes a permanent destination on your map.</p>
+
+  <p>The system uses two types of points, both found inside <strong>"Mysterious Energy" zones</strong> — marked on your map as large <strong>fog-covered question marks (?)</strong>. Head toward these markers when exploring new regions.</p>
+</div>
+
+<!-- 2. TWO TYPES -->
+<div class="ft-block">
+  <h2>🔷 2. Abyss Nexus vs Abyss Crescent — Two Types of Fast Travel Points</h2>
+
+  <div class="ptype-card nexus">
+    <div class="ptype-icon">🔵</div>
+    <h4>Abyss Nexus — Walk-On Activation</h4>
+    <p>Circular stone platforms and pedestals scattered across the world and inside major towns (e.g. near Hernand Castle). <strong>Simply walk onto the platform and stand still for a few seconds</strong> until it glows blue — the point is now permanently unlocked. These are the "easy" fast travel points. No puzzle, no combat — just step on it.</p>
+  </div>
+
+  <div class="ptype-card crescent">
+    <div class="ptype-icon">🟣</div>
+    <h4>Abyss Crescent — Puzzle-Gated Activation</h4>
+    <p>Pillars infused with abyssal energy hidden behind <strong>environmental puzzles, climbing challenges, or hidden doors</strong>. You must solve the associated puzzle — move objects, navigate obstacles, or find the hidden entrance — before the Crescent activates as a teleport destination. These reward exploration with fast travel access to otherwise hard-to-reach areas.</p>
+  </div>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Feature</th><th>Abyss Nexus</th><th>Abyss Crescent</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Activation</td><td>Walk onto the platform</td><td>Solve puzzle first</td></tr>
+      <tr><td>Location</td><td>Towns, open world</td><td>Ruins, hidden areas</td></tr>
+      <tr><td>Appearance</td><td>Stone circle / pedestal</td><td>Pillar / obelisk</td></tr>
+      <tr><td>Difficulty</td><td>Trivial — just step on it</td><td>Requires puzzle or climbing</td></tr>
+      <tr><td>Map Icon (activated)</td><td>Blue/gray Nexus icon</td><td>Blue/gray Crescent icon</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3. HOW TO ACTIVATE -->
+<div class="ft-block">
+  <h2>📍 3. How to Find &amp; Activate Fast Travel Points</h2>
+
+  <h3>Step 1: Spot Mysterious Energy Zones</h3>
+  <p>Open your map and look for large <strong>fog-covered question marks (?)</strong>. These are "Mysterious Energy" zones — each one contains either an Abyss Nexus or an Abyss Crescent. Prioritize exploring these whenever you enter a new region.</p>
+
+  <h3>Step 2: Locate the Point</h3>
+  <p>Travel to the center of the ? zone. <strong>Pro tip:</strong> Use your <strong>Lantern or Blinding Flash ability</strong> — fast travel points glow blue when illuminated, making them significantly easier to spot from a distance or in dark environments.</p>
+
+  <h3>Step 3: Activate</h3>
+  <p>For a <strong>Nexus:</strong> walk onto the stone platform and stand still for a few seconds until it lights up. For a <strong>Crescent:</strong> solve the environmental puzzle (move objects, climb, find hidden doors), then interact to activate.</p>
+
+  <div class="fg-tip">💡 <strong>The #1 early-game mistake:</strong> ignoring fast travel points until you need to backtrack. Activate <strong>every Nexus you pass</strong> — even if you don't need it now. These points become your road network across Pywel, and having them unlocked saves hours of riding time later.</div>
+</div>
+
+<!-- 4. HOW TO USE -->
+<div class="ft-block">
+  <h2>📋 4. How to Teleport — Step by Step</h2>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Step</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Open your world map</td></tr>
+      <tr><td><strong>2</strong></td><td>Set the map filter to <strong>"All" or "Environment"</strong> — <em>not</em> "Quest" (Quest filter hides fast travel icons)</td></tr>
+      <tr><td><strong>3</strong></td><td>Find a blue/gray icon representing an activated Nexus or Crescent</td></tr>
+      <tr><td><strong>4</strong></td><td>Select it:
+        <br><strong>PC:</strong> Double-click the icon
+        <br><strong>Xbox:</strong> Hover over it → hold Y
+        <br><strong>PS5:</strong> Hover over it → hold Triangle</td></tr>
+      <tr><td><strong>5</strong></td><td>Select "Confirm" on the prompt to trigger the teleportation cinematic</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Platform Controls Quick Reference</h3>
+  <table class="fg-table">
+    <thead>
+      <tr><th>Action</th><th>PC</th><th>Xbox</th><th>PS5</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Open Map</td><td class="col-action">M (default)</td><td class="col-action">Select / View button</td><td class="col-action">Touchpad button</td></tr>
+      <tr><td>Switch Map Filter</td><td class="col-action">Click filter dropdown</td><td class="col-action">Bumper to cycle filters</td><td class="col-action">Bumper to cycle filters</td></tr>
+      <tr><td>Select Destination</td><td class="col-action">Click icon → Double-click</td><td class="col-action">Hover → Hold Y</td><td class="col-action">Hover → Hold Triangle</td></tr>
+      <tr><td>Confirm Teleport</td><td class="col-action">Click "Confirm"</td><td class="col-action">Press A</td><td class="col-action">Press X</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5. WHEN DO YOU UNLOCK -->
+<div class="ft-block">
+  <h2>⏰ 5. When Do You Unlock Fast Travel?</h2>
+  <p>Fast travel <strong>is not gated by story progression</strong>. It becomes available the moment you discover and activate your first point. The earliest Nexus is near <strong>Hernand Castle</strong> — simply walk onto the stone platform in the courtyard area.</p>
+
+  <p>However, the fast travel <strong>network</strong> grows with exploration. You'll find points in every region of Pywel, each hidden inside those Mysterious Energy (?) fog zones on the map. <strong>Activate as you go</strong> — the network is only as useful as the points you've unlocked.</p>
+</div>
+
+<!-- 6. TROUBLESHOOTING -->
+<div class="ft-block">
+  <h2>🔧 6. Why Fast Travel Is Not Working — Troubleshooting</h2>
+  <p>The single most common complaint. Here's every reason your fast travel might be broken and exactly how to fix it:</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>#</th><th>Symptom</th><th>Cause</th><th>Fix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>No icons appear on map</strong></td>
+        <td>Map filter is set to "Quest"</td>
+        <td>Switch the map filter to <strong>"All" or "Environment"</strong>. The Quest filter hides Nexus/Crescent icons — this is the #1 cause of "fast travel not showing up."</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Standing on platform does nothing</strong></td>
+        <td>Not a Nexus (might be a Crescent), or needs story progression</td>
+        <td>Try solving nearby environmental puzzles. If it's a puzzle-gated Crescent, walking on it won't work. Check for hidden doors, climbable surfaces, or movable objects.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Can't select/click a point</strong></td>
+        <td>Point is not yet activated, or you're in combat</td>
+        <td>Confirm the icon is blue/gray (activated), not fogged out (undiscovered). Fast travel is blocked during combat — finish or flee the fight first.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Teleport option grayed out</strong></td>
+        <td>In combat, carrying restrictions, or in a no-teleport zone</td>
+        <td>Leave the restricted area, drop heavy carried items if applicable, or finish active combat. Interior spaces and certain quest areas may block teleportation.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Can't fast travel to camp</strong></td>
+        <td>Camp travel may require a specific upgrade or item</td>
+        <td>Check your camp menu for a "Travel" or "Return to Camp" option. Not all camps automatically unlock as fast travel destinations — some require a camp upgrade purchased from vendors.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fg-warn">⚠️ <strong>The map filter fix cures 90% of complaints.</strong> If your fast travel icons vanished, you almost certainly switched the map to "Quest" filter. Open the map → change filter to "All" → icons reappear.</div>
+</div>
+
+<!-- 7. KNOWN LOCATIONS -->
+<div class="ft-block">
+  <h2>🗺️ 7. Known Fast Travel Locations</h2>
+  <p>All confirmed Abyss Nexus and Abyss Crescent locations across Pywel. Each is found inside a Mysterious Energy (?) zone on the map.</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Location</th><th>Region</th><th>Type</th><th>How to Activate</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hernand Castle Courtyard</strong></td>
+        <td>Hernand</td><td>Abyss Nexus</td><td>Walk onto the stone platform — earliest and easiest unlock</td>
+      </tr>
+      <tr>
+        <td><strong>Royal Trading Post</strong></td>
+        <td>—</td><td>Abyss Nexus</td><td>Walk onto the platform near the trading post</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="color:var(--text3);text-align:center;padding:18px">Additional locations being compiled as the community maps Pywel's 5 regions. Check back for updates, or <a href="/contact.html">submit confirmed locations</a> to help build the complete map.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FAQ -->
+<div class="section-heading"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-grid">
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do you fast travel in Crimson Desert?</div>
+    <div class="faq-a">Activate an Abyss Nexus or Crescent point → open map → switch filter to <strong>"All" or "Environment"</strong> → select an activated (blue/gray) icon → <strong>Double-click (PC)</strong> or <strong>Hold Y/Triangle (Controller)</strong> → confirm. You cannot teleport to undiscovered points.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Why are fast travel icons not showing on my map?</div>
+    <div class="faq-a">Your map filter is almost certainly set to <strong>"Quest"</strong> — this hides all fast travel icons. Open the map and switch the filter to <strong>"All"</strong> or <strong>"Environment"</strong>. Icons will immediately reappear. This accounts for the vast majority of "not showing up" complaints.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> When do you unlock fast travel?</div>
+    <div class="faq-a">Fast travel unlocks the moment you activate your first point — <strong>no story progression required</strong>. The earliest Nexus is at <strong>Hernand Castle courtyard</strong>. Simply walk onto the stone platform until it glows. The network then grows with every new point you discover inside Mysterious Energy (?) zones.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Why won't it let me fast travel?</div>
+    <div class="faq-a">Three most common causes: (1) Map filter is on "Quest" — switch to "All". (2) <strong>You're in combat</strong> — finish or flee the fight. (3) You're trying to teleport to an <strong>undiscovered point</strong> — only activated (blue/gray) icons work. Also: interior spaces and certain quest areas may temporarily block teleportation.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Can I fast travel to my camp?</div>
+    <div class="faq-a">Camp fast travel may require a <strong>camp upgrade</strong> or specific item. Check your camp menu for a "Travel" or "Return to Camp" option. Not every camp automatically becomes a teleport destination — some require purchasing a camp upgrade from vendors.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do I find hidden fast travel points?</div>
+    <div class="faq-a">Open your map and look for <strong>fog-covered ? (question marks)</strong> — these are "Mysterious Energy" zones. Each one contains either a Nexus or Crescent. Use your <strong>Lantern or Blinding Flash ability</strong> to make points glow blue from a distance, revealing them even in dark areas or behind obstacles.</div>
+  </div>
+</div>
+
+<div class="section-heading"><h2>Related Guides</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 32px">
+  <a href="/guides/fishing/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🎣 Fishing Guide</a>
+  <a href="/guides/pickpocketing/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🥷 Pickpocketing Guide</a>
+  <a href="/guides/story-chapters/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">📖 Story Chapters &amp; Game Length</a>
+  <a href="/guides/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📚 All Guides</a>
+  <a href="/tools/map/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🗺️ Interactive Map</a>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

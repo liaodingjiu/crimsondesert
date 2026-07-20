@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NNCE5PJ6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2NNCE5PJ6S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Story Chapters — Full Chapter List, Game Length &amp; Progression Guide | CrimsonDesertDB</title>
+<meta name="description" content="Complete Crimson Desert story guide: all 12 chapters + prologue & epilogue, full chapter list, game length (main story vs 100%), chapter-by-chapter unlock timeline, world size comparison, and recommended progression route.">
+<meta name="keywords" content="Crimson Desert chapters, how many chapters Crimson Desert, Crimson Desert chapter list, Crimson Desert story length, Crimson Desert game length, Crimson Desert progression, Crimson Desert chapter guide, how long is Crimson Desert">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/guides/story-chapters/">
+<meta property="og:title" content="Crimson Desert Story Chapters — Full Chapter List, Game Length &amp; Progression">
+<meta property="og:description" content="How many chapters in Crimson Desert? 12 main chapters + prologue & epilogue. Full chapter list, game length breakdown, unlock timeline, and recommended progression route.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/guides/story-chapters/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/svg+xml">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Story Chapters Guide">
+<meta name="twitter:description" content="Full chapter list, game length, unlock timeline, and progression route — everything you need to know about the Crimson Desert campaign.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .sc-hero { text-align: center; padding: 32px 0 8px; }
+  .sc-hero h1 { font-size: 31px; font-weight: 700; }
+  .sc-hero h1 span { color: var(--accent); }
+  .sc-hero .sc-sub { color: var(--text); font-size: 16px; max-width: 720px; margin: 8px auto 24px; line-height: 1.7; }
+
+  .sc-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px; }
+  .sc-block h2 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .sc-block h3 { font-size: 17px; font-weight: 700; color: var(--text); margin: 24px 0 10px; }
+  .sc-block h3:first-of-type { margin-top: 0; }
+  .sc-block p { color: var(--text); font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+
+  .fg-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .fg-table th { text-align: left; padding: 10px 14px; background: var(--muted-bg); color: var(--text); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .4px; border-bottom: 1px solid var(--border-strong); }
+  .fg-table td { padding: 10px 14px; color: var(--text2); border-bottom: 1px solid var(--border); }
+  .fg-table tr:last-child td { border-bottom: none; }
+
+  .fg-tip { background: var(--accent-l); border: 1px solid var(--accent); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: 14px; color: var(--text); line-height: 1.65; }
+  .fg-tip strong { color: var(--accent); }
+
+  /* Quick stat cards */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+  @media (max-width: 768px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 400px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat-card { text-align: center; background: var(--muted-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px 14px; }
+  .stat-card .stat-num { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .stat-card .stat-label { font-size: 13px; color: var(--text2); margin-top: 4px; }
+
+  /* Chapter row */
+  .ch-row { display: grid; grid-template-columns: 100px 1fr 80px; gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .ch-row:last-child { border-bottom: none; }
+  @media (max-width: 600px) { .ch-row { grid-template-columns: 1fr; gap: 4px; } }
+  .ch-row .ch-num { font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .3px; }
+  .ch-row .ch-name { font-size: 15px; font-weight: 600; color: var(--text); }
+  .ch-row .ch-hours { font-size: 13px; color: var(--text2); text-align: right; }
+  @media (max-width: 600px) { .ch-row .ch-hours { text-align: left; } }
+
+  /* Progression phase */
+  .phase-card { background: var(--muted-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px 20px; margin-bottom: 12px; }
+  .phase-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .phase-card .phase-range { font-size: 13px; color: var(--accent-d); font-weight: 600; margin-bottom: 6px; }
+  .phase-card p { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 0; }
+
+  /* Length comparison */
+  .len-bar-wrap { margin: 10px 0; }
+  .len-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .len-bar-label { width: 130px; font-size: 13px; color: var(--text2); text-align: right; flex-shrink: 0; }
+  .len-bar-track { flex: 1; height: 24px; background: var(--muted-bg); border-radius: 6px; overflow: hidden; position: relative; }
+  .len-bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 12px; font-weight: 600; color: #fff; }
+  .len-bar-fill.main { background: var(--accent); }
+  .len-bar-fill.side { background: var(--gold); }
+  .len-bar-fill.complete { background: var(--purple); }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 16px 0 32px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; transition: border-color .2s; }
+  .faq-item:hover { border-color: var(--border-hover); }
+  .faq-item .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.95; }
+  .faq-item .faq-q .faq-icon { color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .faq-item .faq-a { font-size: 14px; color: var(--text2); line-height: 2.15; padding-left: 24px; }
+  @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
+
+  .section-heading { margin-top: 32px; margin-bottom: 8px; }
+  .section-heading h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://pyweldb.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Story Chapters & Game Length", "item": "https://pyweldb.com/guides/story-chapters/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question", "name": "How many chapters are in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Crimson Desert has 12 main story chapters, plus a Prologue (Dead of Night) and an Epilogue (Journey's End), for 14 total narrative segments. The campaign contains 168 main quests spread across these chapters." }
+    },
+    {
+      "@type": "Question", "name": "How long is Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A focused main-story playthrough takes approximately 35–50 hours. Including side quests and optional bosses adds roughly 15–25 hours (50–75 total). A 100% completionist run — all legendary gear, mounts, Abyss Artifacts, and every side quest — can exceed 80–100+ hours." }
+    },
+    {
+      "@type": "Question", "name": "How many endings does Crimson Desert have?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Crimson Desert is a linear narrative with a single canonical ending. Major decisions may influence certain character outcomes and side content, but the core story concludes with one epilogue sequence (Journey's End)." }
+    },
+    {
+      "@type": "Question", "name": "When can I start exploring the open world?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Follow the main story through at least Chapter 3 or 4 before fully exploring the open world. These early chapters unlock core systems: camp upgrades, companion management, crafting stations, and region travel. Rushing ahead before unlocking these makes exploration less efficient." }
+    },
+    {
+      "@type": "Question", "name": "How many side quests are in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The main campaign is built on 168 main story quests. Side quests are distributed across the 5 regions of Pywel — the exact total varies as additional content is discovered by the community. Side quests unlock progressively as you advance the main story into new regions and chapters." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert. Updated <time datetime="2026-07">July 2026</time>.</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="breadcrumb" style="margin-top:16px"><a href="/">Home</a> <span class="sep">›</span> <a href="/guides/">Guides</a> <span class="sep">›</span> Story Chapters &amp; Game Length</div>
+
+<div class="sc-hero">
+  <h1>Crimson Desert <span>Story Chapters</span> &amp; Game Length</h1>
+  <p class="sc-sub">How many chapters? How long to beat? When can you explore freely? Every question about the campaign's scope — <strong>chapter count, chapter list, game length, progression route, and world size</strong> — answered in one place.</p>
+</div>
+
+<!-- QUICK STATS -->
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Total Story Segments<br>(Prologue + 12 Chapters + Epilogue)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">168</div>
+    <div class="stat-label">Main Story Quests<br>across all chapters</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">35–50h</div>
+    <div class="stat-label">Main Story Playthrough<br>focused run</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">80–100h</div>
+    <div class="stat-label">100% Completion<br>all content</div>
+  </div>
+</div>
+
+<!-- 1. CHAPTER COUNT -->
+<div class="sc-block">
+  <h2>📖 1. How Many Chapters in Crimson Desert?</h2>
+  <p>The short answer: <strong>12 main chapters</strong>, bookended by a <strong>Prologue</strong> and an <strong>Epilogue</strong>, for <strong>14 total narrative segments</strong>. The campaign spans <strong>168 main quests</strong> and takes roughly 35–50 hours for a focused playthrough — or 80–100+ hours for completionists.</p>
+
+  <p>Here's how the count breaks down depending on what you're asking:</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>What You're Counting</th><th>Total</th><th>Includes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Main chapters only</strong></td><td>12</td><td>Chapters 1 through 12</td></tr>
+      <tr><td><strong>All story sections</strong></td><td>14</td><td>Prologue + Chapters 1–12 + Epilogue</td></tr>
+      <tr><td><strong>Main quests</strong></td><td>168</td><td>All mandatory story quests across all chapters</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Confirmed Chapter &amp; Story Section Names</h3>
+  <p>These are the named segments confirmed from official sources, community data, and guide content. The full chapter title list is still being compiled as more players progress through the game.</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>#</th><th>Segment</th><th>Type</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>—</td><td><strong>Prologue: Dead of Night</strong></td><td>Prologue</td></tr>
+      <tr><td>1</td><td><strong>The First Encounter</strong></td><td>Main Chapter</td></tr>
+      <tr><td>2</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>3</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>4</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>5</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>6</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>7</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>8</td><td><strong>Blood Coronation</strong></td><td>Main Chapter</td></tr>
+      <tr><td>9</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>10</td><td>TBA — Awaiting community data</td><td>Main Chapter</td></tr>
+      <tr><td>11</td><td>TBA — Chapter 11 (late-game)</td><td>Main Chapter</td></tr>
+      <tr><td>12</td><td><strong>The Abyss</strong></td><td>Main Chapter</td></tr>
+      <tr><td>—</td><td><strong>Epilogue: Journey's End</strong></td><td>Epilogue</td></tr>
+    </tbody>
+  </table>
+
+  <div class="fg-tip">📋 <strong>Data in progress:</strong> Only 4 of the 14 story segment names are publicly confirmed so far. As more players complete the campaign and share chapter titles, this table will be updated. Found a missing chapter name? <a href="/contact.html">Send it in</a>.</div>
+</div>
+
+<!-- 2. GAME LENGTH -->
+<div class="sc-block">
+  <h2>⏱️ 2. How Long Is Crimson Desert?</h2>
+  <p>Playtime varies significantly depending on your playstyle. A focused main-story run lands around <strong>35–50 hours</strong>. Adding side quests, exploration, and optional bosses pushes it to <strong>60–80 hours</strong>. A true 100% completionist run — legendary gear, all mounts, every Abyss Artifact — can exceed <strong>80–100+ hours</strong>.</p>
+
+  <h3>Playtime by Playstyle</h3>
+  <div class="len-bar-wrap">
+    <div class="len-bar-row">
+      <div class="len-bar-label">Main Story Only</div>
+      <div class="len-bar-track"><div class="len-bar-fill main" style="width:40%">35–50h</div></div>
+    </div>
+    <div class="len-bar-row">
+      <div class="len-bar-label">Main + Side Quests</div>
+      <div class="len-bar-track"><div class="len-bar-fill side" style="width:60%">60–80h</div></div>
+    </div>
+    <div class="len-bar-row">
+      <div class="len-bar-label">100% Completion</div>
+      <div class="len-bar-track"><div class="len-bar-fill complete" style="width:85%">80–100h+</div></div>
+    </div>
+  </div>
+
+  <div class="fg-tip">⚠️ <strong>Why the range?</strong> Different sources report different estimates (35–50h vs 60–80h for main story). This depends on reading speed, combat skill, whether you skip cutscenes, and how much you explore between story beats. Both ranges are cited — the truth depends on how you play.</div>
+
+  <h3>Estimated Chapter Lengths</h3>
+  <p>While exact chapter durations vary, here's what to expect based on community reports and the campaign's pacing:</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Chapter Range</th><th>Avg. Duration (each)</th><th>What to Expect</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Prologue</td><td>1–2 hours</td><td>Tutorial, establishing the Greymanes, basic combat</td></tr>
+      <tr><td>Chapters 1–3</td><td>3–5 hours each</td><td>Core systems unlock, first bosses, region introductions</td></tr>
+      <tr><td>Chapters 4–6</td><td>4–6 hours each</td><td>World expands, more regions and systems unlock</td></tr>
+      <tr><td>Chapters 7–9</td><td>4–7 hours each</td><td>Major exploration, larger conflicts, key story turns</td></tr>
+      <tr><td>Chapters 10–12</td><td>4–8 hours each</td><td>Endgame — major revelations, hardest bosses, final battles</td></tr>
+      <tr><td>Epilogue</td><td>1–2 hours</td><td>Story conclusion, wrap-up</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3. PROGRESSION -->
+<div class="sc-block">
+  <h2>🗺️ 3. Chapter Progression &amp; When to Explore</h2>
+  <p>One of the most-asked questions: "<strong>How many chapters before I can explore freely?</strong>" The answer: push through to <strong>Chapter 3 or 4</strong> before going off-script. Here's why, phase by phase.</p>
+
+  <div class="phase-card">
+    <h4>🌅 Phase 1 — Tutorial &amp; Setup</h4>
+    <div class="phase-range">Prologue – Chapter 3</div>
+    <p>Introduces Kliff, the Greymanes, and core combat mechanics. <strong>Key unlocks:</strong> basic crafting, camp system, companion introduction. Stick to the main path here — the open world opens up meaningfully once you hit Chapter 4.</p>
+  </div>
+
+  <div class="phase-card">
+    <h4>🗺️ Phase 2 — The World Opens Up</h4>
+    <div class="phase-range">Chapters 4 – 6</div>
+    <p><strong>This is when you can start exploring.</strong> Camp upgrades unlock fully, companion management comes online, and multiple regions become accessible. The game is designed around alternating between story missions and side exploration from this point forward. <strong>Recommended:</strong> finish Chapter 4, then take a break from the main quest to explore, craft, and gear up.</p>
+  </div>
+
+  <div class="phase-card">
+    <h4>⚔️ Phase 3 — Mid-Game Expansion</h4>
+    <div class="phase-range">Chapters 7 – 9</div>
+    <p>Major exploration expansion. Remaining regions unlock. Larger-scale conflicts emerge and the story takes more significant turns. Side quests become more complex and rewarding. Good time to farm gear upgrades and tackle optional bosses.</p>
+  </div>
+
+  <div class="phase-card">
+    <h4>🔥 Phase 4 — Endgame</h4>
+    <div class="phase-range">Chapters 10 – 12</div>
+    <p>Major story revelations and the hardest encounters. The Crimson Dragon and other endgame bosses demand optimized gear (Tier 5 legendary, full Abyss set). <strong>Recommended:</strong> complete all available side content and gear farming <em>before</em> entering Chapter 11, as the late-game difficulty spikes significantly. Some players report that certain side content becomes locked or harder to access after Chapter 11.</p>
+  </div>
+</div>
+
+<!-- 4. WORLD SIZE -->
+<div class="sc-block">
+  <h2>🌍 4. World Size &amp; Scope — How Big Is Crimson Desert?</h2>
+  <p>One of the most common comparison searches: "<strong>Is Crimson Desert bigger than Red Dead Redemption 2?</strong>" Here's how Crimson Desert stacks up against other open-world games in terms of campaign length and scope.</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Game</th><th>Main Story (Hours)</th><th>100% Completion</th><th>World Style</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Crimson Desert</strong></td><td><strong>35–50h</strong></td><td><strong>80–100h+</strong></td><td>5 regions of Pywel — mountains, deserts, forests, coasts</td></tr>
+      <tr><td>Red Dead Redemption 2</td><td>~50h</td><td>~180h</td><td>Continuous open world — 5 US states</td></tr>
+      <tr><td>The Witcher 3 (base game)</td><td>~50h</td><td>~170h</td><td>Multi-region — Velen, Novigrad, Skellige, etc.</td></tr>
+      <tr><td>Elden Ring</td><td>~55h</td><td>~130h</td><td>Seamless open world — The Lands Between</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Bottom line:</strong> In terms of main story length, Crimson Desert is comparable to RDR2 and The Witcher 3. Its 100% completion is shorter than RDR2 but on par with a substantial open-world RPG. Where Crimson Desert differs is its <strong>region-based structure</strong> — each of Pywel's 5 regions is dense with content rather than a single seamless map, closer in philosophy to The Witcher 3's regional design.</p>
+</div>
+
+<!-- 5. ENDINGS & SIDE QUESTS -->
+<div class="sc-block">
+  <h2>🏁 5. Endings, Side Quests &amp; Completion</h2>
+
+  <h3>How Many Endings?</h3>
+  <p>Crimson Desert follows a <strong>linear narrative with a single canonical ending</strong> — the <strong>Epilogue: Journey's End</strong>. Early reports suggest that while major story beats are fixed, certain <strong>character-specific outcomes and side-story conclusions</strong> may vary based on decisions made during the campaign. Full details are still being confirmed as the community reaches the endgame.</p>
+
+  <h3>How Many Side Quests?</h3>
+  <p>The exact side quest total is still being cataloged by the community. Side quests are distributed across the <strong>5 regions of Pywel</strong> and unlock progressively with main story advancement. Most side content becomes available between <strong>Chapters 4–9</strong>, with some quests locked behind specific chapter milestones or companion relationships. Late-game (Chapter 11+) may gate or lock certain side content, so complete optional objectives before pushing into the endgame.</p>
+</div>
+
+<!-- 6. RECOMMENDED ROUTE -->
+<div class="sc-block">
+  <h2>🧭 6. Recommended Progression Route</h2>
+  <p>A spoiler-light roadmap for players who want the optimal balance of story momentum and exploration efficiency:</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr><th>Stage</th><th>What to Do</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1. Prologue – Ch 3</strong></td><td>Main quests only</td><td>Core systems haven't unlocked yet; exploring now is inefficient</td></tr>
+      <tr><td><strong>2. Finish Ch 4</strong></td><td>Main quest</td><td>Unlocks camp upgrades, companions, and fast travel</td></tr>
+      <tr><td><strong>3. Post-Ch 4 pause</strong></td><td>Explore + side quests + gear farm</td><td>Best early window for open-world content. Upgrade to Iron Plate Set, grab early accessories</td></tr>
+      <tr><td><strong>4. Ch 5–9</strong></td><td>Alternate main quests + side content</td><td>Each chapter unlocks new regions. Explore each as it opens up</td></tr>
+      <tr><td><strong>5. Pre-Ch 11 checkpoint</strong></td><td>Finish ALL side quests + gear optimization</td><td>Some content may become locked after Chapter 11. Farm Tier 5 legendary gear now</td></tr>
+      <tr><td><strong>6. Ch 11 – Epilogue</strong></td><td>Main quests to finish</td><td>Endgame sprint — hardest bosses, final revelations, story conclusion</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FAQ -->
+<div class="section-heading"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-grid">
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How many chapters are in Crimson Desert?</div>
+    <div class="faq-a"><strong>12 main chapters</strong>, plus a Prologue (Dead of Night) and an Epilogue (Journey's End), for <strong>14 total narrative segments</strong>. The campaign includes 168 main quests across all chapters.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How long does it take to beat Crimson Desert?</div>
+    <div class="faq-a">A focused main-story run takes <strong>35–50 hours</strong>. Main story + side quests and optional bosses: <strong>60–80 hours</strong>. Full 100% completion (all legendary gear, mounts, Abyss Artifacts, every side quest): <strong>80–100+ hours</strong>.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> When should I start exploring the open world?</div>
+    <div class="faq-a">Push the main story through <strong>Chapter 4</strong> before going off-script. By then you'll have camp upgrades, companion management, crafting stations, and fast travel — all of which make exploration significantly more efficient. Exploring before Chapter 3 is possible but inefficient without these systems.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How many endings does Crimson Desert have?</div>
+    <div class="faq-a">Crimson Desert has a <strong>linear narrative with one canonical ending</strong> — the Epilogue: Journey's End. While certain character-specific outcomes and side-story conclusions may vary based on campaign decisions, the core story follows a single path.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Is Crimson Desert bigger than Red Dead Redemption 2?</div>
+    <div class="faq-a">In <strong>main story length</strong>: comparable (~35–50h vs RDR2's ~50h). In <strong>100% completion</strong>: RDR2 is significantly larger (~180h vs 80–100h+). Crimson Desert uses a <strong>region-based world structure</strong> (5 regions of Pywel) rather than a single continuous map, with each region dense in content — closer to The Witcher 3's design philosophy.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How many side quests are in Crimson Desert?</div>
+    <div class="faq-a">The exact side quest total is still being cataloged. Side quests are distributed across the <strong>5 regions of Pywel</strong>, unlocking progressively with main story advancement. Most become available between <strong>Chapters 4–9</strong>. Complete optional objectives before Chapter 11, as some side content may become locked or harder to access in the late game.</div>
+  </div>
+</div>
+
+<div class="section-heading"><h2>Related Guides</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 32px">
+  <a href="/guides/fishing/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🎣 Fishing Guide</a>
+  <a href="/guides/eavesdropping/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">👂 Eavesdropping Guide</a>
+  <a href="/guides/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📚 All Guides</a>
+  <a href="/best-early-game/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🌱 Best Early Game Gear</a>
+  <a href="/enemies/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">👹 Enemies &amp; Bosses</a>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>

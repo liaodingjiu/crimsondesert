@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NNCE5PJ6S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2NNCE5PJ6S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Crimson Desert Fishing Guide — How to Fish, Best Spots &amp; Rod Upgrades | CrimsonDesertDB</title>
+<meta name="description" content="Complete Crimson Desert fishing guide: how to get a fishing rod, step-by-step mechanics (PC, Xbox, PS5 controls), best fishing spots, every fish species, rod upgrades, and how to fix line-breaking &amp; reeling issues.">
+<meta name="keywords" content="Crimson Desert fishing, how to fish Crimson Desert, Crimson Desert fishing guide, fishing spots, fishing rod, Crimson Desert fish species, fishing not reeling in">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pyweldb.com/guides/fishing/">
+<meta property="og:title" content="Crimson Desert Fishing Guide — How to Fish, Best Spots &amp; Rod Upgrades">
+<meta property="og:description" content="Master fishing in Crimson Desert. Step-by-step mechanics for PC, Xbox, and PS5. Every fishing spot, fish species, rod upgrade path, and common mistake fix — all in one guide.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pyweldb.com/guides/fishing/">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/svg+xml">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crimson Desert Fishing Guide">
+<meta name="twitter:description" content="How to fish in Crimson Desert — rod locations, platform controls, best spots, every fish species, and common fixes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .fg-hero { text-align: center; padding: 32px 0 8px; }
+  .fg-hero h1 { font-size: 31px; font-weight: 700; }
+  .fg-hero h1 span { color: var(--accent); }
+  .fg-hero .fg-sub { color: var(--text); font-size: 16px; max-width: 720px; margin: 8px auto 24px; line-height: 1.7; }
+
+  .fg-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px; }
+  .fg-block h2 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .fg-block h3 { font-size: 17px; font-weight: 700; color: var(--text); margin: 24px 0 10px; }
+  .fg-block h3:first-of-type { margin-top: 0; }
+  .fg-block p { color: var(--text); font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+
+  /* Step cards */
+  .fg-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0; }
+  @media (max-width: 600px) { .fg-steps { grid-template-columns: 1fr; } }
+  .fg-step { background: var(--muted-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px 20px; }
+  .fg-step .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--accent); color: #fff; border-radius: 50%; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .fg-step h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .fg-step p { font-size: 14px; color: var(--text2); line-height: 1.65; margin-bottom: 0; }
+
+  /* Tables */
+  .fg-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .fg-table th { text-align: left; padding: 10px 14px; background: var(--muted-bg); color: var(--text); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .4px; border-bottom: 1px solid var(--border-strong); }
+  .fg-table td { padding: 10px 14px; color: var(--text2); border-bottom: 1px solid var(--border); }
+  .fg-table tr:last-child td { border-bottom: none; }
+  .fg-table .col-action { color: var(--accent-d); font-weight: 600; white-space: nowrap; }
+
+  /* Mistake cards */
+  .fg-mistake { display: flex; gap: 14px; align-items: flex-start; padding: 14px 18px; margin-bottom: 10px; background: var(--muted-bg); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+  .fg-mistake .ms-icon { font-size: 20px; flex-shrink: 0; }
+  .fg-mistake .ms-body h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .fg-mistake .ms-body .ms-symptom { font-size: 13px; color: var(--red); margin-bottom: 4px; }
+  .fg-mistake .ms-body .ms-fix { font-size: 13px; color: var(--text2); line-height: 1.55; }
+
+  /* Tips */
+  .fg-tip { background: var(--accent-l); border: 1px solid var(--accent); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: 14px; color: var(--text); line-height: 1.65; }
+  .fg-tip strong { color: var(--accent); }
+
+  /* Two-column layout */
+  .fg-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  @media (max-width: 640px) { .fg-two-col { grid-template-columns: 1fr; } }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 16px 0 32px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; transition: border-color .2s; }
+  .faq-item:hover { border-color: var(--border-hover); }
+  .faq-item .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.95; }
+  .faq-item .faq-q .faq-icon { color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .faq-item .faq-a { font-size: 14px; color: var(--text2); line-height: 2.15; padding-left: 24px; }
+  @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
+
+  .section-heading { margin-top: 32px; margin-bottom: 8px; }
+  .section-heading h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyweldb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://pyweldb.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Fishing Guide", "item": "https://pyweldb.com/guides/fishing/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question", "name": "How do I get a fishing rod in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can get a fishing rod two ways: Buy one from the Provisioner Shop in Hernand (opposite the Smithy) for 15 Copper, or talk to Annabella at the Hanan Saddlery — she gives you a free rod after you complete her request to catch a Tench in the pool just north of the bridge." }
+    },
+    {
+      "@type": "Question", "name": "Why won't my line reel in while fishing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You cannot reel while the fish is actively splashing — the white bubbles and splashes mean the fish is still fighting. Pull the rod in the opposite direction of the fish's movement until the water goes completely calm (no splashes, no bubbles). Only then reel in with Mouse Wheel (PC) or Right Analog Stick clockwise (Controller). Reeling during the splash phase will snap your line." }
+    },
+    {
+      "@type": "Question", "name": "Can you fish without a rod in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Walk into shallow rivers or lakes and press Square (PlayStation) / X (Xbox) or the equivalent PC prompt to catch fish directly with your hands. Hand fishing bypasses the mini-game entirely and works for most basic fish — useful for cooking ingredients, though rare fish require a rod." }
+    },
+    {
+      "@type": "Question", "name": "What are the fishing controls for PC, Xbox, and PS5?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Equip rod: Hold F2 (PC) / Hold Left D-pad (Xbox/PS5). Aim: Press Q (PC) / Hold LT (Xbox) / Hold L2 (PS5). Cast: Click or release aim button. Hook: Right-Click (PC) / RT (Xbox) / R2 (PS5). Fight direction: WASD (PC) / Left Analog Stick (Xbox/PS5). Reel: Scroll Mouse Wheel (PC) / Rotate Right Analog Stick clockwise (Xbox/PS5)." }
+    },
+    {
+      "@type": "Question", "name": "Where is the best fishing spot for beginners in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The pool north of the bridge in Hernand is the best beginner spot — it has Tench for Annabella's quest, and you'll see NPCs already fishing there, indicating a healthy fish population. Other good early spots include the rivers and streams around the Hernand region. Look for areas where NPCs are actively fishing." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="top-bar">Crimson Desert Database — Your data-driven companion for Crimson Desert. Updated <time datetime="2026-07">July 2026</time>.</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-icon">CD</span>Crimson<span>DB</span></a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Equipment</span>
+      <div class="nav-dropdown-menu">
+        <a href="/equipment/">All Equipment</a>
+        <a href="/weapons/">Weapons</a>
+        <a href="/armor/">Armor</a>
+        <a href="/accessories/">Accessories</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Skills &amp; Gears</span>
+      <div class="nav-dropdown-menu">
+        <a href="/skills/">Skills</a>
+        <a href="/abyss-gears/">Abyss Gears</a>
+      </div>
+    </div>
+    <a href="/characters/" class="nav-link">Characters</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">World</span>
+      <div class="nav-dropdown-menu">
+        <a href="/enemies/">Enemies &amp; Bosses</a>
+        <a href="/tools/map/">Interactive Map</a>
+        <a href="/mounts/">Mounts</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Crafting</span>
+      <div class="nav-dropdown-menu">
+        <a href="/crafting/">Crafting Recipes</a>
+        <a href="/cooking/">Cooking</a>
+        <a href="/alchemy/">Alchemy</a>
+        <a href="/guides/">Guides</a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle" tabindex="0">Tools</span>
+      <div class="nav-dropdown-menu">
+        <a href="/tools/build-calculator/">Build Calculator</a>
+        <a href="/tools/skill-planner/">Skill Planner</a>
+        <a href="/tools/recipe-finder/">Recipe Finder</a>
+        <a href="/tools/equipment-compare/">Equipment Compare</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="breadcrumb" style="margin-top:16px"><a href="/">Home</a> <span class="sep">›</span> <a href="/guides/">Guides</a> <span class="sep">›</span> Fishing Guide</div>
+
+<div class="fg-hero">
+  <h1>Crimson Desert <span>Fishing</span> Guide</h1>
+  <p class="fg-sub">Everything you need to know about fishing — how to get a rod, master the mini-game on <strong>PC, Xbox &amp; PS5</strong>, find the best spots, and fix every common problem. Plus: a complete fish species catalog and rod upgrade path.</p>
+</div>
+
+<!-- 1. GETTING A FISHING ROD -->
+<div class="fg-block">
+  <h2>🎣 1. How to Get a Fishing Rod</h2>
+  <p>Before you can fish, you need a rod. There are <strong>two ways</strong> to get your first one — buy it early with pocket change, or get it free through a short quest.</p>
+
+  <div class="fg-two-col">
+    <div class="fg-step">
+      <div class="step-num">💰</div>
+      <h4>Method 1 — Buy It (Fastest)</h4>
+      <p>Visit the <strong>Provisioner Shop</strong> in <strong>Hernand</strong>. It's located directly opposite the Smithy. Purchase a basic <strong>Fishing Rod for 15 Copper</strong>. This is pocket change even at the start of the game — you can afford it before your first quest.</p>
+    </div>
+    <div class="fg-step">
+      <div class="step-num">📋</div>
+      <h4>Method 2 — Quest (Free)</h4>
+      <p>Talk to <strong>Annabella</strong> at the <strong>Hanan Saddlery</strong> in Hernand. She'll give you a fishing rod as a reward for completing her request: catch a <strong>Tench</strong> in the pool just north of the bridge. This takes a few minutes and nets you a free rod plus quest XP.</p>
+    </div>
+  </div>
+
+  <div class="fg-tip">💡 <strong>Pro Tip:</strong> Do Annabella's quest even if you already bought a rod. The quest XP and early-game rewards are worth it, and Tench are easy to catch in the pool right next to her.</div>
+</div>
+
+<!-- 2. HOW TO FISH — STEP BY STEP -->
+<div class="fg-block">
+  <h2>🎮 2. How to Fish — Step-by-Step Mechanics</h2>
+  <p>The in-game fishing tutorial can be confusing. Here's exactly how the mini-game works, broken down into four clear phases. <strong>Master the "tension and reel" rhythm</strong> in Step 4 — that's where most players struggle.</p>
+
+  <div class="fg-steps">
+    <div class="fg-step">
+      <div class="step-num">1</div>
+      <h4>Equip &amp; Cast Your Line</h4>
+      <p>Open your equipment radial wheel and select the fishing rod. Find open water — rivers, streams, or lakes. Hold the <strong>aim button</strong> to bring up the targeting reticle, aim away from rocks or terrain, then release to cast.</p>
+    </div>
+    <div class="fg-step">
+      <div class="step-num">2</div>
+      <h4>Wait for a Bite</h4>
+      <p>Watch your bobber. Wait <strong>15 seconds to 1 minute</strong>. You'll hear a distinct splash and see an <strong>orange bubble</strong> appear as your bobber gets pulled underwater. That's your signal.</p>
+    </div>
+    <div class="fg-step">
+      <div class="step-num">3</div>
+      <h4>Set the Hook</h4>
+      <p>Immediately press the <strong>hook button</strong> the moment you see the orange bubble and hear the splash. There's a <strong>short timing window</strong> — miss it and the fish escapes. Do not spam the button; press once, on time.</p>
+    </div>
+    <div class="fg-step">
+      <div class="step-num">4</div>
+      <h4>Tire the Fish &amp; Reel In</h4>
+      <p>Pull your rod in the <strong>opposite direction</strong> of the fish's movement. If it swims right, pull left. If it stays still and splashes, pull straight back. Once the <strong>white splashes and bubbles completely stop</strong>, reel in fast. Stop reeling instantly if the fish starts thrashing again — repeat until caught.</p>
+    </div>
+  </div>
+
+  <div class="fg-tip">🎯 <strong>Don't cast too far out.</strong> Keeping your bobber close to the bank means less reeling distance when the fish tires. Also, hitting rocks or terrain with your cast will snap the line instantly.</div>
+
+  <!-- Platform Controls Table -->
+  <h3>Platform Controls Quick Reference</h3>
+  <table class="fg-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th><strong>PC</strong> (Mouse &amp; Keyboard)</th>
+        <th><strong>Xbox</strong> Controller</th>
+        <th><strong>PS5</strong> Controller</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Open Equipment Wheel</td>
+        <td class="col-action">Hold F2</td>
+        <td class="col-action">Hold Left D-pad</td>
+        <td class="col-action">Hold Left D-pad</td>
+      </tr>
+      <tr>
+        <td>Aim / Target Reticle</td>
+        <td class="col-action">Press Q</td>
+        <td class="col-action">Hold LT</td>
+        <td class="col-action">Hold L2</td>
+      </tr>
+      <tr>
+        <td>Cast Line</td>
+        <td class="col-action">Click / Release Q</td>
+        <td class="col-action">Release LT</td>
+        <td class="col-action">Release L2</td>
+      </tr>
+      <tr>
+        <td>Hook the Fish</td>
+        <td class="col-action">Right-Click</td>
+        <td class="col-action">RT</td>
+        <td class="col-action">R2</td>
+      </tr>
+      <tr>
+        <td>Pull Rod (Fight Direction)</td>
+        <td class="col-action">W / A / S / D</td>
+        <td class="col-action">Left Analog Stick</td>
+        <td class="col-action">Left Analog Stick</td>
+      </tr>
+      <tr>
+        <td>Reel In</td>
+        <td class="col-action">Scroll Mouse Wheel</td>
+        <td class="col-action">Rotate Right Stick ↻</td>
+        <td class="col-action">Rotate Right Stick ↻</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3. HAND FISHING -->
+<div class="fg-block">
+  <h2>🖐️ 3. Hand Fishing — Skip the Mini-Game</h2>
+  <p>If the rod mini-game feels tedious, or you just need basic fish for cooking ingredients, there's a <strong>built-in bypass</strong>: walk directly into <strong>shallow rivers or lakes</strong> and press the interact prompt to catch fish with your bare hands.</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Hand Fishing Button</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>PC</td><td class="col-action">Interact prompt (on-screen)</td></tr>
+      <tr><td>Xbox</td><td class="col-action">X</td></tr>
+      <tr><td>PS5</td><td class="col-action">Square</td></tr>
+    </tbody>
+  </table>
+
+  <div class="fg-tip">⚠️ <strong>Limitation:</strong> Hand fishing works for common fish species used in cooking recipes, but <strong>rare and legendary fish require a rod</strong>. Use hand fishing for stocking up on cooking ingredients quickly; switch to the rod when hunting specific rare species or completing fishing quests.</div>
+</div>
+
+<!-- 4. COMMON PROBLEMS -->
+<div class="fg-block">
+  <h2>⚠️ 4. Common Problems &amp; How to Fix Them</h2>
+  <p>If something goes wrong while fishing, it's almost always one of these four issues. Don't waste time guessing — check the symptom and apply the fix.</p>
+
+  <div class="fg-mistake">
+    <div class="ms-icon">🔴</div>
+    <div class="ms-body">
+      <h4>Line snaps immediately on cast</h4>
+      <div class="ms-symptom">You throw the line and it breaks before reaching the water.</div>
+      <div class="ms-fix"><strong>Fix:</strong> You're hitting rocks or terrain. Re-aim so the reticle shows open water with no obstacles. Casting too close to the shore edge or into rocky areas will snap the line instantly.</div>
+    </div>
+  </div>
+
+  <div class="fg-mistake">
+    <div class="ms-icon">🔴</div>
+    <div class="ms-body">
+      <h4>Line breaks during the fight</h4>
+      <div class="ms-symptom">You hooked a fish, but the line snapped mid-fight.</div>
+      <div class="ms-fix"><strong>Fix:</strong> You're reeling while the fish is still splashing. The golden rule: <strong>no reeling during splashes</strong>. White bubbles and splashing water = fish is fighting = only pull direction, never reel. Reel only when the water is completely calm with zero bubbles.</div>
+    </div>
+  </div>
+
+  <div class="fg-mistake">
+    <div class="ms-icon">🟡</div>
+    <div class="ms-body">
+      <h4>Can't reel in — nothing happens</h4>
+      <div class="ms-symptom">The fish stopped splashing but reeling doesn't pull it in.</div>
+      <div class="ms-fix"><strong>Fix:</strong> This is the #1 complaint on Xbox. Three things to check: (1) Make sure all white bubbles have <em>completely</em> disappeared — even a few tiny bubbles mean the fish is still fighting. (2) On controller, rotate the Right Analog Stick <strong>clockwise</strong> in a full circle — partial rotations don't register. (3) On PC, scroll the mouse wheel continuously, not one click at a time.</div>
+    </div>
+  </div>
+
+  <div class="fg-mistake">
+    <div class="ms-icon">🟡</div>
+    <div class="ms-body">
+      <h4>Fish escapes before I can hook it</h4>
+      <div class="ms-symptom">You see the splash and orange bubble but the fish gets away.</div>
+      <div class="ms-fix"><strong>Fix:</strong> The hook window is short — roughly 1-2 seconds after the orange bubble appears. Keep your finger ready on the hook button while waiting for a bite. Don't wait to confirm visually; press the hook button <em>as soon as</em> you hear the splash sound. Audio cue is faster than visual confirmation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. FISHING SPOTS -->
+<div class="fg-block">
+  <h2>🗺️ 5. Fishing Spots &amp; Where to Find Every Fish</h2>
+  <p>Fish populations vary by region and water type. <strong>Spot NPCs already fishing</strong> — that's the game's built-in signal that a location has healthy fish populations. Rivers and streams tend to have different species than lakes and coastal water.</p>
+
+  <h3>Known Fishing Locations</h3>
+  <table class="fg-table">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Region</th>
+        <th>Water Type</th>
+        <th>Best For</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pool North of Hernand Bridge</td>
+        <td>Hernand</td>
+        <td>Freshwater / Lake</td>
+        <td>Beginners, Tench</td>
+        <td>Annabella's quest location; NPCs fishing here 24/7</td>
+      </tr>
+      <tr>
+        <td>Hernand River (East Bank)</td>
+        <td>Hernand</td>
+        <td>River</td>
+        <td>Common fish, cooking ingredients</td>
+        <td>Shallow sections allow hand fishing</td>
+      </tr>
+      <tr>
+        <td>Hernand River (West Fork)</td>
+        <td>Hernand</td>
+        <td>River</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>TBA — Additional regions</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>More spots as game data expands</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fg-tip">🗺️ <strong>Data in progress:</strong> Fishing spot coordinates and region-specific data are being compiled as the game community maps them. Check back for updates, or <a href="/contact.html">send us</a> confirmed fishing locations to help build the map.</div>
+</div>
+
+<!-- 6. FISH SPECIES -->
+<div class="fg-block">
+  <h2>🐟 6. Fish Species Catalog</h2>
+  <p>Every confirmed fish species in Crimson Desert, including how to catch them, rarity, and what they're used for.</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr>
+        <th>Fish</th>
+        <th>Rarity</th>
+        <th>Found In</th>
+        <th>Catch Method</th>
+        <th>Sell Price</th>
+        <th>Used For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Tench</strong></td>
+        <td>Common</td>
+        <td>Hernand (Pool N of Bridge)</td>
+        <td>Rod</td>
+        <td>—</td>
+        <td>Annabella's quest</td>
+      </tr>
+      <tr>
+        <td colspan="6" style="color:var(--text3);text-align:center;padding:18px">Additional species being cataloged — check back for updates as community data grows.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fg-tip">📋 <strong>Contributing:</strong> Found a fish species not listed here? <a href="/contact.html">Let us know</a> with the fish name, location, and catch method. Community contributions help build the most complete catalog available.</div>
+</div>
+
+<!-- 7. ROD UPGRADES -->
+<div class="fg-block">
+  <h2>⬆️ 7. Fishing Rod Upgrades</h2>
+  <p>The basic Fishing Rod (15 Copper from Hernand Provisioner) gets you started, but there are <strong>better rods</strong> to work toward. Upgraded rods make the mini-game easier — longer cast range, larger hook window, and faster reel speed.</p>
+
+  <table class="fg-table">
+    <thead>
+      <tr>
+        <th>Rod</th>
+        <th>Tier</th>
+        <th>How to Get</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Fishing Rod</strong></td>
+        <td>Basic</td>
+        <td>Provisioner Shop (15 Copper) or Annabella quest</td>
+        <td>Standard fishing</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="color:var(--text3);text-align:center;padding:18px">Legendary and upgraded rod data being compiled — more information as the community progresses further into the game.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8. COOKING SYNERGY -->
+<div class="fg-block">
+  <h2>🍳 8. Fishing &amp; Cooking — Why It Matters</h2>
+  <p>Fish isn't just for selling. Many <strong>cooking recipes</strong> require specific fish as ingredients, and cooked dishes provide temporary stat boosts that make a real difference in boss fights. If you're planning to tackle the harder content, <strong>fishing is part of your preparation loop</strong>.</p>
+  <p>Check the <a href="/cooking/" style="font-weight:600">Cooking Database →</a> for recipes that use fish ingredients. Hand fishing is the fastest way to stockpile common fish for bulk cooking.</p>
+</div>
+
+<!-- FAQ -->
+<div class="section-heading"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-grid">
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do I get a fishing rod in Crimson Desert?</div>
+    <div class="faq-a">Two ways: <strong>Buy</strong> one from the Provisioner Shop in Hernand (opposite the Smithy) for <strong>15 Copper</strong>, or complete <strong>Annabella's quest</strong> at the Hanan Saddlery — she gives you a free rod for catching a Tench in the pool north of the bridge.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Why won't my line reel in while fishing?</div>
+    <div class="faq-a">You're reeling while the fish is still fighting. <strong>Never reel during splashes.</strong> Pull the rod opposite the fish's movement until <strong>all white bubbles and splashing completely stop</strong>. Only then reel in (Mouse Wheel on PC, Rotate Right Stick clockwise on controller). Reeling during the splash phase snaps your line.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Can I fish without a rod?</div>
+    <div class="faq-a">Yes — <strong>hand fishing</strong> lets you catch basic fish by walking into shallow water and pressing Square (PS5) / X (Xbox) / the on-screen prompt (PC). This bypasses the mini-game entirely. Hand fishing is great for cooking ingredients but <strong>won't work for rare or legendary fish</strong>.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do I fish on PC with keyboard and mouse?</div>
+    <div class="faq-a"><strong>F2</strong> to open equipment wheel → select rod → <strong>Q</strong> to aim → click/release Q to cast → <strong>Right-Click</strong> to hook when bobber dips → <strong>WASD</strong> to pull opposite the fish's direction → <strong>Scroll Mouse Wheel</strong> to reel when water is calm.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> How do I fish on Xbox / PS5 controller?</div>
+    <div class="faq-a"><strong>Hold Left D-pad</strong> to open radial → <strong>LT / L2</strong> to aim → release to cast → <strong>RT / R2</strong> to hook → <strong>Left Stick</strong> to fight direction → <strong>Rotate Right Stick clockwise</strong> to reel when water is calm. The reeling input requires full circle rotations — partial turns may not register.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-icon">Q:</span> Where is the best fishing spot for beginners?</div>
+    <div class="faq-a">The <strong>pool north of the Hernand bridge</strong> is the ideal starter spot. NPCs fish there constantly — a reliable indicator of healthy fish populations. It has Tench for Annabella's quest, and the nearby shallows also allow hand fishing for quick ingredient runs.</div>
+  </div>
+</div>
+
+<div class="section-heading"><h2>Related Guides</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 32px">
+  <a href="/cooking/" style="padding:10px 18px;border:1px solid var(--accent);border-radius:8px;font-size:14px;font-weight:600;color:var(--accent-d);text-decoration:none">🍳 Cooking Database</a>
+  <a href="/guides/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">📚 All Guides</a>
+  <a href="/best-early-game/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🌱 Best Early Game Gear</a>
+  <a href="/tools/map/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🗺️ Interactive Map</a>
+  <a href="/tools/recipe-finder/" style="padding:10px 18px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none">🔍 Recipe Finder</a>
+</div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Equipment</h4>
+      <a href="/equipment/">All Equipment</a>
+      <a href="/weapons/">Weapons</a>
+      <a href="/armor/">Armor</a>
+      <a href="/accessories/">Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Systems</h4>
+      <a href="/skills/">Skills</a>
+      <a href="/abyss-gears/">Abyss Gears</a>
+      <a href="/characters/">Characters</a>
+      <a href="/enemies/">Enemies &amp; Bosses</a>
+    </div>
+    <div class="footer-col">
+      <h4>Crafting &amp; World</h4>
+      <a href="/crafting/">Crafting</a>
+      <a href="/cooking/">Cooking</a>
+      <a href="/alchemy/">Alchemy</a>
+      <a href="/mounts/">Mounts</a>
+      <a href="/guides/">Guides</a>
+      <a href="/tools/map/">Interactive Map</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Site</h4>
+      <a href="/tools/build-calculator/">Build Calculator</a>
+      <a href="/tools/skill-planner/">Skill Planner</a>
+      <a href="/tools/recipe-finder/">Recipe Finder</a>
+      <a href="/tools/equipment-compare/">Equipment Compare</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    CrimsonDesertDB is a fan-made database and is not affiliated with Pearl Abyss.
+    Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener">Pearl Abyss</a>.
+    Game data is sourced from public community resources.
+  </div>
+</footer>
+
+<script src="/cookie-consent.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xmc7yr076a");
+</script>
+</body>
+</html>
