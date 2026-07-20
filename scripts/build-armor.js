@@ -68,7 +68,7 @@ for (const a of items) {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Armor > ${tl} > ${sl}","additionalProperty":[{"@type":"PropertyValue","name":"Defense","value":"${s.defense||0}"},{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Slot","value":"${sl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}]}
+{"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Armor > ${tl} > ${sl}","additionalProperty":[{"@type":"PropertyValue","name":"Defense","value":"${s.defense||0}"},{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Slot","value":"${sl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":${a.tier},"bestRating":4,"worstRating":1,"ratingCount":1}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Armor","item":"https://pyweldb.com/armor/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://pyweldb.com/armor/${a.slug}/"}]}

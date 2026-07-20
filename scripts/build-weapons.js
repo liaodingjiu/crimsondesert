@@ -95,7 +95,7 @@ for (const w of weapons) {
 <link rel="canonical" href="https://pyweldb.com/weapons/${w.slug}/">
 <meta property="og:title" content="${w.name} — Crimson Desert ${typeLabel}">
 <meta property="og:description" content="ATK ${stats.attack} | Speed ${stats.attack_speed} | Crit ${stats.critical_rate} — ${w.rarity.toUpperCase()}">
-<meta property="og:image" content="https://pyweldb.com/images/og-default.svg">
+<meta property="og:image" content="https://pyweldb.com/images/og-default.webp">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pyweldb.com/weapons/${w.slug}/">
 <meta name="twitter:card" content="summary_large_image">
@@ -121,10 +121,10 @@ for (const w of weapons) {
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "${w.tier}",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "1"
+    "ratingValue": ${w.tier},
+    "bestRating": 5,
+    "worstRating": 1,
+    "ratingCount": 1
   }
 }
 </script>

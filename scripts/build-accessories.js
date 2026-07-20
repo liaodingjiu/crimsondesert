@@ -57,7 +57,7 @@ for (const a of items) {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Accessory > ${tl}","additionalProperty":[{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}]}
+{"@context":"https://schema.org","@type":"Product","name":"${a.name}","description":"${desc}","category":"Accessory > ${tl}","additionalProperty":[{"@type":"PropertyValue","name":"Type","value":"${tl}"},{"@type":"PropertyValue","name":"Rarity","value":"${a.rarity}"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":${a.tier},"bestRating":5,"worstRating":1,"ratingCount":1}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Accessories","item":"https://pyweldb.com/accessories/"},{"@type":"ListItem","position":3,"name":"${a.name}","item":"https://pyweldb.com/accessories/${a.slug}/"}]}

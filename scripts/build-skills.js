@@ -74,7 +74,7 @@ for (const sk of items) {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"${sk.name}","description":"${desc}","category":"Skill > ${cl}","additionalProperty":[{"@type":"PropertyValue","name":"Character","value":"${cl}"},{"@type":"PropertyValue","name":"Skill Tree","value":"${trl}"},{"@type":"PropertyValue","name":"Type","value":"${stl}"}]}
+{"@context":"https://schema.org","@type":"Product","name":"${sk.name}","description":"${desc}","category":"Skill > ${cl}","additionalProperty":[{"@type":"PropertyValue","name":"Character","value":"${cl}"},{"@type":"PropertyValue","name":"Skill Tree","value":"${trl}"},{"@type":"PropertyValue","name":"Type","value":"${stl}"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":${sk.tier},"bestRating":3,"worstRating":1,"ratingCount":1}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pyweldb.com/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://pyweldb.com/skills/"},{"@type":"ListItem","position":3,"name":"${sk.name}","item":"https://pyweldb.com/skills/${sk.slug}/"}]}
